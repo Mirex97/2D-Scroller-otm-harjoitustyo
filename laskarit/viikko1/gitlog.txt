@@ -1,0 +1,88 @@
+$ git log --stat|cat
+commit 7a19e1325adc7189f7ddb560ad264a0088614e16
+Author: Mirex97 <Mirex97@gmail.com>
+Date:   Sat Mar 17 15:29:18 2018 +0200
+
+    poistoja ja juttuja
+
+ tiedostoja/file2.txt             | 0
+ tiedostoja/{file1.txt => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit ac0c02fc91437eb176d4dfe70ee0320ee6615047
+Author: Mirex97 <Mirex97@gmail.com>
+Date:   Sat Mar 17 15:20:48 2018 +0200
+
+    uusi kansio
+
+ tiedostoja/file1.txt | 0
+ tiedostoja/file2.txt | 0
+ tiedostoja/file3.txt | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 3220f3f36db077ddbb38e22bab571b5ea22e0768
+Author: Mirex97 <Mirex97@gmail.com>
+Date:   Sat Mar 17 15:12:50 2018 +0200
+
+    muutoksia jälleen
+
+ eka.txt    | 4 ++--
+ kolmas.txt | 3 +--
+ 2 files changed, 3 insertions(+), 4 deletions(-)
+
+commit 7a98e49313e01d18ab62eded488bbc5f2b0e57f3
+Author: Mirex97 <Mirex97@gmail.com>
+Date:   Sat Mar 17 15:10:31 2018 +0200
+
+    nimen muutos
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit f4d7185e48747536e65720946bb4e2eee61ee70d
+Author: Mirex97 <Mirex97@gmail.com>
+Date:   Sat Mar 17 15:09:21 2018 +0200
+
+    toinen.txt pois
+
+ toinen.txt | 2 --
+ 1 file changed, 2 deletions(-)
+
+commit 45250049252ce6f759b548960ec1a3a295f874c4
+Author: Mirex97 <Mirex97@gmail.com>
+Date:   Fri Mar 16 23:51:04 2018 +0200
+
+    muutoksia ja kansio
+
+ kolmas.txt          | 3 +++
+ stuff/jokintiedosto | 0
+ toinen.txt          | 2 ++
+ 3 files changed, 5 insertions(+)
+
+commit eee4c8527106b2fc7859d1fcac8f6c50589e98f5
+Author: Mirex97 <Mirex97@gmail.com>
+Date:   Fri Mar 16 23:49:18 2018 +0200
+
+    kolmas tiedosto
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit caa0957e5e413a9dd13b241d94d98415e642c012
+Author: Mirex97 <Mirex97@gmail.com>
+Date:   Fri Mar 16 23:47:08 2018 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 2 ++
+ toinen.txt   | 0
+ 2 files changed, 2 insertions(+)
+
+commit 92538fe95ea97de4c85b069ff0aa7d0bd6f5ac70
+Author: Mirex97 <Mirex97@gmail.com>
+Date:   Fri Mar 16 23:44:11 2018 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
