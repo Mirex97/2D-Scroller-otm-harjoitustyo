@@ -32,3 +32,5 @@ Ja pelissä myös on cutscenejä (välikohtauksia).
 Tämä on siis projekti ja toivottavasti kaikki onnistuu ja itselläni on 
 ainakin tähän asti ollut hauskaa suunnitella! Nyt eikun toteuttamaan 
 suunnitelma! :D 
+
+P.S. Muutos...
