@@ -1,3 +1,4 @@
+// MUOKATTU SUORAAN GITHUBISTA
 $ git log --stat|cat
 commit 7a19e1325adc7189f7ddb560ad264a0088614e16
 Author: Mirex97 <Mirex97@gmail.com>
@@ -24,7 +25,7 @@ commit 3220f3f36db077ddbb38e22bab571b5ea22e0768
 Author: Mirex97 <Mirex97@gmail.com>
 Date:   Sat Mar 17 15:12:50 2018 +0200
 
-    muutoksia j‰lleen
+    muutoksia j√§lleen
 
  eka.txt    | 4 ++--
  kolmas.txt | 3 +--
@@ -72,7 +73,7 @@ commit caa0957e5e413a9dd13b241d94d98415e642c012
 Author: Mirex97 <Mirex97@gmail.com>
 Date:   Fri Mar 16 23:47:08 2018 +0200
 
-    muutos ja lis‰ys
+    muutos ja lis√§ys
 
  tiedosto.txt | 2 ++
  toinen.txt   | 0
