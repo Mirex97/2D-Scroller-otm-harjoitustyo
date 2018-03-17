@@ -37,6 +37,13 @@ Ylläpito käyttäjää käytetään pääosin JUnit testaamista varten. Koska
 tämä mahdollistaa nopeamman tilanteisiin pääsyn. Eikä tarvitse katsoa 
 kun ylläpito pelaa pelin puolestasi!
 
+Peli myös käyttää tietokantoja(, koska se on vaatimuksena) 
+tallentaakseen käyttäjien tiedot ja heidän tallennukset.
+
+Pelin käynnistyksessä avautuu oma ikkuna, josta voi kirjautua 
+käyttäjälle ja nämä sitten latautuu peliin kun painaa "Start" nappia.
+Myös käyttäjän asetukset löytyvät tietokannasta.
+
 ### Kommentteja?
 Tämä on siis projekti ja toivottavasti kaikki onnistuu ja itselläni on 
 ainakin tähän asti ollut hauskaa suunnitella! Nyt eikun toteuttamaan 
