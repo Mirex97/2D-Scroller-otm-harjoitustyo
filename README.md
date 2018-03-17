@@ -28,6 +28,15 @@ erikoista. *Huom* näin ei tapahtuisi, jos pelaaja ei löytänytkään
 esinettä!
 Ja pelissä myös on cutscenejä (välikohtauksia).
 
+### Muita toiminnallisuuksia?
+Peliin voi kirjautua ylläpito tunnuksella, joka mahdollistaa komentojen 
+syöttämisen ja testikentän, joka on täysin muokattavissa. Testikentässä 
+voi kokeilla syötteitä, tapahtumia, hahmojen spawnaamista, animaatioita 
+ja vihollisia, yms!
+Ylläpito käyttäjää käytetään pääosin JUnit testaamista varten. Koska 
+tämä mahdollistaa nopeamman tilanteisiin pääsyn. Eikä tarvitse katsoa 
+kun ylläpito pelaa pelin puolestasi!
+
 ### Kommentteja?
 Tämä on siis projekti ja toivottavasti kaikki onnistuu ja itselläni on 
 ainakin tähän asti ollut hauskaa suunnitella! Nyt eikun toteuttamaan 
