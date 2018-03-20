@@ -7,6 +7,9 @@ HUOM!!! Vaikka suunnitteluun käytetyt ajat vaikuttaisivat olevan erittäin pitk
 Pikemminkin Trial and Error.
 
 ## Suunnittelu (Sisältäen pelin kulun suunnittelua, yms)
+Määrä|Aika|Meh
+-----------|--|-------
+aika|123|123
 - 12.3.2018 - Tähän hetkeen saakka : Hajanaista pelin ideointia ja suunnittelua veljien kanssa (olisi pitänyt kirjoittaa ylös)
 Periaatteessa 24:7 pelin suunnittelua, koska se on hauskaa!
 - 16.3.2018, klo 20.17-???(jonnekin keskiyöhön taas) : Pelin tarinan kulun ideointi
