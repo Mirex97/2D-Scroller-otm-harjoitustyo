@@ -1,3 +1,5 @@
+Vaativuusmäärittely tiivistettynä löytyy sivun pohjalta!
+
 # 2D Scrolleri peli
 Peli on tyypillinen 2D tasohyppely peli, mutta sisältää oman tyylinsä ja 
 custom animaatioita.
@@ -48,5 +50,23 @@ Myös käyttäjän asetukset löytyvät tietokannasta.
 Tämä on siis projekti ja toivottavasti kaikki onnistuu ja itselläni on 
 ainakin tähän asti ollut hauskaa suunnitella! Nyt eikun toteuttamaan 
 suunnitelma! :D 
+M
+### Vaativuusmäärittely (tiivistetympi)
+Pelaaja (normaali käyttäjä) voi: 
+- Rekisteröityä / Kirjautua käyttäjälleen (luoda ja kirjautua)
+- Vaihtaa käyttäjän asetuksia ja profiilia
+- Käynnistää pelin
+- Tallentaa ja ladata tallennukset (saves)
+- Jatkaa peliä siitä mihin jäi
+- Voittaa pelin
+- Lopettaa pelin
 
-P.S. Muutos...
+Ylläpito (sisältäen normaalin käyttäjän toiminnot) voi:
+- Skipata alku cutscenet
+- Avata pelin testauskentän
+- Käyttää huijauskoodeja (for testing purposes only)
+
+Toimintaympäristön rajoitteet:
+- Tulee toimia Linux koneissa
+- Käyttää JavaFX:sää Swingin sijaan
+- Pelaajien tallennukset ja profiilit (sis. asetukset) tallennetaan paikalliselle koneelle tietokantaan.
