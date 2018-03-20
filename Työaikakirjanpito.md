@@ -10,8 +10,7 @@ Pikemminkin Trial and Error.
 Päivä|Aika|Kuvaus
 -|-|-
 aika|123|123
-12.3.2018|???|Tähän hetkeen saakka : Hajanaista pelin ideointia ja suunnittelua veljien kanssa (olisi pitänyt kirjoittaa ylös)
-Periaatteessa 24:7 pelin suunnittelua, koska se on hauskaa!
+12.3.2018|???|Tähän hetkeen saakka : Hajanaista pelin ideointia ja suunnittelua veljien kanssa (olisi pitänyt kirjoittaa ylös) Periaatteessa 24:7 pelin suunnittelua, koska se on hauskaa!
 16.3.2018 | klo 20.17-???(jonnekin keskiyöhön taas) | Pelin tarinan kulun ideointi
 
 
