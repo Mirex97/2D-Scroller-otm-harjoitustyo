@@ -1,4 +1,5 @@
 Vaativuusmäärittely tiivistettynä löytyy sivun pohjalta!
+[Työaikakirjanpitoon...](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/Ty%C3%B6aikakirjanpito.md)
 
 # 2D Scrolleri peli
 Peli on tyypillinen 2D tasohyppely peli, mutta sisältää oman tyylinsä ja 
