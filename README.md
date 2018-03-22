@@ -5,10 +5,10 @@ Vaativuusmäärittely tiivistettynä löytyy sivun pohjalta!
 Peli on tyypillinen 2D tasohyppely peli, mutta sisältää oman tyylinsä ja 
 custom animaatioita.
 
-### Mistä peli kertoo?
+#### Mistä peli kertoo?
 **Its a secret... no spoilers!**
 
-### Mitä pelaaja pystyy tekemään pelissä?
+#### Mitä pelaaja pystyy tekemään pelissä?
 Pelaaja voi rekisteröityä / kirjautua käyttäjälleen, josta hän löytää 
 omat talletuksensa ja voi jatkaa siitä mihin jäi. (Siis jos pelaaja 
 läpäisi tason 1 niin seuraava taso pysyy auki. Ei että pelaaja ilmestyy 
@@ -18,7 +18,7 @@ ohjaukseen liittyviä keybindejä (ja näytön kokoa, jos saan sen
 toimimaan).
 Pelaaja sitten voi seikkailla pelissä ja yrittää voittaa sen!
 
-### Mitä peli sisältää?
+#### Mitä peli sisältää?
 Peli on pikselimäinen peli, mutta sisältää oman tyylinsä ja ennen 
 näkemättömän tarinan. Peliin yritän luoda omat musiikit myös käyttäen 
 musiikin luontiin hankkimiani sovelluksia. Mutta jos tämä ei onnistu 
@@ -31,7 +31,7 @@ erikoista. *Huom* näin ei tapahtuisi, jos pelaaja ei löytänytkään
 esinettä!
 Ja pelissä myös on cutscenejä (välikohtauksia).
 
-### Muita toiminnallisuuksia?
+#### Muita toiminnallisuuksia?
 Peliin voi kirjautua ylläpito tunnuksella, joka mahdollistaa komentojen 
 syöttämisen ja testikentän, joka on täysin muokattavissa. Testikentässä 
 voi kokeilla syötteitä, tapahtumia, hahmojen spawnaamista, animaatioita 
@@ -47,7 +47,7 @@ Pelin käynnistyksessä avautuu oma ikkuna, josta voi kirjautua
 käyttäjälle ja nämä sitten latautuu peliin kun painaa "Start" nappia.
 Myös käyttäjän asetukset löytyvät tietokannasta.
 
-### Kommentteja?
+#### Kommentteja?
 Tämä on siis projekti ja toivottavasti kaikki onnistuu ja itselläni on 
 ainakin tähän asti ollut hauskaa suunnitella! Nyt eikun toteuttamaan 
 suunnitelma! :D 
@@ -72,7 +72,7 @@ Toimintaympäristön rajoitteet:
 - Käyttää JavaFX:sää Swingin sijaan
 - Pelaajien tallennukset ja profiilit (sis. asetukset) tallennetaan paikalliselle koneelle tietokantaan.
 
-### Jatkokehitysideat
+#### Jatkokehitysideat
 Nämä ovat siis ideoita, joita mahdollisesti en ehdi toteuttamaan, mutta varmaan jatkan projektia kurssin jälkeen!
 - DLCs!!!
 - Kenttäeditori
