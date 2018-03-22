@@ -51,7 +51,7 @@ Myös käyttäjän asetukset löytyvät tietokannasta.
 Tämä on siis projekti ja toivottavasti kaikki onnistuu ja itselläni on 
 ainakin tähän asti ollut hauskaa suunnitella! Nyt eikun toteuttamaan 
 suunnitelma! :D 
-M
+
 ### Vaativuusmäärittely (tiivistetympi)
 Pelaaja (normaali käyttäjä) voi: 
 - Rekisteröityä / Kirjautua käyttäjälleen (luoda ja kirjautua)
@@ -71,3 +71,12 @@ Toimintaympäristön rajoitteet:
 - Tulee toimia Linux koneissa
 - Käyttää JavaFX:sää Swingin sijaan
 - Pelaajien tallennukset ja profiilit (sis. asetukset) tallennetaan paikalliselle koneelle tietokantaan.
+
+### Jatkokehitysideat
+Nämä ovat siis ideoita, joita mahdollisesti en ehdi toteuttamaan, mutta varmaan jatkan projektia kurssin jälkeen!
+- DLCs!!!
+- Kenttäeditori
+- Mahdollisesti kielen vaihtaminen Javan sijaan -> C tai C#.
+- Lisää Bosseja, pyrin saamaan peliin yhden eeppisen bossi taistelun ainakin aikaan!
+- Lisää täytettä!
+ELI periaatteessa [Insert Name Here] remastered versio!
