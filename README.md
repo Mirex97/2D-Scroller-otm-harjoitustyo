@@ -79,4 +79,6 @@ Nämä ovat siis ideoita, joita mahdollisesti en ehdi toteuttamaan, mutta varmaa
 - Mahdollisesti kielen vaihtaminen Javan sijaan -> C tai C#.
 - Lisää Bosseja, pyrin saamaan peliin yhden eeppisen bossi taistelun ainakin aikaan!
 - Lisää täytettä!
+- Myös mahdollisesti jos innostun jatkamaan pelin kehitystä niin ehkä myös pelin markkinointi. <- Siihen kuitenkin joku toinen kieli mahdollisesti ja enemmän sisältöä. Tämä projekti on enemmän harjoitus mielessä!
+
 ELI periaatteessa [Insert Name Here] remastered versio!
