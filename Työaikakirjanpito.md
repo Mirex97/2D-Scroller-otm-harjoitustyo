@@ -11,6 +11,7 @@ Päivä|Aika|Kuvaus
 -|-|-
 12.3.2018|???|Tähän hetkeen saakka : Hajanaista pelin ideointia ja suunnittelua veljien kanssa (olisi pitänyt kirjoittaa ylös) Periaatteessa 24:7 pelin suunnittelua, koska se on hauskaa!
 16.3.2018 | klo 20.17-???(jonnekin keskiyöhön taas) | Pelin tarinan kulun ideointi
+21.3.2018|klo 18.00-22.00|Intron suunnittelua.
 
 
 ## Graaffinen suunnittelu
@@ -33,3 +34,4 @@ Päivä|Aika|Kuvaus
 18.3.2018 | Keskiyö | Sovelluksen alku menu ikkuna JavaFX (puuttuu options ja profiilin muokkaus) (Pelissä on siis kaksi ikkunaa, menu ikkuna ja pelin ikkuna)
 18.3.2018 | Keskiyö | Pelin käynnistys (Lataa pelin ikkunan klikkaamaalla starttia)
 18.3.2018 | Lopetettu 02:30 | Peli käynnistyksen jälkeen (Iso valkoinen ruutu)
+21.3.2018 |16.00 - 23.00|Uusi projekti kansio luotu koska oli sotkuinen, mutta animaatio saatu toimimaan! Pelin introa aloitettu hieman.
