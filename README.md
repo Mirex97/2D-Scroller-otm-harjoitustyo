@@ -5,6 +5,12 @@ Vaativuusmäärittely tiivistettynä löytyy sivun pohjalta!
 Peli on tyypillinen 2D tasohyppely peli, mutta sisältää oman tyylinsä ja 
 custom animaatioita.
 
+##Dokumentaatio
+Käyttöohje
+[Vaativuusmäärittely](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/vaativuusm%C3%A4%C3%A4rittely.md)
+Arkkitehtuuri
+[Työaikakirjanpito]()
+
 #### Mistä peli kertoo?
 **Its a secret... no spoilers!**
 
@@ -72,7 +78,7 @@ Toimintaympäristön rajoitteet:
 - Käyttää JavaFX:sää Swingin sijaan
 - Pelaajien tallennukset ja profiilit (sis. asetukset) tallennetaan paikalliselle koneelle tietokantaan.
 
-#### Jatkokehitysideat
+#### Tulevaisuus ideoita!
 Nämä ovat siis ideoita, joita mahdollisesti en ehdi toteuttamaan, mutta varmaan jatkan projektia kurssin jälkeen!
 - DLCs!!!
 - Kenttäeditori
