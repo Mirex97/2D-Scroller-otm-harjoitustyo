@@ -21,6 +21,7 @@ Päivä|Aika|Kuvaus
 17.3.2018 | klo 16:00-01:00 | Hahmojen animaatio testejä
 19.3.2018 | klo 20:00-00:31 | Pelin menun suunnittelua Graaffisesti + animointi
 19.3.2018 | klo 00:00-01:32 | Pelin logon suunnittelu
+24.3.2018 | klo 12.00-16.00 | Pelin menu nappien suunnittelu ja animointi
 
 ## Musiikin suunnittelu
 Päivä|Aika|Kuvaus
@@ -35,3 +36,5 @@ Päivä|Aika|Kuvaus
 18.3.2018 | Keskiyö | Pelin käynnistys (Lataa pelin ikkunan klikkaamaalla starttia)
 18.3.2018 | Lopetettu 02:30 | Peli käynnistyksen jälkeen (Iso valkoinen ruutu)
 21.3.2018 |16.00 - 23.00|Uusi projekti kansio luotu koska oli sotkuinen, mutta animaatio saatu toimimaan! Pelin introa aloitettu hieman.
+24.3.2018 |18.00 - 02.40|Lisää luokkia ja enemmän kansioita luotu, introa tehty pidemmälle, näppäimistön lukija luotu ja toimii introssa, luokka luotu gif kuvia varten jota pystyy animoimaan.
+25.3.2018 |02.40 - 08.00 | Jatkoinkin pidemmälle, ja intro on animoitu ja seuraavaksi menujen teko.
