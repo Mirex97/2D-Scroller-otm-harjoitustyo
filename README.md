@@ -5,7 +5,7 @@ Vaativuusmäärittely tiivistettynä löytyy sivun pohjalta!
 Peli on tyypillinen 2D tasohyppely peli, mutta sisältää oman tyylinsä ja 
 custom animaatioita.
 
-##Dokumentaatio
+## Dokumentaatio
 Käyttöohje
 [Vaativuusmäärittely](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/vaativuusm%C3%A4%C3%A4rittely.md)
 Arkkitehtuuri
