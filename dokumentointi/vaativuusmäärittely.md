@@ -10,8 +10,8 @@ Tämä mahdollistaa testikenttien käytön ja myös metodien kokeiluja. (JUnit)
 Sovellus avaa pienen ikkunan jonka avulla voi kirjautua / rekisteröityä käyttäjälle.
 Samalla voi myös määrittää asetuksia profiilille ennen itse pelin käynnistämistä.
 Tämän jälkeen peli aukeaa painamalla Start nappia!
-![Login]()
-![Ingame]()
+![Login](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/kuvat/Login.png.png)
+![Ingame](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/kuvat/Ingame.png)
 
 ## Alpha version toiminnallisuus
 ### Alussa
