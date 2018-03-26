@@ -15,7 +15,8 @@ Arkkitehtuuri
 [Työaikakirjanpito]()
 
 #### Mistä peli kertoo?
-**Its a secret... no spoilers!**
+Paljastan **vasta** pääsiäisloman jälkeiselle palautuskerralle (kun pitää palauttaa jotain koodattua).
+Siinä vaiheessa pyrin jo saamaan tehtyä menun ja jotain pelitoiminnallisuuksia. + DAOT!
 
 #### Mitä pelaaja pystyy tekemään pelissä?
 Pelaaja voi rekisteröityä / kirjautua käyttäjälleen, josta hän löytää 
