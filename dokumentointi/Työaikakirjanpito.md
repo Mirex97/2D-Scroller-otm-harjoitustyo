@@ -9,8 +9,7 @@ Pikemminkin Trial and Error.
 ## Suunnittelu (Sisältäen pelin kulun suunnittelua, yms)
 Päivä|Aika|Kuvaus
 -|-|--------------|
-12.3.2018|10h++|Tähän hetkeen saakka : Hajanaista pelin ideointia ja suunnittelua veljien kanssa (olisi pitänyt 
-kirjoittaa ylös) Periaatteessa 24:7 pelin suunnittelua, koska se on hauskaa!
+12.3.2018|10h++|Tähän hetkeen saakka : Hajanaista pelin ideointia ja suunnittelua veljien kanssa (olisi pitänyt kirjoittaa ylös) Periaatteessa 24:7 pelin suunnittelua, koska se on hauskaa!|
 16.3.2018 | 4h | Pelin tarinan kulun ideointi
 21.3.2018|4h|Intron suunnittelua.
 25.3.2018|3h|Easter Egg:ien ideointia + pelin tasojen ideointi.
