@@ -34,22 +34,13 @@ Päivä|Aika|Kuvaus
 Päivä|Aika|Kuvaus
 -|-|-------------------------------------------
 17.3.2018 - 18.3.2018 | 2h | Tietokantojen ja luokkien teko
-18.3.2018 | 2h | Sovelluksen alku menu ikkuna JavaFX (puuttuu options ja profiilin muokkaus) (Pelissä on siis 
-kaksi ikkunaa, menu ikkuna ja pelin ikkuna)
+18.3.2018 | 2h | Sovelluksen alku menu ikkuna JavaFX (puuttuu options ja profiilin muokkaus) (Pelissä on siis kaksi ikkunaa, menu ikkuna ja pelin ikkuna)
 18.3.2018 | 4h | Pelin käynnistys (Lataa pelin ikkunan klikkaamaalla starttia)
 18.3.2018 | 1h | Peli käynnistyksen jälkeen (Iso valkoinen ruutu)
-21.3.2018 |7h|Uusi projekti kansio luotu koska oli sotkuinen, mutta animaatio saatu toimimaan! Pelin introa 
-aloitettu hieman.
-24.3.2018 |8h|Lisää luokkia ja enemmän kansioita luotu, introa tehty pidemmälle, näppäimistön lukija luotu ja 
-toimii introssa, luokka luotu gif kuvia varten jota pystyy animoimaan.
+21.3.2018 |7h|Uusi projekti kansio luotu koska oli sotkuinen, mutta animaatio saatu toimimaan! Pelin introa aloitettu hieman.
+24.3.2018 |8h|Lisää luokkia ja enemmän kansioita luotu, introa tehty pidemmälle, näppäimistön lukija luotu ja toimii introssa, luokka luotu gif kuvia varten jota pystyy animoimaan.
 25.3.2018 |7h| Jatkoinkin pidemmälle, ja intro on animoitu ja seuraavaksi menujen teko.
-27.3.2018 |5h| Menu luotu ja eri menun osiot omissa luokissa, joita pystyy kutsumaan ja antaa suorituksen sinne! 
-(puuttuu vain napit, mutta näitä pystyy vaihtamaan ja valitsemaan jo etukäteen! Periaatteessa menu on täysin 
-toiminnallinen tällä hetkellä! Graaffinen puoli vain puuttuu).
-28.3.2018 |4h| Tiles sovellus asennettu ja lisätty riippuvuus projektiin tähän ohjelmaan. --> Sovelluksen avulla 
-voi tehdä kenttiä ja lukea niitä. (Samalla ohjelmalla tehty Shovel Knight:in kentät! 
-Suosittelen tutustumaan!)
-29.3.2018 |5h| Erittäin surkean näköinen tutorial kenttä luoto ja latautuu oikein projektissa! (Pitkä tappelu 
-sen kanssa .-.). Kamera oliota toteutettu hieman ja myös pelaaja oliota. Jatkan tänään vielä lisää tämän 
-parissa!
+27.3.2018 |5h| Menu luotu ja eri menun osiot omissa luokissa, joita pystyy kutsumaan ja antaa suorituksen sinne! (puuttuu vain napit, mutta näitä pystyy vaihtamaan ja valitsemaan jo etukäteen! Periaatteessa menu on täysin toiminnallinen tällä hetkellä! Graaffinen puoli vain puuttuu).
+28.3.2018 |4h| Tiles sovellus asennettu ja lisätty riippuvuus projektiin tähän ohjelmaan. --> Sovelluksen avulla voi tehdä kenttiä ja lukea niitä. (Samalla ohjelmalla tehty Shovel Knight:in kentät! Suosittelen tutustumaan!)
+29.3.2018 |5h| Erittäin surkean näköinen tutorial kenttä luoto ja latautuu oikein projektissa! (Pitkä tappelu sen kanssa .-.). Kamera oliota toteutettu hieman ja myös pelaaja oliota. Jatkan tänään vielä lisää tämän parissa!
 29.3.2018 |Insert Time Here|TODO
