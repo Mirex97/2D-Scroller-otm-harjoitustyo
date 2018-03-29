@@ -8,7 +8,7 @@ Pikemminkin Trial and Error.
 
 ## Suunnittelu (Sisältäen pelin kulun suunnittelua, yms)
 Päivä|Aika|Kuvaus
--|-|-
+-|-|--------------
 12.3.2018|10h++|Tähän hetkeen saakka : Hajanaista pelin ideointia ja suunnittelua veljien kanssa (olisi pitänyt 
 kirjoittaa ylös) Periaatteessa 24:7 pelin suunnittelua, koska se on hauskaa!
 16.3.2018 | 4h | Pelin tarinan kulun ideointi
@@ -18,7 +18,7 @@ kirjoittaa ylös) Periaatteessa 24:7 pelin suunnittelua, koska se on hauskaa!
 
 ## Graaffinen suunnittelu
 Päivä|Aika|Kuvaus
--|-|-
+-|-|---------------------
 12.3.2018 | 6h | Hahmojen suunnittelu
 17.3.2018 | 9h | Hahmojen animaatio testejä
 19.3.2018 | 5h | Pelin menun suunnittelua Graaffisesti + animointi
@@ -33,7 +33,7 @@ Päivä|Aika|Kuvaus
 
 ## Ohjelmointi
 Päivä|Aika|Kuvaus
--|-|-
+-|-|-------------------------------------------
 17.3.2018 - 18.3.2018 | 2h | Tietokantojen ja luokkien teko
 18.3.2018 | 2h | Sovelluksen alku menu ikkuna JavaFX (puuttuu options ja profiilin muokkaus) (Pelissä on siis 
 kaksi ikkunaa, menu ikkuna ja pelin ikkuna)
