@@ -29,6 +29,8 @@ Päivä|Aika|Kuvaus
 Päivä|Aika|Kuvaus
 -|-|-
 4.3.2018 - 17.3.2018 | 3h | Musiikin suunnittelua sovelluksilla ja Casion pianolla
+31.3.2018 |  | Sovin kaverini kanssa että hän auttaa musiikin luomisen kanssa. Itse teen effektit hahmojen liikkeisiin.
+2.4.2018 |  | Ensimmäiset pelin musiikit saapuivat kaveriltani! Ja ovat mahtavia! Laitan kaverini nimen ylös lopputeksteihin ja myös tänne sitten kun olen saanut lisättyä ne peliin (Tämän toteutan vasta kunnes kentät ovat tehty ja myös graaffisesti on valmiimman puolella, joten vasta loppua päin lisään musiikit).
 
 ## Ohjelmointi
 Päivä|Aika|Kuvaus
