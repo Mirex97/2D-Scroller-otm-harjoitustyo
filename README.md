@@ -4,7 +4,7 @@ Peli on tyypillinen 2D tasohyppely peli, mutta sisältää oman tyylinsä ja
 custom animaatioita.
 
 ## Mitä olen tekemässä tällä hetkellä (Pelin koodaamiseen liittyen)
-//Päivitän tähän tällä hetkellä kesken olevat ominaisuudet joita olen tekemässä.
+Päivitän tähän tällä hetkellä kesken olevat ominaisuudet joita olen tekemässä.
 Klo 22.52: Collisio saatu toimimaan, seuraavaksi kokeilen luoda peliin fysiikat pelaaja hahmolle.
 Fysiikan toimimisen jälkeen siirrän fysiikan käsittelyn omaan luokkaan, josta pelin objektit ottavat tämän käyttöön (Super class).
 Jos ei super luokkaa niin aiheuttaa copypastea.
