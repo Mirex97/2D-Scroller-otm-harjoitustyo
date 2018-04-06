@@ -21,6 +21,7 @@ Päivä|Aika|Kuvaus
 19.3.2018 | 2h | Pelin logon suunnittelu
 24.3.2018 | 4h | Pelin menu nappien suunnittelu ja animointi
 28.3.2018 | 1h | Lisää nappeja peliin!
+5.4.2018 | 3h | Pelin ensimmäistä safezonea suunniteltu! Grafiikka tyylin vaihdon ja pelin nimi pitäisi vaihtaa 2.5D scrolleriksi!
 
 ## Musiikin suunnittelu
 Päivä|Aika|Kuvaus
@@ -46,3 +47,4 @@ Päivä|Aika|Kuvaus
 30.3.2018 |6h| Tulikin takaisku ja kamera ei toimikkaan kuten halusin! Joten sinne meni yöunet turhaan... Kamera tulostaa kentän mutta kenttää liikuttaessa hahmot ja muut objektit jäävät silti kiinni eivätkä mene liikkeen mukana. Ratkaisuna muutan koko kamera luokan jotta se liikuttaa JavaFX:n graphicscontextia ja jotenkin sitten lataan myös vain näkyvät tilesit vaikka tämän olin saavuttanut jo.
 31.3.2018|2h| Kamera korjattu ja seuraa pelaajaa. Kamera ei kuitenkaa mene kentän alueesta pidemmälle. (Jos pelaaja menee lähelle reunaa niin kamera ei seuraa enään pelaajaa vaan jää paikoilleen! (Tarvitsee kuitenkin hieman finetunea koska tätä pystyy myös zoomaata)!
 2.4.2018|3h|Pelin collision detection saatu toimimaan! Päivän pohdinnan jälkeen sain collisio idean toimimaan Path2D:n avulla ja lisäämällä kaikki tilesit tähän. Tällä hetkellä jos pelaaja on tilesin päällä niin tämä ilmoittaa sen. LISÄKSI MapSuper luokkaan on lisätty kartan luku joka oli aikaisemmin Kamera luokan sisällä joka ei ollut järkevää. Nyt kamera ja mappi ovat erikseen!
+5.4.2018 | 2h | Pelin fysiikkaa alettu pohtimaan. Tällä hetkellä pelaaja liikkuu melkein oikein. Täytyy saada vain sulavammaksi. Kuitenkaan hahmo ei voi mennä seinien läpi joka on täydellistä!
