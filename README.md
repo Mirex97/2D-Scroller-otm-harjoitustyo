@@ -5,9 +5,7 @@ custom animaatioita.
 
 ## Mitä olen tekemässä tällä hetkellä (Pelin koodaamiseen liittyen)
 Päivitän tähän tällä hetkellä kesken olevat ominaisuudet joita olen tekemässä.
-- Klo 22.52: Collisio saatu toimimaan, seuraavaksi kokeilen luoda peliin fysiikat pelaaja hahmolle.
-Fysiikan toimimisen jälkeen siirrän fysiikan käsittelyn omaan luokkaan, josta pelin objektit ottavat tämän käyttöön (Super class).
-Jos ei super luokkaa niin aiheuttaa copypastea.
+- Klo 18.46 6.4.2018 Tällä hetkellä suunnittelen kenttiä ja parantelen fysiikkaa. Fysiikka kuitenkin pitää siirtää toiseen luokkaan, josta tämä sitten peritään. Tällä hetkellä se on vielä pelaaja luokalla! (Tuottaa ongelmia muiden objektien luomisessa).
 
 ## Dokumentaatio
 Käyttöohje
