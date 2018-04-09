@@ -42,6 +42,11 @@ ohjaukseen liittyviä keybindejä (ja näytön kokoa, jos saan sen
 toimimaan).
 Pelaaja sitten voi seikkailla pelissä ja yrittää voittaa sen!
 
+#### Pelin toiminnallisuuksia.
+Pelaaja pystyy liikkumaan juosten tai kävellen, hyppäämään. 
+Myös tietyllä alueilla pelaaja voi vaihtaa tasoa ja hypätä liikkuvien tasojen kyytiin. Joiden avulla voi edetä pelissä!
+Pelissä on myös vihollisia, jotka estävät pelaajan kulun tai yrittävät saada tämän kiinni.
+
 #### Mitä peli sisältää?
 Peli on pikselimäinen peli, mutta sisältää oman tyylinsä ja ennen 
 näkemättömän tarinan. Peliin yritän luoda omat musiikit myös käyttäen 
@@ -56,20 +61,14 @@ esinettä!
 Ja pelissä myös on cutscenejä (välikohtauksia).
 
 #### Muita toiminnallisuuksia?
-Peliin voi kirjautua ylläpito tunnuksella, joka mahdollistaa komentojen 
-syöttämisen ja testikentän, joka on täysin muokattavissa. Testikentässä 
-voi kokeilla syötteitä, tapahtumia, hahmojen spawnaamista, animaatioita 
-ja vihollisia, yms!
-Ylläpito käyttäjää käytetään pääosin JUnit testaamista varten. Koska 
-tämä mahdollistaa nopeamman tilanteisiin pääsyn. Eikä tarvitse katsoa 
-kun ylläpito pelaa pelin puolestasi!
-
-Peli myös käyttää tietokantoja(, koska se on vaatimuksena) 
+Peli käyttää tietokantoja(, koska se on vaatimuksena) 
 tallentaakseen käyttäjien tiedot ja heidän tallennukset.
 
 Pelin käynnistyksessä avautuu oma ikkuna, josta voi kirjautua 
 käyttäjälle ja nämä sitten latautuu peliin kun painaa "Start" nappia.
 Myös käyttäjän asetukset löytyvät tietokannasta.
+
+Pelin ruudun kokoa voi muuttaa!
 
 #### Kommentteja?
 Tämä on siis projekti ja toivottavasti kaikki onnistuu ja itselläni on 
