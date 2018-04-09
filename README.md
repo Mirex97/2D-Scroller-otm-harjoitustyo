@@ -15,6 +15,10 @@ Päivitän tähän tällä hetkellä kesken olevat ominaisuudet joita olen tekem
   - Lopuksi repositorion päivittelyä kun kaikki valmista!!!
   - HUOM pitää myös nopeasti testaa toimiiko linuxilla :S koska teen tätä Windowsilla!
 
+# HUOM 
+Täytyy rajata pelin toiminnallisuutta ja karsia hieman tarpeettomia toiminnallisuuksia.
+Tämä on päivitetty vaativuusmäärittelyyn.
+
 ## Dokumentaatio
 Käyttöohje
 
