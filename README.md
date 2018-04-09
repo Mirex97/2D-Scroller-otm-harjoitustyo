@@ -13,6 +13,7 @@ Päivitän tähän tällä hetkellä kesken olevat ominaisuudet joita olen tekem
   - Siivoa sotkuja! Ja fysiikka vielä pois hahmosta.
   - Yksi testi!
   - Lopuksi repositorion päivittelyä kun kaikki valmista!!!
+  - HUOM pitää myös nopeasti testaa toimiiko linuxilla :S koska teen tätä Windowsilla!
 
 ## Dokumentaatio
 Käyttöohje
