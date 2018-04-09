@@ -5,7 +5,14 @@ custom animaatioita.
 
 ## Mitä olen tekemässä tällä hetkellä (Pelin koodaamiseen liittyen)
 Päivitän tähän tällä hetkellä kesken olevat ominaisuudet joita olen tekemässä.
-- Klo 18.46 6.4.2018 Tällä hetkellä suunnittelen kenttiä ja parantelen fysiikkaa. Fysiikka kuitenkin pitää siirtää toiseen luokkaan, josta tämä sitten peritään. Tällä hetkellä se on vielä pelaaja luokalla! (Tuottaa ongelmia muiden objektien luomisessa).
+- Klo 1.34 10.4.2018 Tämän päivän suunnitelma!
+  - Luo peliin grafiikat!
+  - Hahmon animointi (tarvitsee todennäköisesti hiomista), mutta alustava
+  - Pikainen gui yläreunaan (Missing textures tyyppiä).
+  - Menu kuntoon. + loppu tekstit
+  - Siivoa sotkuja! Ja fysiikka vielä pois hahmosta.
+  - Yksi testi!
+  - Lopuksi repositorion päivittelyä kun kaikki valmista!!!
 
 ## Dokumentaatio
 Käyttöohje
