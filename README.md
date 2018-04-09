@@ -3,6 +3,10 @@
 Peli on tyypillinen 2D tasohyppely peli, mutta sisältää oman tyylinsä ja 
 custom animaatioita.
 
+## Mitä olen tekemässä tällä hetkellä (Pelin koodaamiseen liittyen)
+Päivitän tähän tällä hetkellä kesken olevat ominaisuudet joita olen tekemässä.
+- Klo 18.46 6.4.2018 Tällä hetkellä suunnittelen kenttiä ja parantelen fysiikkaa. Fysiikka kuitenkin pitää siirtää toiseen luokkaan, josta tämä sitten peritään. Tällä hetkellä se on vielä pelaaja luokalla! (Tuottaa ongelmia muiden objektien luomisessa).
+
 ## Dokumentaatio
 Käyttöohje
 
