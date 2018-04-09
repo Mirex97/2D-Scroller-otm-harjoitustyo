@@ -71,7 +71,7 @@ Myös käyttäjän asetukset löytyvät tietokannasta.
 Tämä on siis projekti ja toivottavasti kaikki onnistuu ja itselläni on 
 ainakin tähän asti ollut hauskaa suunnitella! Nyt eikun toteuttamaan 
 suunnitelma! :D 
-<Update> Todennäköisesti en saa peliä 100% valmiiksi koska valitsin melko laajan alueen. 
+!Update Todennäköisesti en saa peliä 100% valmiiksi koska valitsin melko laajan alueen. 
 Kuitenkin jatkoideoina voisin kokeilla luoda saman pelin esimerkiksi C# avulla!
 
 
