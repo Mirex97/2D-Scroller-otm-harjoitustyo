@@ -43,6 +43,10 @@ Generoidaan komennolla
 mvn javadoc:javadoc
 ```
 Heittää paljon virheitä!
+### Checkstyle
+```
+mvn jxr:jxr checkstyle:checkstyle
+```
 
 #### Mistä peli kertoo?
 Paljastan **vasta** pääsiäisloman jälkeiselle palautuskerralle (kun pitää palauttaa jotain koodattua).
