@@ -6,16 +6,7 @@ Peli on 2D scrolleri, jossa seikkaillaan asemilta toisille ja pyritään pääse
 Asemat ovat turva-alueita ja kentät ovat junan sisällä. Tietyissä kentissä on bosseja ja tietysti final boss.
 
 ## Mitä olen tekemässä tällä hetkellä (Pelin koodaamiseen liittyen)
-Päivitän tähän tällä hetkellä kesken olevat ominaisuudet joita olen tekemässä.
-- Klo 1.34 10.4.2018 Tämän päivän suunnitelma!
-  - Luo peliin grafiikat!
-  - Hahmon animointi (tarvitsee todennäköisesti hiomista), mutta alustava
-  - Pikainen gui yläreunaan (Missing textures tyyppiä).
-  - Menu kuntoon. + loppu tekstit
-  - Siivoa sotkuja! Ja fysiikka vielä pois hahmosta.
-  - Yksi testi!
-  - Lopuksi repositorion päivittelyä kun kaikki valmista!!!
-  - HUOM pitää myös nopeasti testaa toimiiko linuxilla :S koska teen tätä Windowsilla!
+Lisätty Projekti hubbiin!
 
 # HUOM 
 Täytyy rajata pelin toiminnallisuutta ja karsia hieman tarpeettomia toiminnallisuuksia.
@@ -29,6 +20,21 @@ Käyttöohje
 Arkkitehtuuri
 
 [Työaikakirjanpito](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/Ty%C3%B6aikakirjanpito.md)
+
+
+## Komentorivin toiminnot
+### Testaus
+Testit:
+> mvn test
+Testikattavuuraportti:
+> mvn jacoco:report
+### Jar suoritus
+Tässä oli ongelmia koska pom.xml on pielessä hieman. Mutta koodi on kummiskin...
+> mvn package
+### JavaDoc
+Generoidaan komennolla
+> mvn javadoc:javadoc
+Heittää paljon virheitä!
 
 #### Mistä peli kertoo?
 Paljastan **vasta** pääsiäisloman jälkeiselle palautuskerralle (kun pitää palauttaa jotain koodattua).
