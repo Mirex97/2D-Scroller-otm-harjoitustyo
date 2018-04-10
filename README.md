@@ -25,7 +25,9 @@ Arkkitehtuuri
 ## Komentorivin toiminnot
 ### Testaus
 Testit:
- > mvn test
+ '''
+ mvn test
+ '''
 Testikattavuuraportti:
  > mvn jacoco:report
 ### Jar suoritus
