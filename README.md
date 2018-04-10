@@ -2,8 +2,8 @@
 
 ![logo](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/src/main/resources/menu/VrTheAdventure.png)
 # VR The Adventure
-Peli on tyypillinen 2D tasohyppely peli, mutta sisältää oman tyylinsä ja 
-custom animaatioita.
+Peli on 2D scrolleri, jossa seikkaillaan asemilta toisille ja pyritään pääsemään lipuntarkastajia karkuun!
+Asemat ovat turva-alueita ja kentät ovat junan sisällä. Tietyissä kentissä on bosseja ja tietysti final boss.
 
 ## Mitä olen tekemässä tällä hetkellä (Pelin koodaamiseen liittyen)
 Päivitän tähän tällä hetkellä kesken olevat ominaisuudet joita olen tekemässä.
