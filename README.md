@@ -7,6 +7,7 @@ Asemat ovat turva-alueita ja kentät ovat junan sisällä. Tietyissä kentissä 
 
 ## Mitä olen tekemässä tällä hetkellä (Pelin koodaamiseen liittyen)
 Lisätty Projekti hubbiin!
+- Tällä hetkellä korjaan pom.xml:llää!
 
 # HUOM 
 Täytyy rajata pelin toiminnallisuutta ja karsia hieman tarpeettomia toiminnallisuuksia.
@@ -14,13 +15,9 @@ Tämä on päivitetty vaativuusmäärittelyyn.
 
 ## Dokumentaatio
 Käyttöohje
-
 [Vaativuusmäärittely](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/vaativuusm%C3%A4%C3%A4rittely.md)
-
 Arkkitehtuuri
-
 [Työaikakirjanpito](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/Ty%C3%B6aikakirjanpito.md)
-
 
 ## Komentorivin toiminnot
 ### Testaus
