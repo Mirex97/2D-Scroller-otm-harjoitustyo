@@ -29,13 +29,19 @@ Testit:
  mvn test
  ```
 Testikattavuuraportti:
- > mvn jacoco:report
+ ``` 
+ mvn jacoco:report
+ ```
 ### Jar suoritus
 Tässä oli ongelmia koska pom.xml on pielessä hieman. Mutta koodi on kummiskin...
- > mvn package
+```
+mvn package
+```
 ### JavaDoc
 Generoidaan komennolla
- > mvn javadoc:javadoc
+```
+mvn javadoc:javadoc
+```
 Heittää paljon virheitä!
 
 #### Mistä peli kertoo?
