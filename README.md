@@ -6,8 +6,8 @@ Peli on 2D scrolleri, jossa seikkaillaan asemilta toisille ja pyritään pääse
 Asemat ovat turva-alueita ja kentät ovat junan sisällä. Tietyissä kentissä on bosseja ja tietysti final boss.
 
 ## Mitä olen tekemässä tällä hetkellä (Pelin koodaamiseen liittyen)
-Lisätty Projekti hubbiin!
-- Tällä hetkellä korjaan pom.xml:llää!
+Tuli hieman kiire! Tuli viimeisillä sekunneilla ongelma ja tämä ongelma on että libtiled lukee väärästä paikkaa tilesetit!
+Ja sen takia nyt projektin juuresta löytyy tileset.png:t, mutta sille ei voi mitään. Se ei muuten toimi! Täytyy korjata!
 
 # HUOM 
 Täytyy rajata pelin toiminnallisuutta ja karsia hieman tarpeettomia toiminnallisuuksia.
