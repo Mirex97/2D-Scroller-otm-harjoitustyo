@@ -1,17 +1,19 @@
 package VR.sections;
 
 import VR.Main;
+import VR.audio.AudioPlayer;
 import VR.entities.EntityCustom;
-import VR.events.Level1Cutscene;
-import VR.keyhandlers.Keylistener;
+import VR.events.Level1Cutscenes;
+import VR.handlers.Keylistener;
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 //import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import VR.sections.Section;
 //import javafx.stage.StageStyle;
 
-public class Intro implements section {
+public class Intro implements Section {
 
     private final Stage stage;
     private final Canvas canvas;
@@ -28,7 +30,7 @@ public class Intro implements section {
     private final int height;
     private final double scale;
 
-    private Level1Cutscene cut;
+    private Level1Cutscenes cut;
 
     /*Mitä pitää tehdä vielä: Toiminnallisuus valikolle <-- oma luokka?. 
     Valikko heittää siitä peliin tai pois pelistä. Valikko myös tallennuksille.
@@ -74,7 +76,7 @@ public class Intro implements section {
         this.logo.setDir(EntityCustom.Dir.STILL);
         this.logo.setOpacity(0.0);
 
-        cut = new Level1Cutscene(stage, gc);
+        cut = new Level1Cutscenes(stage, gc);
     }
 
     @Override
@@ -99,8 +101,16 @@ public class Intro implements section {
                 if (stop) {
                     stop();
                 }
-                if (!keys.getInput().isEmpty()) {
+//                System.out.println(Main.bgMusic.getMicroPosition());
+                if (!anyKeyPressed) {
+                    if (Main.bgMusic.getMicroPosition() >= 10415000) {
+                        System.out.println("WAT");
+                        Main.bgMusic.setMicroPosition(2475000);
+                    }
+                }
+                if (!keys.getInput().isEmpty() && !anyKeyPressed) {
                     anyKeyPressed = true;
+                    Main.bgMusic.setMicroPosition(17625000); //5000000 = 5secs
                 }
 
                 if (train.getDraw()) {
@@ -128,6 +138,7 @@ public class Intro implements section {
                         }
 
                     } else if (anyKeyPressed) {
+
                         anyKey.setDraw(false);
                         train.setDir(EntityCustom.Dir.RIGHT);
                         train.setSpeed(pullBack);

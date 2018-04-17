@@ -1,6 +1,6 @@
-
 package VR.sections;
 
-public interface section {
+public interface Section {
+
     public void animate();
 }

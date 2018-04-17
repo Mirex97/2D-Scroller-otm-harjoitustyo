@@ -2,11 +2,13 @@ package VR.sections;
 
 import VR.Main;
 import VR.entities.EntityCustom;
-import VR.keyhandlers.Keylistener;
+import VR.gui.Pause;
+import VR.handlers.Keylistener;
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.GraphicsContext;
+import VR.sections.Section;
 
-public class Menu implements section {
+public class Menu implements Section {
 
     private final EntityCustom logo;
     private final EntityCustom continueGame;
@@ -28,13 +30,13 @@ public class Menu implements section {
     public Menu() {
         double spotWidth = ((double) Main.width * (3.0 / 4.0));
         double spotHeight = ((double) Main.height * (2.0 / 4.0));
-        
+
         logo = new EntityCustom("menu/VrTheAdventure.png", 0, 0, 1, 1.5);
         logo.setXY(10, 10);
         logo.setDir(EntityCustom.Dir.STILL);
         int spacing = 20;
         double size = 1;
-        
+
         continueGame = new EntityCustom("menu/Continue (selected).gif", (int) spotWidth, (int) spotHeight, 1, size);
         continueGameNot = new EntityCustom("menu/Continue (deselected).png", (int) spotWidth + 10, (int) continueGame.getY(), 1, size);
 
@@ -43,17 +45,16 @@ public class Menu implements section {
 
         load = new EntityCustom("menu/LoadGame (selected).gif", (int) spotWidth, (int) (newGame.getY() + newGame.getHeight() + spacing), 1, size);
         loadNot = new EntityCustom("menu/LoadGame (deselected).png", (int) spotWidth + 10, load.getY(), 1, size);
-        
+
         credits = new EntityCustom("menu/Credits (selected).gif", (int) spotWidth, (int) (load.getY() + load.getHeight() + spacing), 1, size);
         creditsNot = new EntityCustom("menu/Credits (deselected).png", (int) spotWidth + 10, credits.getY(), 1, size);
-        
+
         quit = new EntityCustom("menu/Quit (selected).gif", (int) spotWidth, (int) (credits.getY() + credits.getHeight() + spacing), 1, size);
         quitNot = new EntityCustom("menu/Quit (deselected).png", (int) spotWidth + 10, quit.getY(), 1, size);
-        
+
         keys = Main.keys;
         gc = Main.gc;
     }
-    
 
     public int getSelection() {
         return selection;
@@ -70,9 +71,13 @@ public class Menu implements section {
     public void setStop(boolean stop) {
         this.stop = stop;
     }
+    
+    public void reset() {
+        gc.restore();
+        Main.pauseMenu.clearRect();
+        Main.pauseMenu = new Pause();
+    }
 
-    
-    
     @Override
     public void animate() {
         new AnimationTimer() {
@@ -92,7 +97,7 @@ public class Menu implements section {
                 }
                 if (!waitON) {
                     if ((keys.getInput().contains("S") && keys.getInput().contains("W")) || (keys.getInput().contains("UP") && keys.getInput().contains("DOWN"))) {
-                        
+
                     } else if (keys.getInput().contains("W")
                             || keys.getInput().contains("UP")) {
                         if (selection - 1 >= 0) {
@@ -119,44 +124,36 @@ public class Menu implements section {
                     }
                 }
                 logo.draw(gc);
+
+                //CONTINUE
                 if (selection == 0) {
                     continueGame.draw(gc);
-                    newGameNot.draw(gc);
-                    loadNot.draw(gc);
-                    creditsNot.draw(gc);
-                    quitNot.draw(gc);
-
+                } else {
+                    continueGameNot.draw(gc);
                 }
+                //NEWGAME
                 if (selection == 1) {
-                    continueGameNot.draw(gc);
                     newGame.draw(gc);
-                    loadNot.draw(gc);
-                    creditsNot.draw(gc);
-                    quitNot.draw(gc);
-
+                } else {
+                    newGameNot.draw(gc);
                 }
+                //LOAD
                 if (selection == 2) {
-                    continueGameNot.draw(gc);
-                    newGameNot.draw(gc);
                     load.draw(gc);
-                    creditsNot.draw(gc);
-                    quitNot.draw(gc);
-
+                } else {
+                    loadNot.draw(gc);
                 }
+                //CREDITS
                 if (selection == 3) {
-                    continueGameNot.draw(gc);
-                    newGameNot.draw(gc);
-                    loadNot.draw(gc);
                     credits.draw(gc);
-                    quitNot.draw(gc);
-
-                }
-                if (selection == 4) {
-                    continueGameNot.draw(gc);
-                    newGameNot.draw(gc);
-                    loadNot.draw(gc);
+                } else {
                     creditsNot.draw(gc);
+                }
+                //QUIT
+                if (selection == 4) {
                     quit.draw(gc);
+                } else {
+                    quitNot.draw(gc);
                 }
 
             }
@@ -169,22 +166,27 @@ public class Menu implements section {
         if (selection == 0) {
             System.out.println("Continue not implemented!");
         }
-        
+
         if (selection == 1) {
             if (!stop) {
-                System.out.println("You selected " + selection + "! Congratulations!");
                 stop = true;
+                gc.save();
                 Main.test.animate();
+                
             }
         }
-        
+
         if (selection == 2) {
             System.out.println("Load not implemented!");
         }
         if (selection == 3) {
-            System.out.println("Credits not implemented!");
+            if (!stop) {
+                stop = true;
+                gc.save();
+                Main.credit.animate();
+            }
         }
-         if (selection == 4) {
+        if (selection == 4) {
             Main.stage.close();
         }
     }

@@ -20,74 +20,18 @@ import tiled.core.Map;
 import tiled.core.MapLayer;
 import tiled.core.TileLayer;
 
-public final class Player extends EntitySuper {
-
-    private Rectangle collision;
-    private double maxSpeed; //minSpeed = 0 = action.Still;
-    private Action action;
-    private Facing face;
-    private Momentum momentum;
-    private final boolean animationPlay; //Pitää saada jaettua hahmon framet!
-    private final int jumpSpeed = 4; //Jos pelaaja saavuttaa maximi korkeuden niin alkaa pudota!
-    private final int runningSpeed = 6; //Running speed!
-    private final int walkingSpeed = 3; //Walking speed!
-    private final int fallingSpeed = 5; //Get gravitation from map!
-    private int currentSpeed = 5; //Current moving speed!
-
-    //Amplifiers for jumping, falling and walking/running!
-    private double jumpAmplifier = 0;
-    private double jumpArk = 0.3;
-    private double jumpArkRelease = 0.2;
-
-    private double fallAmplifier = 0;
-    private double fallStart = 0.2;
-    private double moveAmplifier = 1;
-    private double maxMoveAmp = 7;
-    private double moveArk = 0.2;
-
-    boolean releasedJump = false;
-
-    private double WIDTH = 0;
-    private double HEIGHT = 0;
-    private double scale = 2;
-
-    private double middleX;
-    private double middleY;
+public final class Player extends Animate {
 
     private ArrayList<String> input;
     private Image image;
-    private Camera camera;
     private final Area area;
 
     private boolean freeRoam;
 
-    public enum Action {
-        IDLE, WALKING, RUNNING, JUMPING, FALLING
-    }
-
-    //Enum joka määrittää mihin suuntaan pelaaja katsoo. Tämä on defaulttina oikealle!
-    public enum Facing {
-        LEFT, RIGHT
-    }
-
-    //Taas enumi!
-    public enum Momentum {
-        LEFT, STILL, RIGHT
-    }
-
-    public enum Dir {
-        UP, DOWN, LEFT, RIGHT
-    }
-
-    public Player(Map map, Camera camera, Area area) {
-        super(0, 0);
-
-        this.camera = camera;
+    public Player(Map map, Area area) {
+        super(map, area);
         this.area = area;
-        animationPlay = false;
-        action = Action.FALLING;
-        face = Facing.RIGHT;
-        momentum = Momentum.STILL;
+
         input = Main.keys.getInput();
         setSpawnpoint(10, 10);
         setImage("/characters/player/turnaround.gif");
@@ -96,103 +40,7 @@ public final class Player extends EntitySuper {
         middleY = image.getHeight() / 2;
     }
 
-    public void down() {
-        
-        if (collides(Dir.DOWN)) {
-            fallAmplifier = 0;
-            action = action.IDLE;
-        } else {
-            fallAmplifier += this.fallStart;
-            this.setY(y + (this.fallingSpeed * (int) fallAmplifier));
-            action = action.FALLING;
-        }
-
-    }
-
-    public void up() {
-        if (this.releasedJump) {
-            jumpAmplifier -= this.jumpArkRelease;
-            if (jumpAmplifier <= 0) {
-                jumpAmplifier = 0;
-                releasedJump = false;
-                action = Action.FALLING;
-            }
-        } else {
-            jumpAmplifier += this.jumpArk;
-            if (jumpAmplifier >= jumpSpeed) {
-                releasedJump = true;
-            }
-        }
-
-        if (collides(Dir.UP)) {
-            Area collided = new Area(collision);
-            collided.intersect(area);
-            this.setY((int) collided.getBounds().getMaxY());
-            jumpAmplifier = 0;
-            action = action.FALLING;
-        } else {
-            action = action.JUMPING;
-            if (jumpAmplifier <= 0) {
-                action = Action.FALLING;
-            }
-            this.setY(y - (this.jumpSpeed * (int) jumpAmplifier));
-        }
-    }
-
-    public void left() {
-        if (action != Action.JUMPING && action != Action.FALLING) {
-            if (input.contains("SHIFT")) {
-                action = Action.RUNNING; //ONLY FOR ANIMATION!
-            } else {
-                action = Action.WALKING; //ONLY FOR ANIMATION!
-            }
-        }
-
-        if (collides(Dir.LEFT)) {
-            momentum = Momentum.STILL;
-        } else {
-            if (face == Facing.RIGHT && action != Action.FALLING && action != Action.JUMPING) {
-                face = Facing.LEFT;
-            }
-            momentum = Momentum.LEFT;
-            if (input.contains("SHIFT")) {
-                this.setX(x - (runningSpeed));
-            } else {
-                this.setX(x - (walkingSpeed));
-            }
-        }
-
-    }
-
-    public void right() {
-        if (action != Action.JUMPING && action != Action.FALLING) {
-            if (input.contains("SHIFT")) {
-                action = Action.RUNNING;
-            } else {
-                action = Action.WALKING;
-            }
-        }
-
-        if (collides(Dir.RIGHT)) {
-            momentum = Momentum.STILL;
-        } else {
-            if (face == Facing.LEFT && action != Action.FALLING && action != Action.JUMPING) {
-                face = Facing.RIGHT;
-            }
-            momentum = Momentum.RIGHT;
-            if (input.contains("SHIFT")) {
-                this.setX(x + (runningSpeed));
-            } else {
-                this.setX(x + (walkingSpeed));
-            }
-        }
-    }
-
     public void move() {
-        if (action == Action.IDLE) {
-            momentum = Momentum.STILL;
-        }
-
         if (input.contains("W") && action != action.FALLING) {
             action = action.JUMPING;
         }
@@ -202,75 +50,36 @@ public final class Player extends EntitySuper {
         if (action == Action.JUMPING) {
             up();
         }
-        
+
         if (input.contains("A") && !input.contains("D")) {
-            left();
+            if (input.contains("SHIFT")) {
+                leftRUN();
+            } else {
+                left();
+            }
         }
         if (input.contains("D") && !input.contains("A")) {
-            right();
+            if (input.contains("SHIFT")) {
+                rightRUN();
+            } else {
+                right();
+            }
         }
-        
 
-        
         reloadCollision();
         updateMiddles();
     }
 
     public void draw() {
+        //Need images from sprite class! And get action and direction from super!
+//        System.out.println(super.face);
+//        System.out.println(super.action);
         Main.gc.drawImage(image, x, y);
 //        Main.gc.fillRect(collision.x, collision.y, collision.width, collision.height);
-
     }
 
     public void setSpawnpoint(int x, int y) {
         this.setXY(x, y);
-    }
-
-    public void normalCollide() {
-
-        if (area.intersects(collision)) {
-            System.out.println("yep");
-        }
-    }
-
-    public boolean collides(Dir direction) {
-        Rectangle copy = collision.getBounds();
-
-        if (direction == Dir.DOWN) {
-            copy.setLocation((int) copy.getX(), (int) copy.getY() + 1);
-            if (area.intersects(copy)) {
-                Area collided = new Area(copy);
-                collided.intersect(area);
-                this.setY((int) collided.getBounds().getMinY() - (int) this.HEIGHT);
-                return true;
-            }
-            return false;
-        }
-        if (direction == Dir.UP) {
-            copy.setLocation((int) copy.getX(), (int) copy.getY() - this.jumpSpeed);
-            if (area.intersects(collision)) {
-                return true;
-            }
-            return false;
-        }
-
-        if (direction == Dir.LEFT) {
-            copy.setLocation((int) copy.getX() - runningSpeed, (int) copy.getY());
-            if (area.intersects(copy)) {
-                return true;
-            }
-            return false;
-        }
-        if (direction == Dir.RIGHT) {
-            copy.setLocation((int) copy.getX() + runningSpeed, (int) copy.getY());
-            if (area.intersects(copy)) {
-                return true;
-            }
-            return false;
-        }
-
-        return false;
-
     }
 
     public void updateMiddles() {
@@ -297,12 +106,12 @@ public final class Player extends EntitySuper {
     }
 
     public void setImage(String location) {
-        if (WIDTH == 0 || HEIGHT == 0) {
+        if (width == 0 || height == 0) {
             image = new Image(location);
-            WIDTH = image.getWidth() * scale;
-            HEIGHT = image.getHeight() * scale;
+            width = image.getWidth() * scale;
+            height = image.getHeight() * scale;
         }
-        image = new Image(location, (WIDTH), (HEIGHT), true, false);
+        image = new Image(location, (width), (height), true, false);
     }
 
     public javafx.scene.image.Image createImage(java.awt.Image image) throws Exception {

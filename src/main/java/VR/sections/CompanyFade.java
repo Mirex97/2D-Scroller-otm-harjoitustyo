@@ -1,11 +1,13 @@
 package VR.sections;
 
 import VR.Main;
+import static VR.Main.bgMusic;
 import VR.entities.EntityCustom;
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.GraphicsContext;
+import VR.sections.Section;
 
-public class CompanyFade implements section {
+public class CompanyFade implements Section {
 
     private GraphicsContext gc;
     private EntityCustom companyName;
@@ -20,7 +22,7 @@ public class CompanyFade implements section {
 
     @Override
     public void animate() {
-        
+        bgMusic.play();
         new AnimationTimer() {
             double appear = 0.0;
             int hold = 60;

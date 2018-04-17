@@ -17,8 +17,8 @@ public class EntityCustom extends EntitySuper {
     }
     private Dir direction = Dir.STILL;
     private double scale;
-    private double WIDTH = 0;
-    private double HEIGHT = 0;
+    private double width = 0;
+    private double height = 0;
     private double opacity = 1;
 
     
@@ -82,12 +82,12 @@ public class EntityCustom extends EntitySuper {
     
     /**Get Width*/
     public double getWidth() {
-        return WIDTH * scale;
+        return width * scale;
     }
 
     /**Get Height*/
     public double getHeight() {
-        return HEIGHT * scale;
+        return height * scale;
     }
 
     /**Get scale*/
@@ -118,17 +118,17 @@ public class EntityCustom extends EntitySuper {
 
     /**Set image with new location*/
     public void setImage(String location) {
-        if (WIDTH == 0 || HEIGHT == 0) {
+        if (width == 0 || height == 0) {
             image = new Image(location);
-            WIDTH = image.getWidth();
-            HEIGHT = image.getHeight();
+            width = image.getWidth();
+            height = image.getHeight();
         }
-        image = new Image(location, (WIDTH * scale), (HEIGHT * scale), true, true);
+        image = new Image(location, (width * scale), (height * scale), true, true);
     }
     
     /**Reloads image*/
     public void reloadImage() {
-        image = new Image(location, (WIDTH * scale), (HEIGHT * scale), true, true);
+        image = new Image(location, (width * scale), (height * scale), true, true);
     }
 
     /**Draws image on GraphicsContext gc*/

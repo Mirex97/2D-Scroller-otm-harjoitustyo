@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VR.keyhandlers;
+package VR.handlers;
 
 import java.util.ArrayList;
 

@@ -234,8 +234,8 @@ public class Camera extends EntitySuper {
                     try {
                         tileImage = createImage(tile.getImage().getScaledInstance(16, 16, 1));
                     } catch (Exception e) {
-                        System.out.println("TILE ERROR");
-                        System.exit(-1);
+                        System.out.println("wat");
+                        Main.login.error();
                     }
                     tiles.put(tileId, tileImage);
                 }
