@@ -17,6 +17,7 @@ Tämä on päivitetty vaativuusmäärittelyyn.
 Käyttöohje
 [Vaativuusmäärittely](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/vaativuusm%C3%A4%C3%A4rittely.md)
 Arkkitehtuuri
+[Pakkausrakenne](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/Paukkausrakenne.PNG)
 [Työaikakirjanpito](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/Ty%C3%B6aikakirjanpito.md)
 
 ## Komentorivin toiminnot
