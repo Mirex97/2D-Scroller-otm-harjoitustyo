@@ -3,6 +3,8 @@ Tähän on listattu päivät ja ajat (suurinpiirtein), mihin aikaan olen työst�
 Huom kirjanpito on jaettu osiin suunnittelu, graaffinen suunnittelu ja musiikin työstämiseen. Ja myös itse sovelluksen koodaamis ajat!
 Alku on hieman arvottu, koska ehdin jo aloittaa ennen tämän kirjanpidon tekoa.
 
+#Käytetty aika suurinpiirtein = 
+
 ## Suunnittelu (Sisältäen pelin kulun suunnittelua, yms)
 Päivä|Aika|Kuvaus
 -|-|--------------|
