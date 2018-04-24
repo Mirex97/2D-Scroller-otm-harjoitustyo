@@ -7,13 +7,22 @@
 Peli on 2D scrolleri, jossa seikkaillaan asemilta toisille ja pyritään pääsemään lipuntarkastajia karkuun!
 Asemat ovat turva-alueita ja kentät ovat junan sisällä. Tietyissä kentissä on bosseja ja tietysti final boss.
 
-## Mitä olen tekemässä tällä hetkellä (Pelin koodaamiseen liittyen)
-Tuli hieman kiire! Tuli viimeisillä sekunneilla ongelma ja tämä ongelma on että libtiled lukee väärästä paikkaa tilesetit!
-Ja sen takia nyt projektin juuresta löytyy tileset.png:t, mutta sille ei voi mitään. Se ei muuten toimi! Täytyy korjata!
+## Viimeisin suuri päivitys
+- Lisätty kolikoiden keruu
+  - Tähän pitää lisätä Sprite luokka! Näyttää paremmalta!
+- Lisätty luokka zip tiedoston purkuun.
+- Lisätty Spurgun tekstuuri (pitää kuitenkin parantaa).
+  - TMX karttaan voi nyt sijoittaa vihollisia ja tämä käy kentän viholliset läpi ja luo ne. Kuten kolikotkin!
+- Lisätty pelaajan animointi
+  - Juoksua ja putoamis animaatiota ei ole, juoksussa pelaajan viimeisin animaatio jää ikuiseen looppiin jos pitää shiftiä pohjaan.
+    - Lopputeksteissä huvittava, koska ei ole pudotus animaatiota.
+- Korjattu .jar buildaus! Nyt se onnistuu ja kuukauden olen sen kanssa tapellut!
+- Korjattu musiikki ja luotu tälle oma luokka parempaa musiikin käyttöä varten (Kappaleet Hashmapin sisällä ja niitä voi noukkia nimen avulla .wav).
+- Luotu Sprite luokka animaatioita varten, joka käyttää spritesheet muotoa hahmojen animointia varten.
 
-# HUOM 
-Täytyy rajata pelin toiminnallisuutta ja karsia hieman tarpeettomia toiminnallisuuksia.
-Tämä on päivitetty vaativuusmäärittelyyn.
+## Mitä olen tekemässä tällä hetkellä (Pelin koodaamiseen liittyen)
+Nyt koska .jar on toiminnassa voin keskittyä 100% pelin logiikkaan ja grafiikkaan! Kun saan enemmän kenttiä lisään save tietokannan käyttöön ja tätäkin voi hyödyntää.
+
 
 ## Dokumentaatio
 Käyttöohje
