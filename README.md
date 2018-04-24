@@ -1,19 +1,17 @@
-<<<<<<< HEAD
+
 Ohjeet testaamiseen löytyy alta!
-=======
 
 ### (Pitäisi olla korjattu alla oleva ongelma...)
 ##### Tein virheen, koska deadline lähestyi ja force pushasin projektin tänne. Nyt katosi koko dokumentaatioon tehdyt päivityksent sen mukana. Joudun päivittämään nyt mitä juuri äskön päivitin! Onneksi oli varmuuskopiot sekvenssikaavioista!
 ### Ohjeet testaamiseen alla! Otsikolla "Testaajille".
 
->>>>>>> dbedadcde38a1fcb65d18c621d82421186528675
 
 ![logo](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/src/main/resources/menu/VrTheAdventure.png)
 # VR The Adventure
 Peli on 2D scrolleri, jossa seikkaillaan asemilta toisille ja pyritään pääsemään lipuntarkastajia karkuun!
 Asemat ovat turva-alueita ja kentät ovat junan sisällä. Tietyissä kentissä on bosseja ja tietysti final boss.
 
-<<<<<<< HEAD
+
 ## Viimeisimmät päivitykset:
 - Lisätty kolikoiden keruu toiminto.
 - Saatu .jar toimimaan libtiled riippuvuuden kanssa, jonka kanssa olen tapellut jo yli kuukauden!
@@ -52,7 +50,6 @@ Asemat ovat turva-alueita ja kentät ovat junan sisällä. Tietyissä kentissä 
 
 ## Mitä olen tekemässä tällä hetkellä (Pelin koodaamiseen liittyen)
 Nyt koska .jar on toiminnassa voin keskittyä 100% pelin logiikkaan ja grafiikkaan! Kun saan enemmän kenttiä lisään save tietokannan käyttöön ja tätäkin voi hyödyntää.
->>>>>>> dbedadcde38a1fcb65d18c621d82421186528675
 
 
 ## Dokumentaatio
@@ -91,7 +88,6 @@ mvn jxr:jxr checkstyle:checkstyle
 ```
 # Pelin tarina ja toiminnot
 
-<<<<<<< HEAD
 #### Mistä peli kertoo? (Updated 24.4.2018)
 Peli kertoo tarinan pelaajasta, kenellä ei ole tarpeeksi rahaa matkustaa asemien välillä! Kuitenkin hän päättää mennä pummilla!
 Pelaaja, kohtaa matkallaan kohti Keravaa konduktöörejä ja spurguja, jotka estävät pelaajan etenemisen junassa.
@@ -103,7 +99,6 @@ Peli kertoo pelaajan tarinan, jossa pelaajan tehtävänä on päästä Keravan a
 Pelin tavoitteena on päästä junan päästä päähän, ennen kuin konduktöörit saavat pelaajan kiinni! Muuten Game Over!
 Pelaaja voi kerätä kolikoita kentästä ja näiden avulla pelaaja voi maksaa tarkastusmaksun (80€)
 Kuitenkin pelaaja, joutuu lähimmäiselle checkpointille. Jos pelaajalla ei ole varaa maksaa maksua, hän joutuu takaisin viimeisimmälle asemalle! (Raha on kuin elämät!).
->>>>>>> dbedadcde38a1fcb65d18c621d82421186528675
 
 #### Mitä pelaaja pystyy tekemään pelissä?
 Pelaaja voi rekisteröityä / kirjautua käyttäjälleen, josta hän löytää 
