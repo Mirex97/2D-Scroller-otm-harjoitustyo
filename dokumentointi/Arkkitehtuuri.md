@@ -3,8 +3,9 @@
 ## Pakkausrakenne
 ![rakenne](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/PakkausRakenne%20(improved).PNG)
 ## Pelin Sisäistä Logiikkaa (Puuttuu canvakset!)
-### Canvaksia olisi kolme kappaletta Gui, Pause ja Main.Canvas + neljäs Background!
-#### Main.Canvas on tärkein näistä kolmesta!
+### Canvaksia olisi neljä kappaletta Gui, Pause ja Main.Canvas + Background!
+  - Main.Canvas on tärkein näistä neljästä!
+  
 ![logiikka](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/kuvat/Sis%C3%A4ist%C3%A4Logiikkaa.PNG)
 
 ## Sekvenssikaavioita (Vain peliä edeltävä menu sekvenssikaaviona.):
