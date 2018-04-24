@@ -1,10 +1,19 @@
+<<<<<<< HEAD
 Ohjeet testaamiseen löytyy alta!
+=======
+
+### (Pitäisi olla korjattu alla oleva ongelma...)
+##### Tein virheen, koska deadline lähestyi ja force pushasin projektin tänne. Nyt katosi koko dokumentaatioon tehdyt päivityksent sen mukana. Joudun päivittämään nyt mitä juuri äskön päivitin! Onneksi oli varmuuskopiot sekvenssikaavioista!
+### Ohjeet testaamiseen alla! Otsikolla "Testaajille".
+
+>>>>>>> dbedadcde38a1fcb65d18c621d82421186528675
 
 ![logo](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/src/main/resources/menu/VrTheAdventure.png)
 # VR The Adventure
 Peli on 2D scrolleri, jossa seikkaillaan asemilta toisille ja pyritään pääsemään lipuntarkastajia karkuun!
 Asemat ovat turva-alueita ja kentät ovat junan sisällä. Tietyissä kentissä on bosseja ja tietysti final boss.
 
+<<<<<<< HEAD
 ## Viimeisimmät päivitykset:
 - Lisätty kolikoiden keruu toiminto.
 - Saatu .jar toimimaan libtiled riippuvuuden kanssa, jonka kanssa olen tapellut jo yli kuukauden!
@@ -27,13 +36,33 @@ Asemat ovat turva-alueita ja kentät ovat junan sisällä. Tietyissä kentissä 
 ## Mitä olen tekemässä tällä hetkellä (Pelin koodaamiseen liittyen)
 - Nyt koska suurimman ongelman pelissä sain ratkottua, voin keskittyä 100% pelin Grafiikkaan ja mekaniikkaan!
 - Teen seuraavaksi kenttien grafiikat, Konduktöörin, Spurgun ja veljien toivesta Lokkeja junan katolle (vihollisia).
+=======
+## Viimeisin suuri päivitys
+- Lisätty kolikoiden keruu
+  - Tähän pitää lisätä Sprite luokka! Näyttää paremmalta!
+- Lisätty luokka zip tiedoston purkuun.
+- Lisätty Spurgun tekstuuri (pitää kuitenkin parantaa).
+  - TMX karttaan voi nyt sijoittaa vihollisia ja tämä käy kentän viholliset läpi ja luo ne. Kuten kolikotkin!
+- Lisätty pelaajan animointi
+  - Juoksua ja putoamis animaatiota ei ole, juoksussa pelaajan viimeisin animaatio jää ikuiseen looppiin jos pitää shiftiä pohjaan.
+    - Lopputeksteissä huvittava, koska ei ole pudotus animaatiota.
+- Korjattu .jar buildaus! Nyt se onnistuu ja kuukauden olen sen kanssa tapellut!
+- Korjattu musiikki ja luotu tälle oma luokka parempaa musiikin käyttöä varten (Kappaleet Hashmapin sisällä ja niitä voi noukkia nimen avulla .wav).
+- Luotu Sprite luokka animaatioita varten, joka käyttää spritesheet muotoa hahmojen animointia varten.
+
+## Mitä olen tekemässä tällä hetkellä (Pelin koodaamiseen liittyen)
+Nyt koska .jar on toiminnassa voin keskittyä 100% pelin logiikkaan ja grafiikkaan! Kun saan enemmän kenttiä lisään save tietokannan käyttöön ja tätäkin voi hyödyntää.
+>>>>>>> dbedadcde38a1fcb65d18c621d82421186528675
 
 
 ## Dokumentaatio
-Käyttöohje
+[Käyttöohje](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/edit/master/dokumentointi/kayttoohje.md)
 [Vaativuusmäärittely](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/vaativuusm%C3%A4%C3%A4rittely.md)
 [Arkkitehtuuri](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/Arkkitehtuuri.md)
 [Työaikakirjanpito](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/Ty%C3%B6aikakirjanpito.md)
+
+# Testaajille
+#### HUOM, älä liikuta hiirtä tai näppäimistöä testatessasi tai buildatessa projektia! Muuten testit eivät mene läpi!
 
 ## Komentorivin toiminnot
 ### Testaus
@@ -46,7 +75,7 @@ Testikattavuuraportti:
  mvn jacoco:report
  ```
 ### Jar suoritus
-Tässä oli ongelmia koska pom.xml on pielessä hieman. Mutta koodi on kummiskin...
+Pom.xml nyt korjattu! Ei ongelmia (pitäisi ainakaan olla)!
 ```
 mvn package
 ```
@@ -55,17 +84,26 @@ Generoidaan komennolla
 ```
 mvn javadoc:javadoc
 ```
-Heittää paljon virheitä!
+
 ### Checkstyle
 ```
 mvn jxr:jxr checkstyle:checkstyle
 ```
+# Pelin tarina ja toiminnot
 
+<<<<<<< HEAD
 #### Mistä peli kertoo? (Updated 24.4.2018)
 Peli kertoo tarinan pelaajasta, kenellä ei ole tarpeeksi rahaa matkustaa asemien välillä! Kuitenkin hän päättää mennä pummilla!
 Pelaaja, kohtaa matkallaan kohti Keravaa konduktöörejä ja spurguja, jotka estävät pelaajan etenemisen junassa.
 Pelin tavoitteena on päästä junan päästä päähän ennen kuin konduktööri saa pelaajan kiinni.
 HUOM tällä hetkellä pelissä ei ole kenttiä valmiina, mutta testaus kenttä löytyy. En pystynyt keskittyä niin paljoa kenttien tekoon, koska oli ongelmia .jar tiedoston teon kanssa.
+=======
+#### Mistä peli kertoo?
+Peli kertoo pelaajan tarinan, jossa pelaajan tehtävänä on päästä Keravan asemalle Helsingistä! Kuitenkaan pelaajalla ei ole tarpeeksi rahaa ja hän päättää mennä pummilla! Pelaaja kohtaa matkallaan spurguja ja konduktöörejä ja veljien toiveesta pelaaja kohtaa myös lokkeja junan katolla (vihollisia), jotka estävät pelaajan pääsyn maaliin.
+Pelin tavoitteena on päästä junan päästä päähän, ennen kuin konduktöörit saavat pelaajan kiinni! Muuten Game Over!
+Pelaaja voi kerätä kolikoita kentästä ja näiden avulla pelaaja voi maksaa tarkastusmaksun (80€)
+Kuitenkin pelaaja, joutuu lähimmäiselle checkpointille. Jos pelaajalla ei ole varaa maksaa maksua, hän joutuu takaisin viimeisimmälle asemalle! (Raha on kuin elämät!).
+>>>>>>> dbedadcde38a1fcb65d18c621d82421186528675
 
 #### Mitä pelaaja pystyy tekemään pelissä?
 Pelaaja voi rekisteröityä / kirjautua käyttäjälleen, josta hän löytää 
