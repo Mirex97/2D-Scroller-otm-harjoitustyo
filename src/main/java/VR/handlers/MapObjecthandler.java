@@ -1,5 +1,6 @@
 package VR.handlers;
 
+import VR.entities.EntitySuper;
 import VR.mapitems.Coin;
 import java.awt.Point;
 import java.awt.Rectangle;
@@ -15,7 +16,9 @@ public class MapObjecthandler {
 
     private ObjectGroup group;
     private ArrayList<Coin> coins;
+    private ArrayList<EntitySuper> hoboSpawns;
     private Area switchArea;
+    
     private double playerX;
     private double playerY;
 
@@ -23,6 +26,7 @@ public class MapObjecthandler {
         this.group = findObjects(map);
         this.switchArea = new Area();
         coins = new ArrayList<>();
+        hoboSpawns = new ArrayList<>();
         findObjectsFromGroup();
     }
 
@@ -33,9 +37,17 @@ public class MapObjecthandler {
     public double getPlayerY() {
         return playerY;
     }
+    
+    public ArrayList<EntitySuper> getHobos() {
+        return this.hoboSpawns;
+    }
 
     public ArrayList<Coin> getCoins() {
         return coins;
+    }
+    
+    public void removeCoin(Coin coin) {
+        coins.remove(coin);
     }
 
     public void findObjectsFromGroup() { //Find all objects and set them to corresponding spots!
@@ -46,6 +58,9 @@ public class MapObjecthandler {
             if (object.getName().equals("Player")) {
                 playerX = object.getX();
                 playerY = object.getY();
+            }
+            if (object.getName().equals("Enemy")) {
+                hoboSpawns.add(new EntitySuper(object.getX() * 2, object.getY() * 2));
             }
             if (object.getName().equals("Switch")) {
                 Rectangle rect = new Rectangle((int) object.getX() * 2, (int) object.getY() * 2, (int) object.getWidth() * 2, (int) object.getHeight() * 2);

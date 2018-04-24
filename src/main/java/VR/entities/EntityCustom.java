@@ -32,7 +32,7 @@ public class EntityCustom extends EntitySuper {
     }
 
     /**Create EntityCustom with specified location and x, y*/
-    public EntityCustom(String location, int x, int y) {
+    public EntityCustom(String location, double x, double y) {
         super(x, y);
         this.location = location;
         setImage(location);
@@ -41,7 +41,7 @@ public class EntityCustom extends EntitySuper {
     }
 
     //**Constructor for EntityCustom, Location for image location, x, y, speed, scale*/
-    public EntityCustom(String location, int x, int y, int speed, double scale) {
+    public EntityCustom(String location, double x, double y, int speed, double scale) {
         super(x, y);
         this.location = location;
         this.scale = scale;

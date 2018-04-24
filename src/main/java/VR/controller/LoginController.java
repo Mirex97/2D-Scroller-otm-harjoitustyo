@@ -30,6 +30,7 @@ public class LoginController {
         try {
             prof = Main.profilesdao.saveOrUpdate(prof);
         } catch (Exception e) {
+            System.out.println("ERROR");
             Main.login.error();
         }
         if (prof == null) {
@@ -37,14 +38,18 @@ public class LoginController {
             errors.setText("Username already taken!");
         } else {
             errors.setVisible(false);
+            Options option = new Options(-1, prof.getId(), 1, "Player");
+            try {
+                option = Main.optionsdao.saveOrUpdate(option);
+            } catch (Exception e) {
+                System.out.println("ERROR");
+                Main.login.error();
+            }
+            prof = null;
+            option = null;
+            button.fire();
         }
-        Options option = new Options(-1, prof.getId(), 1, "Player");
-        try {
-            option = Main.optionsdao.saveOrUpdate(option);
-        } catch (Exception e) {
-            Main.login.error();
-        }
-        button.fire();
+        
     }
 
     @FXML
@@ -55,6 +60,7 @@ public class LoginController {
         try {
             prof = Main.profilesdao.findWithUsername(username.getText(), password.getText());
         } catch (Exception e) {
+            System.out.println("Error");
             Main.login.error();
         }
 
@@ -63,7 +69,11 @@ public class LoginController {
             try {
                 option = Main.optionsdao.findOne(prof.getId());
             } catch (Exception e) {
+                System.out.println("Error");
                 Main.login.error();
+            }
+            if (option == null) {
+                System.out.println("PERKELE!!!!");
             }
             Main.options = option;
             Main.login.menu();

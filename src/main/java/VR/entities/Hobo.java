@@ -5,6 +5,7 @@ import VR.Main;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.geom.Area;
+import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
 import java.io.ByteArrayInputStream;
@@ -20,11 +21,11 @@ public class Hobo extends Animate {
     private Image image;
     private final Area area;
 
-    public Hobo(Map map, Area area, int x, int y) {
+    public Hobo(Map map, Area area, double x, double y) {
         super(map, area);
         this.area = area;
         this.setXY(x, y);
-        setImage("/characters/player/turnaround.gif");
+        setImage("/characters/hobo/Hobo.png");
         setCollision(x, y);
         middleX = image.getWidth() / 2;
         middleY = image.getHeight() / 2;
@@ -80,12 +81,12 @@ public class Hobo extends Animate {
     }
 
     public void reloadCollision() {
-        collision.setBounds(x, y, (int) image.getWidth(), (int) image.getHeight());
+        collision.setRect(x, y, image.getWidth(), image.getHeight());
     }
 
-    public void setCollision(int x, int y) {
-        collision = new Rectangle();
-        collision.setBounds(x, y, (int) image.getWidth(), (int) image.getHeight());
+    public void setCollision(double x, double y) {
+        collision = new Rectangle2D.Double();
+        collision.setRect(x, y, image.getWidth(), image.getHeight());
 
     }
 

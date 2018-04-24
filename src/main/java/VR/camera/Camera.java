@@ -32,13 +32,13 @@ public class Camera extends EntitySuper {
     private int mapYMax;
     private int speed;
 
-    private int middleX; // hyödyllinen jos halutaan siirtää kamera tiettyyn kohtaan!
-    private int middleY; // esimerkiksi cutscenet!
+    private double middleX; // hyödyllinen jos halutaan siirtää kamera tiettyyn kohtaan!
+    private double middleY; // esimerkiksi cutscenet!
 
     private int tileSize; //Tämä on 32*32!!!
     //offset asettaa luettavan tilen ohi riippuen x:n mukaan.
-    private int tileOffsetX; //offset tmx kartan tiles:ien lukemiseen.
-    private int tileOffsetY;
+    private double tileOffsetX; //offset tmx kartan tiles:ien lukemiseen.
+    private double tileOffsetY;
     private int drawTilesWidth; //tmx kartan tiles:ien määrä jotka pitää piirtää kartalle.
     private int drawTilesHeight;
 
@@ -133,7 +133,7 @@ public class Camera extends EntitySuper {
 
     }
 
-    public void moveXY(int x, int y) {
+    public void moveXY(double x, double y) {
 //        this.setXY(x, y);
         if (this.mapYMin <= y && y <= (this.mapYMax - HEIGHT)+ ((HEIGHT / Math.pow(2, scale)) * scale)) {
             Main.gc.setTransform(gc.getTransform().getMxx(),
@@ -194,11 +194,11 @@ public class Camera extends EntitySuper {
         return this.group;
     }
 
-    public long getTileOffsetX() {
+    public double getTileOffsetX() {
         return this.tileOffsetX;
     }
 
-    public long getTileOffsetY() {
+    public double getTileOffsetY() {
         return this.tileOffsetY;
     }
 
@@ -234,7 +234,7 @@ public class Camera extends EntitySuper {
                     try {
                         tileImage = createImage(tile.getImage().getScaledInstance(16, 16, 1));
                     } catch (Exception e) {
-                        System.out.println("wat");
+                        System.out.println("WAT! Create image error!");
                         Main.login.error();
                     }
                     tiles.put(tileId, tileImage);

@@ -97,20 +97,19 @@ public class Intro implements Section {
 
             @Override
             public void handle(long currentNanoTime) {
+                Main.backGround.draw();
                 gc.clearRect(0, 0, width * scale, height * scale);
                 if (stop) {
                     stop();
                 }
 //                System.out.println(Main.bgMusic.getMicroPosition());
                 if (!anyKeyPressed) {
-                    if (Main.bgMusic.getMicroPosition() >= 10415000) {
-                        System.out.println("WAT");
-                        Main.bgMusic.setMicroPosition(2475000);
-                    }
+                    Main.bgMusic.play();
                 }
                 if (!keys.getInput().isEmpty() && !anyKeyPressed) {
                     anyKeyPressed = true;
-                    Main.bgMusic.setMicroPosition(17625000); //5000000 = 5secs
+                    Main.bgMusic.changeClip(Main.musicloader.getMusic("MainEnd"));
+                    
                 }
 
                 if (train.getDraw()) {
@@ -138,7 +137,7 @@ public class Intro implements Section {
                         }
 
                     } else if (anyKeyPressed) {
-
+                        Main.bgMusic.play();
                         anyKey.setDraw(false);
                         train.setDir(EntityCustom.Dir.RIGHT);
                         train.setSpeed(pullBack);

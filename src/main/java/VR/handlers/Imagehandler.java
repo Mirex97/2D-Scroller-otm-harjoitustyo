@@ -9,8 +9,8 @@ public class Imagehandler {
     private Image playerBox;
     
     public Imagehandler() {
-        coin = new Image("objects/coin.gif");
-        playerBox = new Image("characters/player/PlayerBox.png");
+        coin = new Image("/objects/Coin.gif");
+        playerBox = new Image("/characters/player/PlayerBox.png");
     }
     
     public Image getCoin() {

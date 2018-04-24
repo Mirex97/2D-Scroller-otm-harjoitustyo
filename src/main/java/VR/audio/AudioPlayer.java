@@ -1,6 +1,8 @@
 package VR.audio;
 
 import VR.Main;
+import java.io.BufferedInputStream;
+import java.io.InputStream;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -12,29 +14,28 @@ import javax.sound.sampled.FloatControl.Type;
 public class AudioPlayer {
 
     private Clip clip;
+    private double volume;
 
-    public AudioPlayer(String s) {
-        try {
-            AudioInputStream ais = AudioSystem.getAudioInputStream(getClass().getResourceAsStream(s));
-            AudioFormat baseFormat = ais.getFormat();
-            AudioFormat decodeFormat = new AudioFormat(
-                    AudioFormat.Encoding.PCM_SIGNED,
-                    baseFormat.getSampleRate(),
-                    16,
-                    baseFormat.getChannels(),
-                    baseFormat.getChannels() * 2,
-                    baseFormat.getSampleRate(),
-                    false);
-            AudioInputStream dais = AudioSystem.getAudioInputStream(decodeFormat, ais);
-            clip = AudioSystem.getClip();
-            clip.open(dais);
-        } catch (Exception e) {
-            Main.login.error();
+    public AudioPlayer() {
+        System.out.println("Remember to change clip!");
+    }
+
+    public void changeClip(Clip clip) {
+        if (this.clip != null) {
+            if (this.clip.isRunning()) {
+                this.clip.stop();
+            }
         }
+        this.clip = clip;
+        reloadVolume();
     }
 
     public void play() {
+
         if (clip == null) {
+            return;
+        }
+        if (clip.isRunning()) {
             return;
         }
         stop();
@@ -54,6 +55,10 @@ public class AudioPlayer {
     }
 
     public void setVolume(double volume) {
+        this.volume = volume;
+    }
+
+    public void reloadVolume() {
         FloatControl gainControl = (FloatControl) clip.getControl(Type.MASTER_GAIN);
         gainControl.setValue(20f * (float) Math.log10(volume));
     }

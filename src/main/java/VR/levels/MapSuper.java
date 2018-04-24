@@ -26,40 +26,14 @@ public class MapSuper {
     private int scale;
 
     private Area area;
-/* Pakko mainita suomeksi! Tästä löytyy tuo .tmx sotku joka ei halua korjaantua millään jar tiedoston kanssa!
-    Ainoastaan saan sen esiin java.clas.pathin avulla... (siis mappi!)*/
+
     public MapSuper(String location) throws Exception {
-/* THESE uncommented sections are for testing purposes! Do not remove!*/
-//        URL malocation = MapSuper.class.getClassLoader().getResource(location);
-//        System.out.println(malocation.getPath());
-//        InputStream maplocation = MapSuper.class.getClassLoader().getResourceAsStream(location);
-//        try {
-//            URL maplocation = MapSuper.class.getClassLoader().getResource(location);
-//            InputStream maplocation = MapSuper.class.getClassLoader().getResourceAsStream(location);
-//            System.out.println(maplocation.getPath());
-//System.out.println(System.getProperties().getProperty("java.class.path").split(";")[0]);
-//            map = new TMXMapReader().readMap(malocation.getPath());
-        map = new TMXMapReader().readMap(System.getProperties().getProperty("java.class.path").split(";")[0] + "/levels/" + location); //WORKS!!! FOR NORMAL DO NOT TOUCH TMX file!
-//        } catch (Exception e) {
-//            System.out.println("File not found! Double check correct map location " + location + "!");
-//            System.exit(-1);
-//        }
-//        try {
-//            URL tilesetlocation = MapSuper.class.getClassLoader().getResource(tileset);
-//            System.out.println(tilesetlocation.getPath());
-//            setti = new TMXMapReader().readTileset(tilesetlocation.getPath());
-//        } catch (Exception e) {
-//            System.out.println("File not found! Double check correct tileset location " + tileset + "!");
-//            System.exit(-1);
-//        }
-//        try {
-//            URL maplocation = MapSuper.class.getClassLoader().getResource(location);
-//            System.out.println(maplocation.getPath());
-//            map = new TMXMapReader().readMap(maplocation.getPath());
-//        } catch (Exception e) {
-//            System.out.println("File not found! Double check correct tileset.png location " + tilesetpng + "!");
-//            System.exit(-1);
-//        }
+        String here = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath()).getParentFile().getPath().replace('\\', '/') + "/levels/" + location;
+//        System.out.println(System.getProperties().getProperty("java.class.path").split(";")[0] + "/levels/" + location);
+//        map = new TMXMapReader().readMap(System.getProperties().getProperty("java.class.path").split(";")[0] + "/levels/" + location);
+        System.out.println(here);
+        map = new TMXMapReader().readMap(here);
+
         for (MapLayer layer : map.getLayers()) {
             if (layer.getName().equals("Play")) {
                 this.play = (TileLayer) layer;
@@ -81,7 +55,7 @@ public class MapSuper {
         try {
             area = new Area();
         } catch (Exception e) {
-            System.out.println("error");
+            System.out.println("updateBoundary error!");
             Main.login.error();
         }
 
@@ -102,6 +76,7 @@ public class MapSuper {
             }
         }
     }
+    
 
     public tiled.core.Map getMap() {
         return this.map;

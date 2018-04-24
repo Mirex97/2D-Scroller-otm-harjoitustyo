@@ -16,14 +16,6 @@ public class Login {
     private ImageView imageview;
     private Group root;
 
-//    public Login(Stage stage) {
-//        this.stage = stage;
-//        imageview = new ImageView();
-//        imageview.setImage(new Image("menu/VrTheAdventure.png", true));
-//        imageview.setFitHeight(300);
-//        imageview.setFitWidth(600);
-//
-//    }
 
     public Login(Stage stage) {
         this.stage = stage;
@@ -78,6 +70,7 @@ public class Login {
         try {
             root = FXMLLoader.load(getClass().getResource("/menu/Error.fxml"));
         } catch (Exception e) {
+            System.out.println("ERROR!");
             Main.login.error();
         }
         Scene scene = new Scene(root, 226, 105);

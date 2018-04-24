@@ -2,12 +2,13 @@ package VR.entities;
 
 import java.awt.Rectangle;
 import java.awt.geom.Area;
+import java.awt.geom.Rectangle2D;
 import tiled.core.Map;
 
 public class Animate extends EntitySuper {
 
     // Collision
-    protected Rectangle collision;
+    protected Rectangle2D.Double collision;
     //Movement
     protected final int jumpSpeed = 4;
     protected final int runningSpeed = 6;
@@ -28,7 +29,9 @@ public class Animate extends EntitySuper {
     protected double scale = 2;
 
     protected Action action;
+    protected Action previousAction;
     protected Facing face;
+    protected Facing previousFace;
     private final Area area;
 
     protected double middleX;
@@ -51,6 +54,8 @@ public class Animate extends EntitySuper {
         this.area = area;
         action = Action.FALLING;
         face = Facing.RIGHT;
+        previousAction = action;
+        previousFace = face;
 
     }
     
@@ -59,7 +64,7 @@ public class Animate extends EntitySuper {
         this.fallingSpeed = speed;
     }
 
-    public Rectangle getCollision() {
+    public Rectangle2D.Double getCollision() {
         return collision;
     }
 
@@ -70,7 +75,7 @@ public class Animate extends EntitySuper {
             action = action.IDLE;
         } else {
             fallAmplifier += this.fallStart;
-            this.setY(y + (this.fallingSpeed * (int) fallAmplifier));
+            this.setY(y + (this.fallingSpeed * fallAmplifier));
             action = action.FALLING;
         }
 

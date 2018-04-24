@@ -6,6 +6,7 @@ import VR.entities.EntityCustom;
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.GraphicsContext;
 import VR.sections.Section;
+import javafx.scene.paint.Color;
 
 public class CompanyFade implements Section {
 
@@ -23,6 +24,7 @@ public class CompanyFade implements Section {
     @Override
     public void animate() {
         bgMusic.play();
+        
         new AnimationTimer() {
             double appear = 0.0;
             int hold = 60;
@@ -31,6 +33,10 @@ public class CompanyFade implements Section {
 
             @Override
             public void handle(long l) {
+                if (!bgMusic.isRunning()) {
+                    Main.bgMusic.changeClip(Main.musicloader.getMusic("MainMiddle"));
+                }
+                bgMusic.play();
                 gc.clearRect(0, 0, Main.width * Main.scale, Main.height * Main.scale);
                 if (finished) {
                     Main.intro.animate();
@@ -38,6 +44,10 @@ public class CompanyFade implements Section {
                 }
                 if (companyName.getDraw()) {
                     companyName.setOpacity(appear);
+                    gc.setFill(Color.WHITE);
+                    gc.setGlobalAlpha(appear);
+                    gc.fillRect(0, 0, Main.width * Main.scale, Main.height * Main.scale);
+                    gc.setGlobalAlpha(1.0);
                     companyName.draw(gc);
                 }
 
@@ -47,6 +57,7 @@ public class CompanyFade implements Section {
                     fade = true;
                 }
                 if (fade) {
+                    Main.backGround.draw();
                     if (hold <= 0) {
                         if (appear > 0 && fade == true) {
                             appear -= 0.01;

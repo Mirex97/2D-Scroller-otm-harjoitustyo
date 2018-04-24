@@ -88,6 +88,7 @@ public class Menu implements Section {
 
             @Override
             public void handle(long l) {
+                Main.backGround.draw();
                 gc.clearRect(0, 0, Main.width * Main.scale, Main.height * Main.scale);
                 if (stop) {
                     stop();

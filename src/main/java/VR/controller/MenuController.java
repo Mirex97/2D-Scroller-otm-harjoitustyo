@@ -30,6 +30,8 @@ public class MenuController {
         try { 
             Main.startGAME();
         } catch (Exception e) {
+            System.out.println("Error START GAME");
+            e.printStackTrace();
             Main.login.error();
         }
     }

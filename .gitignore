@@ -132,6 +132,6 @@ $RECYCLE.BIN/
 
 # Pixelart software files
 *.aseprite
-
+*.db
 
 

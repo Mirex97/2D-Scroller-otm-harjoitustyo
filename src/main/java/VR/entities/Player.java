@@ -1,24 +1,22 @@
 package VR.entities;
 
 import VR.Main;
-import VR.camera.Camera;
 import java.awt.Graphics;
-import java.awt.Shape;
-import java.awt.geom.Path2D;
 import java.awt.Rectangle;
 import java.awt.geom.Area;
-import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.scene.image.Image;
 import javax.imageio.ImageIO;
+import javafx.scene.image.WritableImage;
 import tiled.core.Map;
-import tiled.core.MapLayer;
-import tiled.core.TileLayer;
 
 public final class Player extends Animate {
 
@@ -26,18 +24,69 @@ public final class Player extends Animate {
     private Image image;
     private final Area area;
 
-    private boolean freeRoam;
+    private ArrayList<Image[]> sprites;
+    private final int[] frameAmount = {
+        6, 6, 5, 12, 12, 7, 7
+    };
+    private static final int WALKINGRIGHT = 0;
+    private static final int WALKINGLEFT = 1;
+    private static final int TURNAROUND = 2;
+    private static final int IDLELEFT = 3;
+    private static final int IDLERIGHT = 4;
+    private static final int JUMPLEFT = 5;
+    private static final int JUMPRIGHT = 6;
+
+    private boolean turning = false;
+
+    private Sprite sprite;
 
     public Player(Map map, Area area) {
         super(map, area);
         this.area = area;
 
+        this.sprite = new Sprite();
+        this.sprite.setDelay(100);
+        sprites = new ArrayList<>();
+
         input = Main.keys.getInput();
         setSpawnpoint(10, 10);
-        setImage("/characters/player/turnaround.gif");
+        setImageLocation("/characters/player/turnaround.gif");
         setCollision(x, y);
         middleX = image.getWidth() / 2;
         middleY = image.getHeight() / 2;
+
+        makeFrames();
+        this.sprite.setFrames(sprites.get(0));
+        setImage(this.sprite.getImage());
+
+    }
+
+    public void makeFrames() {
+        BufferedImage sheet = null;
+        try {
+            sheet = ImageIO.read(getClass().getResourceAsStream("/characters/player/Mikael.png"));
+        } catch (Exception e) {
+            System.out.println("ERROR player image not found");
+            Main.login.error();
+//            e.printStackTrace();
+//            System.exit(-1);
+        }
+
+        int cwidth = 32;
+        int cheight = 64;
+        for (int i = 0; i < frameAmount.length; i++) {
+            Image[] images = new Image[frameAmount[i]];
+            for (int x = 0; x < frameAmount[i]; x++) {
+                try {
+                    images[x] = createImage(sheet.getSubimage(x * cwidth, i * cheight, cwidth, cheight)
+                            .getScaledInstance((int) (cwidth * scale), (int) (cheight * scale), 1));
+                } catch (Exception ex) {
+                    System.out.println("If you see this check ArrayList! Are the frame amounts correct!");
+                }
+            }
+            sprites.add(images);
+        }
+
     }
 
     public void move() {
@@ -70,10 +119,76 @@ public final class Player extends Animate {
         updateMiddles();
     }
 
+    public void changeActionFrames() {
+
+        if (super.face == face.LEFT) {
+            if (previousFace != face.LEFT && !turning || previousFace == face.LEFT && turning) {
+                this.sprite.setFrames(sprites.get(TURNAROUND));
+                this.sprite.setDelay(50);
+                turning = true;
+            } else if (previousFace != face.LEFT && turning && this.sprite.hasPlayedOnce() || previousAction != action) {
+                previousFace = face.LEFT;
+                turning = false;
+                
+                //HERE ALL ACTIONS!
+                if (super.action == Action.WALKING) {
+                    this.sprite.setFrames(sprites.get(WALKINGLEFT));
+                    this.sprite.setDelay(100);
+                }
+                if (super.action == Action.IDLE) {
+                    this.sprite.setFrames(sprites.get(IDLELEFT));
+                    this.sprite.setDelay(100);
+                }
+                if (super.action == Action.JUMPING) {
+                    this.sprite.setFrames(sprites.get(JUMPLEFT));
+                    this.sprite.setDelay(100);
+                    this.sprite.setLoop(3);
+                }
+                
+            }
+            this.previousAction = this.action;
+        } 
+        if (super.face == face.RIGHT){
+            if (previousFace != face.RIGHT && !turning || previousFace == face.RIGHT && turning) {
+                this.sprite.setFrames(sprites.get(TURNAROUND));
+                this.sprite.setReverse();
+                this.sprite.setDelay(50);
+                turning = true;
+            } else if (previousFace != face.RIGHT && turning && this.sprite.hasPlayedOnce() || previousAction != action) {
+                previousFace = face.RIGHT;
+                turning = false;
+                
+                //HERE ALL ACTIONS
+                if (super.action == Action.WALKING) {
+                    this.sprite.setFrames(sprites.get(WALKINGRIGHT));
+                    this.sprite.setDelay(100);
+                }
+                if (super.action == Action.IDLE) {
+                    this.sprite.setFrames(sprites.get(IDLERIGHT));
+                    this.sprite.setDelay(100);
+                }
+                if (super.action == Action.JUMPING) {
+                    this.sprite.setFrames(sprites.get(JUMPRIGHT));
+                    this.sprite.setDelay(100);
+                    this.sprite.setLoop(3);
+                }
+                
+                
+                
+                
+            }
+            this.previousAction = this.action;
+        }
+//        System.out.println(face);
+//        System.out.println(action);
+    }
+
     public void draw() {
         //Need images from sprite class! And get action and direction from super!
-//        System.out.println(super.face);
-//        System.out.println(super.action);
+        this.sprite.update();
+        changeActionFrames();
+
+        setImage(this.sprite.getImage());
         Main.gc.drawImage(image, x, y);
 //        Main.gc.fillRect(collision.x, collision.y, collision.width, collision.height);
     }
@@ -83,8 +198,8 @@ public final class Player extends Animate {
     }
 
     public void updateMiddles() {
-        this.middleX = this.getX() + (image.getWidth() / 2);
-        this.middleY = this.getY() + (image.getHeight() / 2);
+        this.middleX = this.getX() + (width / 2);
+        this.middleY = this.getY() + (height / 2);
     }
 
     public double getMiddleX() {
@@ -96,22 +211,33 @@ public final class Player extends Animate {
     }
 
     public void reloadCollision() {
-        collision.setBounds(x, y, (int) image.getWidth(), (int) image.getHeight());
+        collision.setRect(x, y, width, height);
     }
 
-    public void setCollision(int x, int y) {
-        collision = new Rectangle();
-        collision.setBounds(x, y, (int) image.getWidth(), (int) image.getHeight());
+    public void setCollision(double x, double y) {
+        collision = new Rectangle2D.Double();
+        collision.setRect(x, y, image.getWidth(), image.getHeight());
 
     }
 
-    public void setImage(String location) {
+    public void setImageLocation(String location) {
         if (width == 0 || height == 0) {
             image = new Image(location);
             width = image.getWidth() * scale;
             height = image.getHeight() * scale;
         }
         image = new Image(location, (width), (height), true, false);
+    }
+
+    public void setImage(Image img) {
+        if (width == 0 || height == 0) {
+            image = img;
+            width = image.getWidth() * scale;
+            height = image.getHeight() * scale;
+        }
+
+        image = img;
+
     }
 
     public javafx.scene.image.Image createImage(java.awt.Image image) throws Exception {
