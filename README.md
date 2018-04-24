@@ -1,4 +1,5 @@
-### Tein virheen, koska deadline lähestyi ja force pushasin projektin tänne. Nyt katosi koko dokumentaatioon tehdyt päivityksent sen mukana. Joudun päivittämään nyt mitä juuri äskön päivitin! Onneksi oli varmuuskopiot sekvenssikaavioista!
+##### Tein virheen, koska deadline lähestyi ja force pushasin projektin tänne. Nyt katosi koko dokumentaatioon tehdyt päivityksent sen mukana. Joudun päivittämään nyt mitä juuri äskön päivitin! Onneksi oli varmuuskopiot sekvenssikaavioista!
+### Ohjeet testaamiseen alla!
 
 
 ![logo](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/src/main/resources/menu/VrTheAdventure.png)
@@ -21,6 +22,8 @@ Käyttöohje
 [Työaikakirjanpito](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/Ty%C3%B6aikakirjanpito.md)
 
 ## Komentorivin toiminnot
+
+#### HUOM, älä liikuta hiirtä tai näppäimistöä testatessasi tai buildatessa! Muuten testit eivät mene läpi!
 ### Testaus
 Testit:
  ```
