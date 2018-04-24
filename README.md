@@ -30,9 +30,10 @@ Käyttöohje
 [Arkkitehtuuri](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/Arkkitehtuuri.md)
 [Työaikakirjanpito](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/Ty%C3%B6aikakirjanpito.md)
 
-## Komentorivin toiminnot
+#Testaajille
+#### HUOM, älä liikuta hiirtä tai näppäimistöä testatessasi tai buildatessa projektia! Muuten testit eivät mene läpi!
 
-#### HUOM, älä liikuta hiirtä tai näppäimistöä testatessasi tai buildatessa! Muuten testit eivät mene läpi!
+## Komentorivin toiminnot
 ### Testaus
 Testit:
  ```
@@ -57,6 +58,7 @@ mvn javadoc:javadoc
 ```
 mvn jxr:jxr checkstyle:checkstyle
 ```
+# Pelin tarina ja toiminnot
 
 #### Mistä peli kertoo?
 Peli kertoo pelaajan tarinan, jossa pelaajan tehtävänä on päästä Keravan asemalle Helsingistä! Kuitenkaan pelaajalla ei ole tarpeeksi rahaa ja hän päättää mennä pummilla! Pelaaja kohtaa matkallaan spurguja ja konduktöörejä ja veljien toiveesta pelaaja kohtaa myös lokkeja junan katolla (vihollisia), jotka estävät pelaajan pääsyn maaliin.
