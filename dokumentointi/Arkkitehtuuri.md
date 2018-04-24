@@ -18,4 +18,4 @@
 ### Menu 
 ![Menu](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/kuvat/Menu.PNG)
 ### Options
-![Options](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/kuvat/Options.PNG)
+![Options](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/kuvat/Optionss.PNG)
