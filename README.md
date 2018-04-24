@@ -1,17 +1,33 @@
-
+Ohjeet testaamiseen löytyy alta!
 
 ![logo](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/src/main/resources/menu/VrTheAdventure.png)
 # VR The Adventure
 Peli on 2D scrolleri, jossa seikkaillaan asemilta toisille ja pyritään pääsemään lipuntarkastajia karkuun!
 Asemat ovat turva-alueita ja kentät ovat junan sisällä. Tietyissä kentissä on bosseja ja tietysti final boss.
 
-## Mitä olen tekemässä tällä hetkellä (Pelin koodaamiseen liittyen)
-Tuli hieman kiire! Tuli viimeisillä sekunneilla ongelma ja tämä ongelma on että libtiled lukee väärästä paikkaa tilesetit!
-Ja sen takia nyt projektin juuresta löytyy tileset.png:t, mutta sille ei voi mitään. Se ei muuten toimi! Täytyy korjata!
+## Viimeisimmät päivitykset:
+- Lisätty kolikoiden keruu toiminto.
+- Saatu .jar toimimaan libtiled riippuvuuden kanssa, jonka kanssa olen tapellut jo yli kuukauden!
+- Korjattu musiikin toiminto ja luotu tälle oma kunnon luokka, johon voi lisätä biisejä.
+  - Biisit ovat HashMapissä ja voi hakea nimen perusteella!
+- Lisätty BackGround canvas ja tälle oma luokka! (Ei enään valkoista taustaa!)
+  - Tähän aijon tehdä erillaisen toiminnon pelin sisällä. Pelin sisällä Background luokka piirretään myös pelikentälle, jotta sekin liikkuu kun pelaaja liikkuu!
+- Lisätty Spite luokka, joka käyttää Spritesheet muotoa pelaajista ja hahmoista!
+  - Tämä täytyy lisätä kolikoille! (Koska näyttäisi paremmalta! :P).
+- Lisätty pelaajan animoinnit yllä mainitulla Sprite luokalla.
+  - Pelaajalta kuitenkin puuttuu putoamis animaatio ja juoksu animaatio!
+    - Tämä näyttää huvittavalta lopputeksteissä!
+    - Shift painiketta painamalla pelaajan animointi jää jumiin. (Koska juoksu animaatiota ei ole niin tämä jatkaa sen hetkistä animaatiota loputtomiin).
+- Lisätty alkeellinen Spurgu
+  - Tulen vaihtamaan tämän tekstuurit. mutta ainakin on eri näköinen kuin oma pelaaja hahmo!
+  - Spurgun liikkuminen ei ole vielä oikein. Tähän lisää ensi viikolla.
 
-# HUOM 
-Täytyy rajata pelin toiminnallisuutta ja karsia hieman tarpeettomia toiminnallisuuksia.
-Tämä on päivitetty vaativuusmäärittelyyn.
+
+
+## Mitä olen tekemässä tällä hetkellä (Pelin koodaamiseen liittyen)
+- Nyt koska suurimman ongelman pelissä sain ratkottua, voin keskittyä 100% pelin Grafiikkaan ja mekaniikkaan!
+- Teen seuraavaksi kenttien grafiikat, Konduktöörin, Spurgun ja veljien toivesta Lokkeja junan katolle (vihollisia).
+
 
 ## Dokumentaatio
 Käyttöohje
@@ -45,9 +61,11 @@ Heittää paljon virheitä!
 mvn jxr:jxr checkstyle:checkstyle
 ```
 
-#### Mistä peli kertoo?
-Paljastan **vasta** pääsiäisloman jälkeiselle palautuskerralle (kun pitää palauttaa jotain koodattua).
-Siinä vaiheessa pyrin jo saamaan tehtyä menun ja jotain pelitoiminnallisuuksia. + DAOT!
+#### Mistä peli kertoo? (Updated 24.4.2018)
+Peli kertoo tarinan pelaajasta, kenellä ei ole tarpeeksi rahaa matkustaa asemien välillä! Kuitenkin hän päättää mennä pummilla!
+Pelaaja, kohtaa matkallaan kohti Keravaa konduktöörejä ja spurguja, jotka estävät pelaajan etenemisen junassa.
+Pelin tavoitteena on päästä junan päästä päähän ennen kuin konduktööri saa pelaajan kiinni.
+HUOM tällä hetkellä pelissä ei ole kenttiä valmiina, mutta testaus kenttä löytyy. En pystynyt keskittyä niin paljoa kenttien tekoon, koska oli ongelmia .jar tiedoston teon kanssa.
 
 #### Mitä pelaaja pystyy tekemään pelissä?
 Pelaaja voi rekisteröityä / kirjautua käyttäjälleen, josta hän löytää 
