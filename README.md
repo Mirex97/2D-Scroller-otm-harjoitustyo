@@ -1,4 +1,6 @@
-
+# SE TOIMIIIIIIIIII!!!!!!!!!!!!!!!!!
+# Tappelin niin pitkään tuon .jar tiedoston kanssa! Ja nyt sain sen toimimaan ;-;
+### Jouduin kiertämään tuon libtiled ongelman takia ja nyt .jar tiedoston sisällä on zip tiedosto joka purkaantuu sen hetkisen kansion sisälle. Sitten tämä puretaan samaan kansioon jota sitten sovellus hyödyntää! Ja pitkään tappelin tuon Mavenin riippuvuuksien kanssa, koska niitä puuttui tai ei vain toiminut. Lisäksi zip tiedoston purkaminen ei ollut kivaa! Nyt se kuitenkin pitäisi toimi. (Noin 95% varmuudella...)!
 
 ![logo](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/src/main/resources/menu/VrTheAdventure.png)
 # VR The Adventure
