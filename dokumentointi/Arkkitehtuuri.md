@@ -6,7 +6,7 @@
 ### Canvaksia olisi neljä kappaletta Gui, Pause ja Main.Canvas + Background!
   - Main.Canvas on tärkein näistä neljästä!
   
-![logiikka](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/kuvat/Sis%C3%A4ist%C3%A4Logiikkaa.PNG)
+![logiikka](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/kuvat/Sis%C3%A4ist%C3%A4Logiikkaa(Updated).PNG)
 
 ## Sekvenssikaavioita (Vain peliä edeltävä menu sekvenssikaaviona.):
 ##### Logiikkaa en tee sekvenssikaaviona, koska siinä menisi ikuisuus! Kuitenkin tämän logiikka löytyy yllä olevasta kuvasta!
