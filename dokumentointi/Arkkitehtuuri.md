@@ -1,5 +1,5 @@
 # Arkkitehtuuri
-
+##### Huom, jos kuvat ovat liian pienet niin oikea klikkaa kuvaa ja klikkaa "Avaa kuva uudessa välilehdessä" (Ainakin chromesta löytyy)!
 ## Pakkausrakenne
 ![rakenne](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/PakkausRakenne%20(improved).PNG)
 ## Pelin Sisäistä Logiikkaa (Puuttuu canvakset!)
@@ -14,7 +14,8 @@
 ![Initiate](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/kuvat/Initiate.PNG)
 ![LoginStart](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/kuvat/LoginStart.PNG)
 ### Kirjautuminen ja rekisteröityminen
-
+![LogOrReg](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/kuvat/LoginORRegister.PNG)
 ### Menu 
-
-###
+![Menu](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/kuvat/Menu.PNG)
+### Options
+![Options](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/kuvat/Options.PNG)
