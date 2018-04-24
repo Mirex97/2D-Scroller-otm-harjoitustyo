@@ -1,5 +1,4 @@
 # Arkkitehtuuri
-<<<<<<< HEAD
 ##### Huom, jos kuvat ovat liian pienet niin oikea klikkaa kuvaa ja klikkaa "Avaa kuva uudessa välilehdessä" (Ainakin chromesta löytyy)!
 ## Pakkausrakenne
 ![rakenne](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/PakkausRakenne%20(improved).PNG)
@@ -21,7 +20,7 @@
 ![Menu](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/kuvat/Menu.PNG)
 ### Options
 ![Options](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/kuvat/Optionss.PNG)
-=======
+
 
 Katosi kaikki dokumentit täältä lisään ne nopeasti vaikka meni nyt ajan yli.
 Jos tekstit ovat liian pieniä niin avaa kuvat uudessa välilehdessä!
@@ -48,4 +47,3 @@ Jos tekstit ovat liian pieniä niin avaa kuvat uudessa välilehdessä!
 ### Options
 ![Options](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/kuvat/Optionss.PNG)
 
->>>>>>> dbedadcde38a1fcb65d18c621d82421186528675
