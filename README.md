@@ -33,7 +33,7 @@ Asemat ovat turva-alueita ja kentät ovat junan sisällä. Tietyissä kentissä 
 ## Mitä olen tekemässä tällä hetkellä (Pelin koodaamiseen liittyen)
 - Nyt koska suurimman ongelman pelissä sain ratkottua, voin keskittyä 100% pelin Grafiikkaan ja mekaniikkaan!
 - Teen seuraavaksi kenttien grafiikat, Konduktöörin, Spurgun ja veljien toivesta Lokkeja junan katolle (vihollisia).
-=======
+
 ## Viimeisin suuri päivitys
 - Lisätty kolikoiden keruu
   - Tähän pitää lisätä Sprite luokka! Näyttää paremmalta!
@@ -87,12 +87,13 @@ mvn jxr:jxr checkstyle:checkstyle
 ```
 # Pelin tarina ja toiminnot
 
+
 #### Mistä peli kertoo? (Updated 24.4.2018)
 Peli kertoo tarinan pelaajasta, kenellä ei ole tarpeeksi rahaa matkustaa asemien välillä! Kuitenkin hän päättää mennä pummilla!
 Pelaaja, kohtaa matkallaan kohti Keravaa konduktöörejä ja spurguja, jotka estävät pelaajan etenemisen junassa.
 Pelin tavoitteena on päästä junan päästä päähän ennen kuin konduktööri saa pelaajan kiinni.
 HUOM tällä hetkellä pelissä ei ole kenttiä valmiina, mutta testaus kenttä löytyy. En pystynyt keskittyä niin paljoa kenttien tekoon, koska oli ongelmia .jar tiedoston teon kanssa.
-=======
+
 #### Mistä peli kertoo?
 Peli kertoo pelaajan tarinan, jossa pelaajan tehtävänä on päästä Keravan asemalle Helsingistä! Kuitenkaan pelaajalla ei ole tarpeeksi rahaa ja hän päättää mennä pummilla! Pelaaja kohtaa matkallaan spurguja ja konduktöörejä ja veljien toiveesta pelaaja kohtaa myös lokkeja junan katolla (vihollisia), jotka estävät pelaajan pääsyn maaliin.
 Pelin tavoitteena on päästä junan päästä päähän, ennen kuin konduktöörit saavat pelaajan kiinni! Muuten Game Over!
