@@ -1,7 +1,7 @@
 
 Ohjeet testaamiseen löytyy alta!
 
-#### Viimeinen kommentti tästä sotkusta jonka github sai aikaan. Jostain syystä src/main/java sisältää toisen Vr kansion, tätä en saa poistettua millään. Seuraavaksi koska olin päivittänyt samaan aikaan dokumentteja ja yritin pushata projektia, tämä alkoi valittamaan Merge ongelmista! No tämä ei ole maailman helpoin asia korjata. Lopputuloksena kaikki katosivat joita tein tänne. Joudun korjaamaan vielä korjailemaan yön läpi näitä ongelmia, joten committeja ilmenee vähitellen.
+#### Viimeinen kommentti tästä sotkusta jonka github sai aikaan. Jostain syystä src/main/java sisältää toisen Vr kansion, tätä en saa poistettua millään. Seuraavaksi koska olin päivittänyt samaan aikaan dokumentteja ja yritin pushata projektia, tämä alkoi valittamaan Merge ongelmista! Lopputuloksena kaikki muutokset katosivat joita tein tänne ja meni .java tiedostot sekaisin. Joudun vielä korjailla yön läpi näitä ongelmia, joten committeja ilmenee vähitellen.
 ##### Pika update, nyt kaikki pitäisi olla täysin korjattu! Testaukset katosivat samassa sotkussa. Nyt ne on lisätty! klo 4.03.
 
 
