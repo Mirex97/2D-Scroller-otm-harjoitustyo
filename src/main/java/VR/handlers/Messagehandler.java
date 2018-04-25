@@ -1,6 +1,7 @@
 package VR.handlers;
 
 import java.util.Properties;
+
 import java.util.ArrayList;
 import tiled.core.ObjectGroup;
 import VR.mapitems.Text;
@@ -55,13 +56,18 @@ public class Messagehandler {
             ArrayList<String> characters = new ArrayList<>();
             ArrayList<String> messages = new ArrayList<>();
             Set<Object> wat = object.getProperties().keySet();
+            ArrayList<String> test = new ArrayList<>();
             for (Object hah : wat) {
-                String tah = (String) hah;
-                characters.add(tah.split(":")[0]);
-                messages.add(object.getProperties().getProperty(tah));
+                test.add((String) hah);
             }
-            Collections.reverse(characters);
-            Collections.reverse(messages);
+            Collections.sort(test);
+            for (String testing : test) {
+                characters.add(testing.split(":")[0]);
+                messages.add(object.getProperties().getProperty(testing));
+                
+            }
+//            Collections.reverse(characters);
+//            Collections.reverse(messages);
 
             Text text = new Text(label, characters, messages, collision, object.getType());
             texts.add(text);
