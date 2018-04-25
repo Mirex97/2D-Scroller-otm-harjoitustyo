@@ -80,8 +80,11 @@ tai
 ```
 mvn install
 ```
-Näiden jälkeen pitäisi generoitua **target/VR_The_Adventure-1.0-launcher.jar**
-Älä käytä toista jar tiedostoa! Se ei ole oikea. (Puuttuu riippuvuudet sisältä).
+Jos käytät generoitua .jar tiedostoa:
+Jar pitäisi generoitua **target/VR_The_Adventure-1.0-launcher.jar** alle!
+Älä käytä toista jar tiedostoa joka on target kansiossa! 
+Se ei ole oikea eikä toimi. (Puuttuu riippuvuudet sisältä).
+
 #### Jar tiedoston suoritus.
 ```
 # Komentoriville
