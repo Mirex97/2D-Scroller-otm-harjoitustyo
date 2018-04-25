@@ -190,27 +190,6 @@ suunnitelma! :D
 **Update Todennäköisesti en saa peliä 100% valmiiksi koska valitsin melko laajan alueen. 
 Kuitenkin jatkoideoina voisin kokeilla luoda saman pelin esimerkiksi C# avulla!**
 
-
-### Vaativuusmäärittely (tiivistetympi)
-Pelaaja (normaali käyttäjä) voi: 
-- Rekisteröityä / Kirjautua käyttäjälleen (luoda ja kirjautua)
-- Vaihtaa käyttäjän asetuksia ja profiilia
-- Käynnistää pelin
-- Tallentaa ja ladata tallennukset (saves)
-- Jatkaa peliä siitä mihin jäi
-- Voittaa pelin
-- Lopettaa pelin
-
-Ylläpito (sisältäen normaalin käyttäjän toiminnot) voi:
-- Skipata alku cutscenet
-- Avata pelin testauskentän
-- Käyttää huijauskoodeja (for testing purposes only)
-
-Toimintaympäristön rajoitteet:
-- Tulee toimia Linux koneissa
-- Käyttää JavaFX:sää Swingin sijaan
-- Pelaajien tallennukset ja profiilit (sis. asetukset) tallennetaan paikalliselle koneelle tietokantaan.
-
 #### Tulevaisuus ideoita!
 Nämä ovat siis ideoita, joita mahdollisesti en ehdi toteuttamaan, mutta varmaan jatkan projektia kurssin jälkeen!
 - DLCs!!!
