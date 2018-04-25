@@ -1,8 +1,7 @@
 
 Ohjeet testaamiseen löytyy alta! Osiosssa "Testaajille". <-- Nämä ovat tärkeitä ohjeita!
 
-#### Viimeinen kommentti tästä sotkusta jonka github sai aikaan. Jostain syystä src/main/java sisältää toisen Vr kansion, tätä en saa poistettua millään. Seuraavaksi koska olin päivittänyt samaan aikaan dokumentteja ja yritin pushata projektia, tämä alkoi valittamaan Merge ongelmista! Lopputuloksena kaikki muutokset katosivat joita tein tänne ja meni .java tiedostot sekaisin. Joudun vielä korjailla yön läpi näitä ongelmia, joten committeja ilmenee vähitellen.
-##### Pika update, nyt kaikki pitäisi olla täysin korjattu! Testaukset katosivat samassa sotkussa. Nyt ne on lisätty! klo 4.03.
+
 
 
 ![logo](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/src/main/resources/menu/VrTheAdventure.png)
@@ -10,6 +9,18 @@ Ohjeet testaamiseen löytyy alta! Osiosssa "Testaajille". <-- Nämä ovat tärke
 Peli on 2D scrolleri, jossa seikkaillaan asemilta toisille ja pyritään pääsemään lipuntarkastajia karkuun!
 Asemat ovat turva-alueita ja kentät ovat junan sisällä. Tietyissä kentissä on bosseja ja tietysti final boss.
 
+## Tämän hetkiset bugit:
+- Tekstit tulevat väärässä järjestyksessä. Tämän syynä on, että .tmx karttaan on sijoitettu nuo tekstit ja se hakee ne sieltä. Kuitenkin järjestys on satunnainen, Joudun tekemään tähän erillaisen metodin, jotta tekstit tulisivat oikein!
+
+## Puuttuvat toiminnot:
+- Pelaajan häviäminen (jos menee yli kartan.)
+- Spurguun reagoiminen (Menettää rahaa ja pökertyy hetkeksi).
+- Spurgun liikkeet (Tämän liikkeet pitäisi olla enemmän tankkimaiset, hitaat)
+- Konduktööri puuttuu.
+- Lokit
+- Resiina
+- Kentät
+(Nämä ovat kaikki pääosin Grafiikasta kiinni.)
 
 ## Viimeisimmät päivitykset:
 - Lisätty kolikoiden keruu toiminto.
