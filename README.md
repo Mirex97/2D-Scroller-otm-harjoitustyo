@@ -1,5 +1,5 @@
 
-Ohjeet testaamiseen löytyy alta! Osiosssa "Testaajille".
+Ohjeet testaamiseen löytyy alta! Osiosssa "Testaajille". <-- Nämä ovat tärkeitä ohjeita!
 
 #### Viimeinen kommentti tästä sotkusta jonka github sai aikaan. Jostain syystä src/main/java sisältää toisen Vr kansion, tätä en saa poistettua millään. Seuraavaksi koska olin päivittänyt samaan aikaan dokumentteja ja yritin pushata projektia, tämä alkoi valittamaan Merge ongelmista! Lopputuloksena kaikki muutokset katosivat joita tein tänne ja meni .java tiedostot sekaisin. Joudun vielä korjailla yön läpi näitä ongelmia, joten committeja ilmenee vähitellen.
 ##### Pika update, nyt kaikki pitäisi olla täysin korjattu! Testaukset katosivat samassa sotkussa. Nyt ne on lisätty! klo 4.03.
@@ -57,7 +57,7 @@ Nyt koska .jar on toiminnassa voin keskittyä 100% pelin logiikkaan ja grafiikka
 [Arkkitehtuuri](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/Arkkitehtuuri.md)
 [Työaikakirjanpito](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/Ty%C3%B6aikakirjanpito.md)
 
-# Testaajille <--
+# Testaajille <-- TÄSSÄ
 #### HUOM, älä liikuta hiirtä tai näppäimistöä testatessasi tai buildatessa projektia! Muuten testit eivät mene läpi!
 #### Lisäksi, sijoita ladattu .jar tiedosto tyhjään kansioon! Tiedosto luo tietokannat ja zip tiedoston ulkopuolelle!
 
