@@ -50,6 +50,7 @@ public class Database {
             prof.execute(profiles);
             prof.execute(options);
             prof.execute(saves);
+            conn.close();
         } catch (SQLException e) {
             System.out.println("Tables not created!");
             Main.login.error();

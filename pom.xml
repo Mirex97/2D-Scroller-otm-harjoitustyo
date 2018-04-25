@@ -150,18 +150,22 @@
                         <exclude>VR/entities/*</exclude>
                         <exclude>VR/camera/*</exclude>
                         <exclude>VR/sections/*</exclude>
-                        <exclude>VR/gui/*</exclude>
+                        <exclude>VR/gui/*Gui.*</exclude>
+                        <exclude>VR/gui/*Pause.*</exclude>
                         <exclude>VR/login/*</exclude>
                         <exclude>VR/levels/*</exclude>
                         <exclude>VR/levels/safezone/*</exclude>
                         <exclude>VR/events/*</exclude>
                         <exclude>VR/Main.class</exclude>
                         <exclude>VR/mapitems/*</exclude>
-                        <exclude>VR/database/*</exclude>
-                        <exclude>VR/handlers/*</exclude>
+                        <exclude>VR/handlers/*Imagehandler.*</exclude>
+                        <exclude>VR/handlers/*MapObjecthandler.*</exclude>
+                        <exclude>VR/handlers/*Messagehandler.*</exclude>
                         <exclude>VR/audio/*</exclude>
                         <exclude>VR/controller/*</exclude>
                         <exclude>VR/util/*</exclude>
+                        <exclude>VR/database/*SaveDao.*</exclude>
+                        
                     </excludes>
                 </configuration>   
                 <executions>
