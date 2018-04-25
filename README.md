@@ -113,6 +113,23 @@ mvn javadoc:javadoc
 ```
 mvn jxr:jxr checkstyle:checkstyle
 ```
+### Näppäimet
+#### Pelin sisällä
+Näppäin | Toiminto
+---|---
+W | Hyppää
+AD | Liikkuminen
+SHIFT | Juoksu
+PLUS | Lähennä kuvaa
+MIINUS | Loitonna kuvaa
+ENTER | Hyväksy / Seuraava teksti.
+#### Pelin sisäinen menu ja pause.
+Näppäin | Toiminto
+---|---
+ENTER | Valitse
+W Tai Nuoli ylös | Valinta ylös
+S Tai Nuoli alas | Valinta alas
+
 # Pelin tarina ja toiminnot
 
 
