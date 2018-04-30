@@ -25,14 +25,24 @@ public class XmlWriterUtil {
     private boolean windows;
     private XMLWriter xmlWriter;
     private Writer writer;
+    private boolean allFixed;
 
     public XmlWriterUtil() {
+        allFixed = false;
         windows = true;
         String osName = System.getProperties().getProperty("os.name");
         if (osName.contains("Linux")) {
             windows = false;
         }
 
+    }
+    
+    public void setFixed() {
+        allFixed = true;
+    }
+    
+    public boolean getFixed() {
+        return allFixed;
     }
     
     public boolean getSystem() {

@@ -177,6 +177,10 @@ public class Main extends Application {
         menu = new Menu();
         test = new Test1();
         credit = new Credits();
+        
+        // Every XML should be fixed!
+        xmlWriter.setFixed();
+        
 
         companyFade();
 //        test.animate();
