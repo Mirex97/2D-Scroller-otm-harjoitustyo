@@ -1,6 +1,7 @@
 package VR.levels;
 
 import VR.Main;
+import VR.util.XmlWriterUtil;
 import java.awt.Rectangle;
 import java.awt.geom.Area;
 import java.awt.geom.Rectangle2D;
@@ -16,6 +17,7 @@ import tiled.core.Tile;
 import tiled.core.TileLayer;
 import tiled.core.TileSet;
 import tiled.io.TMXMapReader;
+import tiled.util.TileCutter;
 
 public class MapSuper {
 
@@ -31,7 +33,10 @@ public class MapSuper {
         String here = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath()).getParentFile().getPath().replace('\\', '/') + "/levels/" + location;
 //        System.out.println(System.getProperties().getProperty("java.class.path").split(";")[0] + "/levels/" + location);
 //        map = new TMXMapReader().readMap(System.getProperties().getProperty("java.class.path").split(";")[0] + "/levels/" + location);
-        System.out.println(here);
+        if (!Main.xmlWriter.getSystem()) {
+            Main.xmlWriter.fixTileset(here);
+        }
+        
         map = new TMXMapReader().readMap(here);
 
         for (MapLayer layer : map.getLayers()) {

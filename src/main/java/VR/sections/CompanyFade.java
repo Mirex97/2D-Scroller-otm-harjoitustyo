@@ -24,7 +24,7 @@ public class CompanyFade implements Section {
     @Override
     public void animate() {
         bgMusic.play();
-        
+
         new AnimationTimer() {
             double appear = 0.0;
             int hold = 60;
@@ -33,42 +33,44 @@ public class CompanyFade implements Section {
 
             @Override
             public void handle(long l) {
-                if (!bgMusic.isRunning()) {
-                    Main.bgMusic.changeClip(Main.musicloader.getMusic("MainMiddle"));
-                }
-                bgMusic.play();
-                gc.clearRect(0, 0, Main.width * Main.scale, Main.height * Main.scale);
-                if (finished) {
-                    Main.intro.animate();
-                    stop();
-                }
-                if (companyName.getDraw()) {
-                    companyName.setOpacity(appear);
-                    gc.setFill(Color.WHITE);
-                    gc.setGlobalAlpha(appear);
-                    gc.fillRect(0, 0, Main.width * Main.scale, Main.height * Main.scale);
-                    gc.setGlobalAlpha(1.0);
-                    companyName.draw(gc);
-                }
-
-                if (appear < 1 && fade == false) {
-                    appear += 0.01;
-                } else {
-                    fade = true;
-                }
-                if (fade) {
-                    Main.backGround.draw();
-                    if (hold <= 0) {
-                        if (appear > 0 && fade == true) {
-                            appear -= 0.01;
-                        } else {
-                            finished = true;
-                        }
-                    } else {
-                        hold--;
+                if (Main.delta.deltaTime(l)) {
+                    if (!bgMusic.isRunning()) {
+                        Main.bgMusic.changeClip(Main.musicloader.getMusic("MainMiddle"));
                     }
-                }
+                    bgMusic.play();
+                    gc.clearRect(0, 0, Main.width * Main.scale, Main.height * Main.scale);
+                    if (finished) {
+                        Main.intro.animate();
+                        stop();
+                    }
+                    if (companyName.getDraw()) {
+                        companyName.setOpacity(appear);
+                        gc.setFill(Color.WHITE);
+                        gc.setGlobalAlpha(appear);
+                        gc.fillRect(0, 0, Main.width * Main.scale, Main.height * Main.scale);
+                        gc.setGlobalAlpha(1.0);
+                        companyName.draw(gc);
+                    }
 
+                    if (appear < 1 && fade == false) {
+                        appear += 0.01;
+                    } else {
+                        fade = true;
+                    }
+                    if (fade) {
+                        Main.backGround.draw();
+                        if (hold <= 0) {
+                            if (appear > 0 && fade == true) {
+                                appear -= 0.01;
+                            } else {
+                                finished = true;
+                            }
+                        } else {
+                            hold--;
+                        }
+                    }
+
+                }
             }
 
         }.start();

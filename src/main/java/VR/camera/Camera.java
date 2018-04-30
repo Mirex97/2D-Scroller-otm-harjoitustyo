@@ -109,7 +109,7 @@ public class Camera extends EntitySuper {
         //TODO
     }
 
-    public void move(Direction dir) {
+    public void zoom(Direction dir) {
 
         if (dir == Direction.DOWN) {
             if (scale > 0) {
@@ -124,17 +124,12 @@ public class Camera extends EntitySuper {
             scale += 0.01;
             Main.canvas.setScaleX(scale + 1);
             Main.canvas.setScaleY(scale + 1);
-        } else if (dir == Direction.RIGHT) {
-            Main.gc.translate(x - speed, y);
-        } else if (dir == Direction.LEFT) {
-            Main.gc.translate(x + speed, y);
         }
         update();
 
     }
 
     public void moveXY(double x, double y) {
-//        this.setXY(x, y);
         if (this.mapYMin <= y && y <= (this.mapYMax - HEIGHT)+ ((HEIGHT / Math.pow(2, scale)) * scale)) {
             Main.gc.setTransform(gc.getTransform().getMxx(),
                     gc.getTransform().getMyx(),

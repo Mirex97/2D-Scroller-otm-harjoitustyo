@@ -64,64 +64,67 @@ public class Credits extends MapSuper implements Section {
             @Override
             public void handle(long l) {
 
-                gc.clearRect((0 - gc.getTransform().getTx()), (0 - gc.getTransform().getTy()), Main.width * Main.scale, Main.height * Main.scale);
+                if (Main.delta.deltaTime(l)) {
 
-                if (!talking) {
-                    //Do not move if talking!
-                    player.move();
+                    gc.clearRect((0 - gc.getTransform().getTx()), (0 - gc.getTransform().getTy()), Main.width * Main.scale, Main.height * Main.scale);
 
-                }
+                    if (!talking) {
+                        //Do not move if talking!
+                        player.move();
 
-                camera.moveXY((int) player.getMiddleX() - (Main.width / 2), (int) player.getMiddleY() - (Main.height / 2));
-                camera.draw("Background");
-                player.draw();
-                for (Coin coin : objects.getCoins()) {
-                    coin.draw();
-                }
-                camera.draw("Frontground");
-                gui.clearRect();
-                if (text != null) {
-                    if (gui.getText() == null) {
-                        if (!written) {
-                            written = true;
-                            gui.write(text);
-                            if (!text.getType().equals("nonstop")) {
-                                talking = true;
+                    }
+
+                    camera.moveXY((int) player.getMiddleX() - (Main.width / 2), (int) player.getMiddleY() - (Main.height / 2));
+                    camera.draw("Background");
+                    player.draw();
+                    for (Coin coin : objects.getCoins()) {
+                        coin.draw();
+                    }
+                    camera.draw("Frontground");
+                    gui.clearRect();
+                    if (text != null) {
+                        if (gui.getText() == null) {
+                            if (!written) {
+                                written = true;
+                                gui.write(text);
+                                if (!text.getType().equals("nonstop")) {
+                                    talking = true;
+                                }
+                            } else {
+                                //RESET
+                                written = false;
+                                texts.removeText(text);
+                                text = null;
+                                talking = false;
                             }
                         } else {
-                            //RESET
-                            written = false;
-                            texts.removeText(text);
-                            text = null;
-                            talking = false;
+                            gui.drawText();
                         }
-                    } else {
-                        gui.drawText();
+
                     }
 
-                }
-
-                if (Main.keys.getInput().contains("ESCAPE")) {
-                    this.stop();
-                    gui.clearRect();
-                    try {
-                        Main.credit = new Credits();
-                    } catch (Exception e) {
-                        System.out.println("did not work");
-                        Main.login.error();
+                    if (Main.keys.getInput().contains("ESCAPE")) {
+                        this.stop();
+                        gui.clearRect();
+                        try {
+                            Main.credit = new Credits();
+                        } catch (Exception e) {
+                            System.out.println("did not work");
+                            Main.login.error();
+                        }
+                        Main.menu.reset();
+                        Main.menu.setStop(false);
+                        Main.menu.animate();
                     }
-                    Main.menu.reset();
-                    Main.menu.setStop(false);
-                    Main.menu.animate();
-                }
-                if (Main.keys.getInput().contains("ADD")) {
-                    camera.move(Camera.Direction.UP);
-                }
-                if (Main.keys.getInput().contains("SUBTRACT")) {
-                    camera.move(Camera.Direction.DOWN);
-                }
-                if (text == null) {
-                    text = checkCollision();
+                    if (Main.keys.getInput().contains("ADD")) {
+                        camera.zoom(Camera.Direction.UP);
+                    }
+                    if (Main.keys.getInput().contains("SUBTRACT")) {
+                        camera.zoom(Camera.Direction.DOWN);
+                    }
+                    if (text == null) {
+                        text = checkCollision();
+                    }
                 }
             }
         }.start();

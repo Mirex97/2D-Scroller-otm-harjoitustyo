@@ -71,7 +71,7 @@ public class Menu implements Section {
     public void setStop(boolean stop) {
         this.stop = stop;
     }
-    
+
     public void reset() {
         gc.restore();
         Main.pauseMenu.clearRect();
@@ -88,75 +88,77 @@ public class Menu implements Section {
 
             @Override
             public void handle(long l) {
-                Main.backGround.draw();
-                gc.clearRect(0, 0, Main.width * Main.scale, Main.height * Main.scale);
-                if (stop) {
-                    stop();
-                }
-                if (keys.getInput().contains("ENTER")) {
-                    hitEnter();
-                }
-                if (!waitON) {
-                    if ((keys.getInput().contains("S") && keys.getInput().contains("W")) || (keys.getInput().contains("UP") && keys.getInput().contains("DOWN"))) {
-
-                    } else if (keys.getInput().contains("W")
-                            || keys.getInput().contains("UP")) {
-                        if (selection - 1 >= 0) {
-                            selection--;
-                        } else {
-                            selection = selAmount - 1;
-                        }
-                        waitON = true;
-                    } else if (keys.getInput().contains("S")
-                            || keys.getInput().contains("DOWN")) {
-                        if (selection + 1 < selAmount) {
-                            selection++;
-                        } else {
-                            selection = 0;
-                        }
-                        waitON = true;
+                if (Main.delta.deltaTime(l)) {
+                    Main.backGround.draw();
+                    gc.clearRect(0, 0, Main.width * Main.scale, Main.height * Main.scale);
+                    if (stop) {
+                        stop();
                     }
-                } else {
-                    if (wait <= 0) {
-                        wait = 15;
-                        waitON = false;
+                    if (keys.getInput().contains("ENTER")) {
+                        hitEnter();
+                    }
+                    if (!waitON) {
+                        if ((keys.getInput().contains("S") && keys.getInput().contains("W")) || (keys.getInput().contains("UP") && keys.getInput().contains("DOWN"))) {
+
+                        } else if (keys.getInput().contains("W")
+                                || keys.getInput().contains("UP")) {
+                            if (selection - 1 >= 0) {
+                                selection--;
+                            } else {
+                                selection = selAmount - 1;
+                            }
+                            waitON = true;
+                        } else if (keys.getInput().contains("S")
+                                || keys.getInput().contains("DOWN")) {
+                            if (selection + 1 < selAmount) {
+                                selection++;
+                            } else {
+                                selection = 0;
+                            }
+                            waitON = true;
+                        }
                     } else {
-                        wait--;
+                        if (wait <= 0) {
+                            wait = 15;
+                            waitON = false;
+                        } else {
+                            wait--;
+                        }
                     }
-                }
-                logo.draw(gc);
+                    logo.draw(gc);
 
-                //CONTINUE
-                if (selection == 0) {
-                    continueGame.draw(gc);
-                } else {
-                    continueGameNot.draw(gc);
-                }
-                //NEWGAME
-                if (selection == 1) {
-                    newGame.draw(gc);
-                } else {
-                    newGameNot.draw(gc);
-                }
-                //LOAD
-                if (selection == 2) {
-                    load.draw(gc);
-                } else {
-                    loadNot.draw(gc);
-                }
-                //CREDITS
-                if (selection == 3) {
-                    credits.draw(gc);
-                } else {
-                    creditsNot.draw(gc);
-                }
-                //QUIT
-                if (selection == 4) {
-                    quit.draw(gc);
-                } else {
-                    quitNot.draw(gc);
-                }
+                    //CONTINUE
+                    if (selection == 0) {
+                        continueGame.draw(gc);
+                    } else {
+                        continueGameNot.draw(gc);
+                    }
+                    //NEWGAME
+                    if (selection == 1) {
+                        newGame.draw(gc);
+                    } else {
+                        newGameNot.draw(gc);
+                    }
+                    //LOAD
+                    if (selection == 2) {
+                        load.draw(gc);
+                    } else {
+                        loadNot.draw(gc);
+                    }
+                    //CREDITS
+                    if (selection == 3) {
+                        credits.draw(gc);
+                    } else {
+                        creditsNot.draw(gc);
+                    }
+                    //QUIT
+                    if (selection == 4) {
+                        quit.draw(gc);
+                    } else {
+                        quitNot.draw(gc);
+                    }
 
+                }
             }
         }.start();
 
@@ -173,7 +175,7 @@ public class Menu implements Section {
                 stop = true;
                 gc.save();
                 Main.test.animate();
-                
+
             }
         }
 

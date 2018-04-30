@@ -36,22 +36,23 @@ public class Test1 extends MapSuper implements Section {
 
     public Test1() throws Exception {
         super("Helsinki.tmx");
-        camera = new Camera(this.getMap(), 16);
         map = this.getMap();
+        camera = new Camera(map, 16);
+
         pause = Main.pauseMenu;
-        objects = new MapObjecthandler(this.getMap());
-        texts = new Messagehandler(this.getMap());
+        objects = new MapObjecthandler(map);
+        texts = new Messagehandler(map);
 
         //These need to be organized better into the Super class!
         //Once I have more levels then this is necessary!
         hobos = new ArrayList<>();
         for (EntitySuper spawn : objects.getHobos()) {
-            hobos.add(new Hobo(this.getMap(), this.getBoundary(), spawn.getX(), spawn.getY()));
+            hobos.add(new Hobo(map, this.getBoundary(), spawn.getX(), spawn.getY()));
         }
 
         gc = Main.gc;
         gui = new Gui(300);
-        player = new Player(this.getMap(), this.getBoundary());
+        player = new Player(map, this.getBoundary());
         player.setSpawnpoint((int) objects.getPlayerX() * 2, (int) objects.getPlayerY() * 2);
 
         score = new Score();
@@ -79,91 +80,95 @@ public class Test1 extends MapSuper implements Section {
 
             @Override
             public void handle(long l) {
-                if (pause.getStop()) {
-                    this.stop();
-                    gui.clearRect();
-                    Main.pauseMenu.clearRect();
-                    Main.pauseMenu = new Pause();
-                    try {
-                        Main.test = new Test1();
-                    } catch (Exception e) {
-                        System.out.println("Did not work! Test1!");
-                        Main.login.error();
-                    }
-                    Main.menu.reset();
-                    Main.menu.setStop(false);
-                    Main.menu.animate();
-                    Main.pauseMenu.setPaused(false);
-                }
 
-                if (!pause.getPaused()) {
-                    gc.clearRect((0 - gc.getTransform().getTx()), (0 - gc.getTransform().getTy()), Main.width * Main.scale, Main.height * Main.scale);
+                if (Main.delta.deltaTime(l)) {
 
-                    if (!talking) {
-                        //Do not move if talking!
-                        player.move();
-                        for (Hobo hobo : hobos) {
-                            hobo.move(player, null);
+                    if (pause.getStop()) {
+                        this.stop();
+                        gui.clearRect();
+                        Main.pauseMenu.clearRect();
+                        Main.pauseMenu = new Pause();
+                        try {
+                            Main.test = new Test1();
+                        } catch (Exception e) {
+                            System.out.println("Did not work! Test1!");
+                            Main.login.error();
                         }
+                        Main.menu.reset();
+                        Main.menu.setStop(false);
+                        Main.menu.animate();
+                        Main.pauseMenu.setPaused(false);
                     }
 
-                    camera.moveXY(player.getMiddleX() - (Main.width / 2), player.getMiddleY() - (Main.height / 2));
-                    camera.draw("Background");
-                    player.draw();
-                    for (Hobo hobo : hobos) {
-                        hobo.draw(); 
-                    }
+                    if (!pause.getPaused()) {
+                        gc.clearRect((0 - gc.getTransform().getTx()), (0 - gc.getTransform().getTy()), Main.width * Main.scale, Main.height * Main.scale);
 
-                    Iterator<Coin> iter = objects.getCoins().listIterator();
-
-                    //Need to use sprite class for coins! Then the coins dont just disappear when collected!
-                    //This also allows to make floating scores when drawing the coin!
-                    while (iter.hasNext()) {
-                        Coin coin = iter.next();
-                        if (player.getCollision().intersects(coin.getCollision())) {
-                            score.addScore(coin.getValue());
-                            iter.remove();
-                        } else {
-                            coin.draw();
-                        }
-                    }
-
-                    camera.draw("Frontground");
-                    gui.draw(l);
-                    score.updateScore();
-                    gui.drawScore(score);
-                    if (text != null) {
-                        if (gui.getText() == null) {
-                            if (!written) {
-                                written = true;
-                                gui.write(text);
-                                talking = true;
-                            } else {
-                                //RESET
-                                written = false;
-                                texts.removeText(text);
-                                text = null;
-                                talking = false;
+                        if (!talking) {
+                            //Do not move if talking!
+                            player.move();
+                            for (Hobo hobo : hobos) {
+                                hobo.move(player, null);
                             }
-                        } else {
-                            gui.drawText();
                         }
 
-                    }
-                    if (Main.keys.getInput().contains("ESCAPE")) {
-                        pause.setPaused(true);
-                    }
-                    if (Main.keys.getInput().contains("ADD")) {
-                        camera.move(Camera.Direction.UP);
-                    }
-                    if (Main.keys.getInput().contains("SUBTRACT")) {
-                        camera.move(Camera.Direction.DOWN);
-                    }
+                        camera.moveXY(player.getMiddleX() - (Main.width / 2), player.getMiddleY() - (Main.height / 2));
+                        camera.draw("Background");
+                        player.draw();
+                        for (Hobo hobo : hobos) {
+                            hobo.draw();
+                        }
 
-                    text = checkCollision();
+                        Iterator<Coin> iter = objects.getCoins().listIterator();
 
-                } else {
-                    pause.draw();
+                        //Need to use sprite class for coins! Then the coins dont just disappear when collected!
+                        //This also allows to make floating scores when drawing the coin!
+                        while (iter.hasNext()) {
+                            Coin coin = iter.next();
+                            if (player.getCollision().intersects(coin.getCollision())) {
+                                score.addScore(coin.getValue());
+                                iter.remove();
+                            } else {
+                                coin.draw();
+                            }
+                        }
+
+                        camera.draw("Frontground");
+                        gui.draw(l);
+                        score.updateScore();
+                        gui.drawScore(score);
+                        if (text != null) {
+                            if (gui.getText() == null) {
+                                if (!written) {
+                                    written = true;
+                                    gui.write(text);
+                                    talking = true;
+                                } else {
+                                    //RESET
+                                    written = false;
+                                    texts.removeText(text);
+                                    text = null;
+                                    talking = false;
+                                }
+                            } else {
+                                gui.drawText();
+                            }
+
+                        }
+                        if (Main.keys.getInput().contains("ESCAPE")) {
+                            pause.setPaused(true);
+                        }
+                        if (Main.keys.getInput().contains("ADD")) {
+                            camera.zoom(Camera.Direction.UP);
+                        }
+                        if (Main.keys.getInput().contains("SUBTRACT")) {
+                            camera.zoom(Camera.Direction.DOWN);
+                        }
+
+                        text = checkCollision();
+
+                    } else {
+                        pause.draw();
+                    }
                 }
 
             }

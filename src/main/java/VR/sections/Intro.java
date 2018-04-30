@@ -97,83 +97,87 @@ public class Intro implements Section {
 
             @Override
             public void handle(long currentNanoTime) {
-                Main.backGround.draw();
-                gc.clearRect(0, 0, width * scale, height * scale);
-                if (stop) {
-                    stop();
-                }
-//                System.out.println(Main.bgMusic.getMicroPosition());
-                if (!anyKeyPressed) {
-                    Main.bgMusic.play();
-                }
-                if (!keys.getInput().isEmpty() && !anyKeyPressed) {
-                    anyKeyPressed = true;
-                    Main.bgMusic.changeClip(Main.musicloader.getMusic("MainEnd"));
-                    
-                }
 
-                if (train.getDraw()) {
-                    if (train.getX() > canvas.getWidth()) {
-                        train.setDraw(false);
+                if (Main.delta.deltaTime(currentNanoTime)) {
+
+                    Main.backGround.draw();
+                    gc.clearRect(0, 0, width * scale, height * scale);
+                    if (stop) {
+                        stop();
                     }
-                    if (!anyKeyPressed && train.getX() + (train.getWidth() / 2) >= junaStop) {
-                        train.setDir(EntityCustom.Dir.STILL);
-                        if (anyKey.getDraw()) {
-                            if (pong) {
-                                if (pingPong + fade > 1.0) {
-                                    pong = false;
-                                } else {
-                                    pingPong += fade;
-                                }
-                            } else {
-                                if (pingPong - fade < 0.0) {
-                                    pong = true;
-                                } else {
-                                    pingPong -= fade;
-                                }
-                            }
-                            anyKey.setOpacity(pingPong);
-                            anyKey.draw(gc);
-                        }
-
-                    } else if (anyKeyPressed) {
+                    if (!anyKeyPressed) {
                         Main.bgMusic.play();
-                        anyKey.setDraw(false);
-                        train.setDir(EntityCustom.Dir.RIGHT);
-                        train.setSpeed(pullBack);
-                        pullBack++;
                     }
-                    train.draw(gc);
-                } else {
+                    if (!keys.getInput().isEmpty() && !anyKeyPressed) {
+                        anyKeyPressed = true;
+                        Main.bgMusic.changeClip(Main.musicloader.getMusic("MainEnd"));
 
-                    logo.setOpacity(appear);
-                    logo.draw(gc);
-                    if (appear < 1.0 && appeared == false) {
-                        appear += 0.01;
-                    } else {
-                        appeared = true;
-                        if (hold <= 0) {
-                            if (appear > 0) {
-                                appear -= 0.01;
-                            } else {
-                                logo.setDraw(false);
-                                if (waitForClose > 0) {
-                                    waitForClose--;
+                    }
+
+                    if (train.getDraw()) {
+                        if (train.getX() > canvas.getWidth()) {
+                            train.setDraw(false);
+                        }
+                        if (!anyKeyPressed && train.getX() + (train.getWidth() / 2) >= junaStop) {
+                            train.setDir(EntityCustom.Dir.STILL);
+                            if (anyKey.getDraw()) {
+                                if (pong) {
+                                    if (pingPong + fade > 1.0) {
+                                        pong = false;
+                                    } else {
+                                        pingPong += fade;
+                                    }
                                 } else {
-                                    if (!stop) {
-                                        stop = true;
-                                        Main.menu.animate();
+                                    if (pingPong - fade < 0.0) {
+                                        pong = true;
+                                    } else {
+                                        pingPong -= fade;
                                     }
                                 }
+                                anyKey.setOpacity(pingPong);
+                                anyKey.draw(gc);
                             }
-                        } else {
-                            hold--;
-                        }
-                    }
 
+                        } else if (anyKeyPressed) {
+                            Main.bgMusic.play();
+                            anyKey.setDraw(false);
+                            train.setDir(EntityCustom.Dir.RIGHT);
+                            train.setSpeed(pullBack);
+                            pullBack++;
+                        }
+                        train.draw(gc);
+                    } else {
+
+                        logo.setOpacity(appear);
+                        logo.draw(gc);
+                        if (appear < 1.0 && appeared == false) {
+                            appear += 0.01;
+                        } else {
+                            appeared = true;
+                            if (hold <= 0) {
+                                if (appear > 0) {
+                                    appear -= 0.01;
+                                } else {
+                                    logo.setDraw(false);
+                                    if (waitForClose > 0) {
+                                        waitForClose--;
+                                    } else {
+                                        if (!stop) {
+                                            stop = true;
+                                            Main.menu.animate();
+                                        }
+                                    }
+                                }
+                            } else {
+                                hold--;
+                            }
+                        }
+
+                    }
+                    time += 1;
                 }
-                time += 1;
             }
+
         }.start();
 
         stage.show();

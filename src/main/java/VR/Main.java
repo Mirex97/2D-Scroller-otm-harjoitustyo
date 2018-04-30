@@ -20,6 +20,8 @@ import VR.sections.Background;
 import VR.sections.CompanyFade;
 import VR.sections.Intro;
 import VR.sections.Menu;
+import VR.util.DeltaTime;
+import VR.util.XmlWriterUtil;
 import VR.util.Zipper;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -43,7 +45,7 @@ import javafx.stage.Stage;
  * here! (Almost everything).
  */
 public class Main extends Application {
-
+    
     public static Stage stage;
     public static Group root;
     public static Scene scene;
@@ -81,7 +83,10 @@ public class Main extends Application {
     public static Background backGround;
     public static MusicLoader musicloader;
     
+    //utilities!
     private static Zipper zipper;
+    public static XmlWriterUtil xmlWriter;
+    public static DeltaTime delta;
 
 //    private static Profile profile;
 
@@ -94,6 +99,8 @@ public class Main extends Application {
         throwZip();
         
         zipper = new Zipper();
+        xmlWriter = new XmlWriterUtil();
+        delta = new DeltaTime();
         
         base = new Database("jdbc:sqlite:saves.db");
         base.getConnection();
