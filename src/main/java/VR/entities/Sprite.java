@@ -11,17 +11,24 @@ public class Sprite {
     private int loopPoint;
     private boolean reverse;
 
+    private boolean leave;
+
     private boolean playedOnce;
 
     public Sprite() {
+        leave = false;
         playedOnce = false;
         loopPoint = 0;
         reverse = false;
     }
 
+    public void setLeave() {
+        this.leave = true;
+    }
+
     public void setReverse() {
         this.reverse = true;
-        currentFrame = frames.length-1;
+        currentFrame = frames.length - 1;
     }
 
     public void setLoop(int l) {
@@ -79,7 +86,12 @@ public class Sprite {
             }
 
             if (currentFrame == frames.length) {
-                currentFrame = loopPoint;
+                if (leave) {
+                    currentFrame = frames.length - 1;
+                } else {
+                    currentFrame = loopPoint;
+                }
+
                 playedOnce = true;
             }
         } else {
@@ -88,8 +100,12 @@ public class Sprite {
                 startTime = System.nanoTime();
             }
 
-            if (currentFrame == loopPoint-1) {
-                currentFrame = frames.length-1;
+            if (currentFrame == loopPoint - 1) {
+                if (leave) {
+                    currentFrame = loopPoint;
+                } else {
+                    currentFrame = frames.length - 1;
+                }
                 playedOnce = true;
             }
         }

@@ -7,6 +7,7 @@ import VR.database.Database;
 import VR.database.OptionsDao;
 import VR.database.ProfileDao;
 import VR.database.SaveDao;
+import VR.events.CutsceneHandler;
 import VR.gui.Pause;
 import VR.handlers.Imagehandler;
 import VR.handlers.Keylistener;
@@ -21,6 +22,7 @@ import VR.sections.CompanyFade;
 import VR.sections.Intro;
 import VR.sections.Menu;
 import VR.util.DeltaTime;
+import VR.util.FrameMaker;
 import VR.util.XmlWriterUtil;
 import VR.util.Zipper;
 import java.io.File;
@@ -29,15 +31,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.SceneAntialiasing;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -71,7 +70,12 @@ public class Main extends Application {
     public static Menu menu;
     public static Test1 test;
     public static AudioPlayer bgMusic;
+    public static AudioPlayer fx;
+    public static AudioPlayer talk;
     public static Credits credit;
+    
+    //Cutscenes
+    public static CutsceneHandler cutscenes = new CutsceneHandler();
 
     public static Profile profile;
     public static Options options;
@@ -87,6 +91,7 @@ public class Main extends Application {
     private static Zipper zipper;
     public static XmlWriterUtil xmlWriter;
     public static DeltaTime delta;
+    public static FrameMaker maker;
 
 //    private static Profile profile;
 
@@ -101,6 +106,7 @@ public class Main extends Application {
         zipper = new Zipper();
         xmlWriter = new XmlWriterUtil();
         delta = new DeltaTime();
+        maker = new FrameMaker();
         
         base = new Database("jdbc:sqlite:saves.db");
         base.getConnection();
@@ -138,6 +144,14 @@ public class Main extends Application {
         bgMusic = new AudioPlayer();
         bgMusic.setVolume(options.getVolume());
         bgMusic.changeClip(musicloader.getMusic("MainBegin"));
+        fx = new AudioPlayer();
+        fx.toggleLoop();
+        fx.setVolume(options.getVolume());
+        fx.changeClip(musicloader.getFx("SELECT"));
+        talk = new AudioPlayer();
+        talk.toggleLoop();
+        talk.setVolume(options.getVolume());
+        talk.changeClip(musicloader.getFx("TALK"));
 
         stage.setTitle("VR the Adventure");
 
@@ -146,6 +160,7 @@ public class Main extends Application {
         stage.sizeToScene();
 
 
+        
         /*
 *stage.initStyle(StageStyle.TRANSPARENT);
 *scene.setFill(Color.TRANSPARENT);
@@ -169,7 +184,7 @@ public class Main extends Application {
         gui = guiCanvas.getGraphicsContext2D();
         pause = pauseCanvas.getGraphicsContext2D();
         background = backgroundCanvas.getGraphicsContext2D();
-
+        
         backGround = new Background("/levels/Background.png");
         pauseMenu = new Pause();
         intro = new Intro();

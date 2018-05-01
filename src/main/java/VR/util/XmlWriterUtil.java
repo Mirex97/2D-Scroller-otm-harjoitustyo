@@ -50,8 +50,7 @@ public class XmlWriterUtil {
     }
 
     //Cant use libtiled Xmlwriter! Doesn't support modifying existing xml file! (Creates new!).
-    
-    public void fixTileset(String path) {
+    public void windowsFix(String path) {
         try {
             File file = new File(path);
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
@@ -61,9 +60,7 @@ public class XmlWriterUtil {
             Node tileset = doc.getElementsByTagName("image").item(0);
             NamedNodeMap attr = tileset.getAttributes();
             Node nodeAttr = attr.getNamedItem("source");
-            System.out.println(nodeAttr.getNodeValue());
-            String[] splitted = nodeAttr.getNodeValue().split("/");
-            nodeAttr.setTextContent(splitted[2]);
+            nodeAttr.setTextContent("./levels/" + nodeAttr.getNodeValue());
 
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
@@ -73,6 +70,14 @@ public class XmlWriterUtil {
         } catch (Exception e) {
             System.out.println("ERROR WHILE MODIFYING XML");
             Main.login.error();
+        }
+    }
+    
+    
+    
+    public void fixTileset(String path) {
+        if (windows) {
+            windowsFix(path);
         }
     }
 

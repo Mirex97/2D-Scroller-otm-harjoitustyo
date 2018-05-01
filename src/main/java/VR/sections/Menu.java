@@ -2,6 +2,7 @@ package VR.sections;
 
 import VR.Main;
 import VR.entities.EntityCustom;
+import VR.events.NewGameCutscene;
 import VR.gui.Pause;
 import VR.handlers.Keylistener;
 import javafx.animation.AnimationTimer;
@@ -102,6 +103,7 @@ public class Menu implements Section {
 
                         } else if (keys.getInput().contains("W")
                                 || keys.getInput().contains("UP")) {
+                            Main.fx.play();
                             if (selection - 1 >= 0) {
                                 selection--;
                             } else {
@@ -110,6 +112,7 @@ public class Menu implements Section {
                             waitON = true;
                         } else if (keys.getInput().contains("S")
                                 || keys.getInput().contains("DOWN")) {
+                            Main.fx.play();
                             if (selection + 1 < selAmount) {
                                 selection++;
                             } else {
@@ -174,7 +177,8 @@ public class Menu implements Section {
             if (!stop) {
                 stop = true;
                 gc.save();
-                Main.test.animate();
+                Main.cutscenes.getNew().animate();
+//                Main.test.animate();
 
             }
         }
@@ -186,6 +190,7 @@ public class Menu implements Section {
             if (!stop) {
                 stop = true;
                 gc.save();
+                
                 Main.credit.animate();
             }
         }

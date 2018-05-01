@@ -33,7 +33,7 @@ public class MapSuper {
         String here = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath()).getParentFile().getPath().replace('\\', '/') + "/levels/" + location;
 //        System.out.println(System.getProperties().getProperty("java.class.path").split(";")[0] + "/levels/" + location);
 //        map = new TMXMapReader().readMap(System.getProperties().getProperty("java.class.path").split(";")[0] + "/levels/" + location);
-        if (!Main.xmlWriter.getSystem() && !Main.xmlWriter.getFixed()) {
+        if (!Main.xmlWriter.getFixed()) {
             Main.xmlWriter.fixTileset(here);
         }
         

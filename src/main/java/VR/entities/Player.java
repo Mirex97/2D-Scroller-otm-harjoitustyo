@@ -2,20 +2,15 @@ package VR.entities;
 
 import VR.Main;
 import java.awt.Graphics;
-import java.awt.Rectangle;
 import java.awt.geom.Area;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.scene.image.Image;
 import javax.imageio.ImageIO;
-import javafx.scene.image.WritableImage;
 import tiled.core.Map;
 
 public final class Player extends Animate {
@@ -26,7 +21,7 @@ public final class Player extends Animate {
 
     private ArrayList<Image[]> sprites;
     private final int[] frameAmount = {
-        6, 6, 5, 12, 12, 7, 7
+        6, 6, 5, 12, 12, 7, 7, 6, 6, 8, 8
     };
     private static final int WALKINGRIGHT = 0;
     private static final int WALKINGLEFT = 1;
@@ -35,6 +30,10 @@ public final class Player extends Animate {
     private static final int IDLERIGHT = 4;
     private static final int JUMPLEFT = 5;
     private static final int JUMPRIGHT = 6;
+    private static final int FALLLEFT = 7;
+    private static final int FALLRIGHT = 8;
+    private static final int CONFLEFT = 9;
+    private static final int CONFRIGHT = 10;
 
     private boolean turning = false;
 
@@ -56,7 +55,10 @@ public final class Player extends Animate {
         middleY = image.getHeight() / 2;
 
         makeFrames();
-        this.sprite.setFrames(sprites.get(0));
+        this.sprite.setFrames(sprites.get(FALLRIGHT));
+        this.sprite.setDelay(100);
+        this.sprite.setLoop(4);
+
         setImage(this.sprite.getImage());
 
     }
@@ -90,6 +92,7 @@ public final class Player extends Animate {
     }
 
     public void move() {
+
         if (input.contains("W") && action != action.FALLING) {
             action = action.JUMPING;
         }
@@ -129,7 +132,7 @@ public final class Player extends Animate {
             } else if (previousFace != face.LEFT && turning && this.sprite.hasPlayedOnce() || previousAction != action) {
                 previousFace = face.LEFT;
                 turning = false;
-                
+
                 //HERE ALL ACTIONS!
                 if (super.action == Action.WALKING) {
                     this.sprite.setFrames(sprites.get(WALKINGLEFT));
@@ -144,11 +147,16 @@ public final class Player extends Animate {
                     this.sprite.setDelay(100);
                     this.sprite.setLoop(3);
                 }
-                
+                if (super.action == Action.FALLING) {
+                    this.sprite.setFrames(sprites.get(FALLLEFT));
+                    this.sprite.setDelay(100);
+                    this.sprite.setLoop(4);
+                }
+
             }
             this.previousAction = this.action;
-        } 
-        if (super.face == face.RIGHT){
+        }
+        if (super.face == face.RIGHT) {
             if (previousFace != face.RIGHT && !turning || previousFace == face.RIGHT && turning) {
                 this.sprite.setFrames(sprites.get(TURNAROUND));
                 this.sprite.setReverse();
@@ -157,7 +165,7 @@ public final class Player extends Animate {
             } else if (previousFace != face.RIGHT && turning && this.sprite.hasPlayedOnce() || previousAction != action) {
                 previousFace = face.RIGHT;
                 turning = false;
-                
+
                 //HERE ALL ACTIONS
                 if (super.action == Action.WALKING) {
                     this.sprite.setFrames(sprites.get(WALKINGRIGHT));
@@ -172,15 +180,15 @@ public final class Player extends Animate {
                     this.sprite.setDelay(100);
                     this.sprite.setLoop(3);
                 }
-                
-                
-                
-                
+                if (super.action == Action.FALLING) {
+                    this.sprite.setFrames(sprites.get(FALLRIGHT));
+                    this.sprite.setDelay(100);
+                    this.sprite.setLoop(4);
+                }
+
             }
             this.previousAction = this.action;
         }
-//        System.out.println(face);
-//        System.out.println(action);
     }
 
     public void draw() {

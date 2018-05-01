@@ -10,7 +10,6 @@ import javafx.scene.text.Font;
 public class Gui {
 
     private EntityCustom background;
-    private Font meh;
     private boolean timelimit;
 
     private boolean rolledUP = true;
@@ -53,7 +52,6 @@ public class Gui {
         portrait = new EntityCustom("characters/player/PlayerBox.png");
         background = new EntityCustom("gui/Gui.png");
         text = null;
-        Main.gui.setFont(meh);
 
     }
 
@@ -117,7 +115,6 @@ public class Gui {
                 } else {
                     Main.gui.setFont(Font.font("Impact", 15));
                     Main.gui.setFill(Color.WHITE);
-                    Main.gui.setFont(meh);
                     if (text.getCharacters().get(currentText).equals("Player")) {
                         Main.gui.fillText(Main.options.getPlayername(), portrait.getX(), portrait.getY() + 3, portrait.getWidth());
                     } else {
@@ -125,9 +122,12 @@ public class Gui {
                     }
                     Main.gui.setFont(Font.font("Impact", 20));
                     Main.gui.setFill(Color.WHITE);
-                    Main.gui.setFont(meh);
+//                    Main.gui.setFont(meh);
                     Main.gui.fillText(text.getMessages().get(currentText).substring(0, currentLetter), portrait.getX() + portrait.getWidth() + 50, portrait.getY() + (portrait.getHeight() / 2), speechBox.getWidth());
                     if (currentLetter < text.getMessages().get(currentText).length()) {
+                        if (text.getMessages().get(currentText).charAt(currentLetter) == ' ') {
+                            Main.talk.play();
+                        }
                         currentLetter++;
                     } else {
                         if (Main.keys.getInput().contains("ENTER")) {
@@ -158,7 +158,7 @@ public class Gui {
         }
 
     }
-    
+
     //This is for drawing score into gui!
     public void drawScore(Score score) {
         Main.gui.setFont(Font.font("Impact", 20));

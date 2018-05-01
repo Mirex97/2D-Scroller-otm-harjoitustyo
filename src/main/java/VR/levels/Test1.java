@@ -98,6 +98,8 @@ public class Test1 extends MapSuper implements Section {
                         Main.menu.setStop(false);
                         Main.menu.animate();
                         Main.pauseMenu.setPaused(false);
+                        Main.bgMusic.changeClip(Main.musicloader.getMusic("MainEnd"));
+                        Main.bgMusic.play();
                     }
 
                     if (!pause.getPaused()) {
@@ -124,12 +126,17 @@ public class Test1 extends MapSuper implements Section {
                         //This also allows to make floating scores when drawing the coin!
                         while (iter.hasNext()) {
                             Coin coin = iter.next();
-                            if (player.getCollision().intersects(coin.getCollision())) {
+                            if (player.getCollision().intersects(coin.getCollision()) && !coin.getDestroy()) {
                                 score.addScore(coin.getValue());
+                                coin.destroy();
+                            }
+                            
+                            if (coin.getRemove()) {
                                 iter.remove();
                             } else {
-                                coin.draw();
+                                coin.draw(); 
                             }
+
                         }
 
                         camera.draw("Frontground");

@@ -15,9 +15,10 @@ public class AudioPlayer {
 
     private Clip clip;
     private double volume;
+    private boolean loopPlay;
 
     public AudioPlayer() {
-        System.out.println("Remember to change clip!");
+        loopPlay = true;
     }
 
     public void changeClip(Clip clip) {
@@ -28,6 +29,14 @@ public class AudioPlayer {
         }
         this.clip = clip;
         reloadVolume();
+    }
+    
+    public void toggleLoop() {
+        if (loopPlay) {
+            loopPlay = false;
+        } else {
+            loopPlay = true;
+        }
     }
 
     public void play() {
