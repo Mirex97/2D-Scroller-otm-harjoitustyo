@@ -21,12 +21,12 @@ import org.xml.sax.SAXException;
 import tiled.io.xml.XMLWriter;
 
 public class XmlWriterUtil {
-
+    
     private boolean windows;
     private XMLWriter xmlWriter;
     private Writer writer;
     private boolean allFixed;
-
+    
     public XmlWriterUtil() {
         allFixed = false;
         windows = true;
@@ -34,7 +34,7 @@ public class XmlWriterUtil {
         if (osName.contains("Linux")) {
             windows = false;
         }
-
+        
     }
     
     public void setFixed() {
@@ -49,7 +49,7 @@ public class XmlWriterUtil {
         return windows;
     }
 
-    //Cant use libtiled Xmlwriter! Doesn't support modifying existing xml file! (Creates new!).
+    //Modify every image node into the correct path!
     public void windowsFix(String path) {
         try {
             File file = new File(path);
@@ -57,11 +57,14 @@ public class XmlWriterUtil {
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
             Document doc = docBuilder.parse(file);
             Node map = doc.getFirstChild();
-            Node tileset = doc.getElementsByTagName("image").item(0);
-            NamedNodeMap attr = tileset.getAttributes();
-            Node nodeAttr = attr.getNamedItem("source");
-            nodeAttr.setTextContent("./levels/" + nodeAttr.getNodeValue());
-
+            NodeList images = doc.getElementsByTagName("image");
+            for (int i = 0; i < images.getLength(); i++) {
+                Node tileset = images.item(i);
+                NamedNodeMap attr = tileset.getAttributes();
+                Node nodeAttr = attr.getNamedItem("source");
+                System.out.println(nodeAttr.getNodeValue());
+                nodeAttr.setTextContent("./levels/" + nodeAttr.getNodeValue());
+            }
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource source = new DOMSource(doc);
@@ -73,12 +76,10 @@ public class XmlWriterUtil {
         }
     }
     
-    
-    
     public void fixTileset(String path) {
         if (windows) {
             windowsFix(path);
         }
     }
-
+    
 }

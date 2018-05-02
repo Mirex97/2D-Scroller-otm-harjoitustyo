@@ -10,7 +10,7 @@ public class Animate extends EntitySuper {
     // Collision
     protected Rectangle2D.Double collision;
     //Movement
-    protected final int jumpSpeed = 4;
+    protected int jumpSpeed = 4;
     protected final int runningSpeed = 6;
     protected final int walkingSpeed = 3;
     protected int fallingSpeed = 5;
@@ -81,7 +81,11 @@ public class Animate extends EntitySuper {
 
     }
 
-    public void up() {
+    public void up(boolean superjump) {
+        int superjumping = 3;
+        if (superjump) {
+            jumpSpeed += superjumping;
+        }
         if (this.releasedJump) {
             jumpAmplifier -= this.jumpArkRelease;
             if (jumpAmplifier <= 0) {
@@ -109,7 +113,11 @@ public class Animate extends EntitySuper {
             }
             this.setY(y - (this.jumpSpeed * (int) jumpAmplifier));
         }
+        if (superjump) {
+            jumpSpeed -= superjumping;
+        }
     }
+    
 
     public void left() {
         if (action != Action.JUMPING && action != Action.FALLING) {

@@ -10,11 +10,13 @@ import java.awt.image.RenderedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
+import java.util.Iterator;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javax.imageio.ImageIO;
 import tiled.core.Map;
 import tiled.core.MapLayer;
+import tiled.core.MapObject;
 import tiled.core.ObjectGroup;
 import tiled.core.Tile;
 import tiled.core.TileLayer;
@@ -32,6 +34,8 @@ public class Camera extends EntitySuper {
     private int mapYMax;
     private int speed;
 
+    private final int gameScale = 2; //Pelin scaalaus on 2, pienempänä se ei näytä hyvältä.
+
     private double middleX; // hyödyllinen jos halutaan siirtää kamera tiettyyn kohtaan!
     private double middleY; // esimerkiksi cutscenet!
 
@@ -45,6 +49,7 @@ public class Camera extends EntitySuper {
     //TMX kartan luku!
     private Map map;
     private HashMap<Integer, Image> tiles;
+    private HashMap<Integer, Image> images;
     private double scale;
     private ObjectGroup group;
 
@@ -66,10 +71,8 @@ public class Camera extends EntitySuper {
         init(map, size);
     }
 
-    
-
     public void init(Map map, int size) { //Osa konstruktoria, rikkoo toiston!
-        this.tileSize = size; //<-- Jos pelissä käytettäänkin suurempaa tilekokoa! Vaihda tämä.
+        this.tileSize = size * gameScale; //<-- Jos pelissä käytettäänkin suurempaa tilekokoa! Vaihda tämä.
         // Voi myös laskea tilekoon tmx:stä mutta käy se näinkin!
         gc = Main.gc;
         WIDTH = Main.width;
@@ -77,9 +80,9 @@ public class Camera extends EntitySuper {
 
         this.map = map;
         group = new ObjectGroup(map);
-        
 
         tiles = new HashMap<>();
+        images = new HashMap<>();
         mapXMin = 0; //Kartan minimi ja maximi aina 0!
         mapYMin = 0;
         speed = 3; // <-- saatetaan tarvita! Todennäköisesti ehkä ei.
@@ -130,7 +133,7 @@ public class Camera extends EntitySuper {
     }
 
     public void moveXY(double x, double y) {
-        if (this.mapYMin <= y && y <= (this.mapYMax - HEIGHT)+ ((HEIGHT / Math.pow(2, scale)) * scale)) {
+        if (this.mapYMin <= y && y <= (this.mapYMax - HEIGHT) + ((HEIGHT / Math.pow(2, scale)) * scale)) {
             Main.gc.setTransform(gc.getTransform().getMxx(),
                     gc.getTransform().getMyx(),
                     gc.getTransform().getMxy(),
@@ -184,7 +187,7 @@ public class Camera extends EntitySuper {
         }
         update();
     }
-    
+
     public ObjectGroup getGroup() {
         return this.group;
     }
@@ -195,6 +198,40 @@ public class Camera extends EntitySuper {
 
     public double getTileOffsetY() {
         return this.tileOffsetY;
+    }
+
+    public void drawImages(String layerName) {
+        ObjectGroup layer = null;
+        for (MapLayer meh : map.getLayers()) {
+            if (meh.getName().equals(layerName)) {
+
+                layer = (ObjectGroup) meh;
+            }
+        }
+        if (layer == null) {
+            System.out.println("Layer not found! DOUBLE CHECK");
+            System.exit(-1);
+        }
+        Iterator<MapObject> meh = layer.getObjects();
+        while (meh.hasNext()) {
+            Image tileImage = null;
+            MapObject object = meh.next();
+            Tile tile = object.getTile();
+            if (images.containsKey(tile.getId())) {
+                tileImage = images.get(tile.getId());
+            } else {
+                try {
+                    System.out.println("why?");
+                    tileImage = createImage(object.getTile().getImage().getScaledInstance((int) object.getWidth() * this.gameScale, (int) object.getHeight() * gameScale, 1));
+                } catch (Exception e) {
+                    System.out.println("WAT! Create image error!");
+                    System.exit(-1);
+                }
+                images.put(tile.getId(), tileImage);
+            }
+            gc.drawImage(tileImage, object.getX() * gameScale, (object.getY() - object.getHeight()) * gameScale);
+
+        }
     }
 
     public void draw(String layerName) {
@@ -222,12 +259,12 @@ public class Camera extends EntitySuper {
                 }
                 tile = layer.getTileAt(tileX, tileY);
                 tileId = tile.getId();
-                
+
                 if (tiles.containsKey(tileId)) {
                     tileImage = tiles.get(tileId);
                 } else {
                     try {
-                        tileImage = createImage(tile.getImage().getScaledInstance(16, 16, 1));
+                        tileImage = createImage(tile.getImage().getScaledInstance(tileSize, tileSize, 1));
                     } catch (Exception e) {
                         System.out.println("WAT! Create image error!");
                         Main.login.error();
@@ -239,7 +276,6 @@ public class Camera extends EntitySuper {
         }
 
     }
-    
 
     public javafx.scene.image.Image createImage(java.awt.Image image) throws Exception {
         if (!(image instanceof RenderedImage)) {

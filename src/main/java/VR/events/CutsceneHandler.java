@@ -8,6 +8,7 @@ package VR.events;
 
 public class CutsceneHandler {
     private NewGameCutscene newGame;
+    private EndCutscene endGame;
     
     public CutsceneHandler() {
         
@@ -16,6 +17,10 @@ public class CutsceneHandler {
     public NewGameCutscene getNew() {
         newGame = new NewGameCutscene();
         return newGame;
+    }
+    public EndCutscene getEnd() {
+        endGame = new EndCutscene();
+        return endGame;
     }
     
 }

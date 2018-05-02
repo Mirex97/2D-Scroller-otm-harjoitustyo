@@ -104,15 +104,18 @@ public class NewGameCutscene implements Section {
     public String getSceneText() {
         String text = "";
         if (scene == 0) {
-            text = "(Not) so long ago in a ";
+            text = "This is a story of a student!";
             return text;
         }
         if (scene == 1) {
-            text = "This is a test message! \n Test line! \n Another test!";
+            text = "And this is a test message!";
             return text;
         }
         if (scene == 2) {
-            text = "Last test! \n Should work!";
+            text = "Yeah... it works! But anyways... The story!\n\n"
+                    + "After a long lecture in Helsinki, our student has finally\n"
+                    + "boarded the K-Train. But the student didn't have enough money\n"
+                    + "to load his traveling card! To be continued...";
             return text;
         }
 

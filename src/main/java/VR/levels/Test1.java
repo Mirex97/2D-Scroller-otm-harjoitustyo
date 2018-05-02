@@ -9,17 +9,19 @@ import VR.entities.Player;
 import VR.gui.Gui;
 import VR.gui.Pause;
 import VR.gui.Score;
+import VR.handlers.CutsceneObjects;
 import VR.handlers.MapObjecthandler;
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.GraphicsContext;
 import VR.handlers.Messagehandler;
+import VR.mapitems.Cutscene;
 import VR.mapitems.Text;
 import VR.sections.Section;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Test1 extends MapSuper implements Section {
-
+    
     private Camera camera;
     private GraphicsContext gc;
     private Gui gui;
@@ -28,18 +30,21 @@ public class Test1 extends MapSuper implements Section {
     private int timelimit;
     private tiled.core.Map map;
     private MapObjecthandler objects;
+    private CutsceneObjects cutscenes;
     private ArrayList<Hobo> hobos;
     private Messagehandler texts;
     private boolean talking = false;
     private boolean stop;
     private Score score;
-
+    private boolean victory = false;
+    
     public Test1() throws Exception {
-        super("Helsinki.tmx");
+        super("untitled.tmx");
         map = this.getMap();
         camera = new Camera(map, 16);
-
+        
         pause = Main.pauseMenu;
+        cutscenes = new CutsceneObjects(map);
         objects = new MapObjecthandler(map);
         texts = new Messagehandler(map);
 
@@ -49,16 +54,25 @@ public class Test1 extends MapSuper implements Section {
         for (EntitySuper spawn : objects.getHobos()) {
             hobos.add(new Hobo(map, this.getBoundary(), spawn.getX(), spawn.getY()));
         }
-
+        
         gc = Main.gc;
         gui = new Gui(300);
         player = new Player(map, this.getBoundary());
         player.setSpawnpoint((int) objects.getPlayerX() * 2, (int) objects.getPlayerY() * 2);
-
+        
         score = new Score();
     }
-
-    public Text checkCollision() {
+    
+    public Cutscene checkCutCollision() {
+        for (Cutscene cut : cutscenes.getCuts()) {
+            if (cut.getCollision().intersects(player.getCollision())) {
+                return cut;
+            }
+        }
+        return null;
+    }
+    
+    public Text checkTextCollision() {
         for (Text text : texts.getTexts()) {
             if (text.getCollision().intersects(player.getCollision())) {
                 return text;
@@ -66,23 +80,40 @@ public class Test1 extends MapSuper implements Section {
         }
         return null;
     }
-
+    
     public void setStop(boolean stop) {
         this.stop = stop;
     }
-
+    
     @Override
     public void animate() {
+        //Camera test!
         new AnimationTimer() {
             int waitTime = 0;
             Text text = null;
+            Cutscene cut = null;
             boolean written = false;
-
+            
             @Override
             public void handle(long l) {
-
+                
                 if (Main.delta.deltaTime(l)) {
-
+                    
+                    
+                    if (victory) {
+                        this.stop();
+                        gui.clearRect();
+                        Main.pauseMenu.clearRect();
+                        Main.pauseMenu = new Pause();
+                        try {
+                            Main.test = new Test1();
+                        } catch (Exception e) {
+                            System.out.println("Did not work! Test1!");
+                            Main.login.error();
+                        }
+                        Main.cutscenes.getEnd().animate();
+                    }
+                    
                     if (pause.getStop()) {
                         this.stop();
                         gui.clearRect();
@@ -94,6 +125,7 @@ public class Test1 extends MapSuper implements Section {
                             System.out.println("Did not work! Test1!");
                             Main.login.error();
                         }
+                        Main.backGround.setGC(Main.background);
                         Main.menu.reset();
                         Main.menu.setStop(false);
                         Main.menu.animate();
@@ -101,25 +133,38 @@ public class Test1 extends MapSuper implements Section {
                         Main.bgMusic.changeClip(Main.musicloader.getMusic("MainEnd"));
                         Main.bgMusic.play();
                     }
-
+                    
                     if (!pause.getPaused()) {
                         gc.clearRect((0 - gc.getTransform().getTx()), (0 - gc.getTransform().getTy()), Main.width * Main.scale, Main.height * Main.scale);
-
-                        if (!talking) {
-                            //Do not move if talking!
-                            player.move();
-                            for (Hobo hobo : hobos) {
-                                hobo.move(player, null);
+                        Main.backGround.draw();
+                        if (cut == null) {
+                            if (!talking) {
+                                //Do not move if talking!
+                                player.move();
+                                for (Hobo hobo : hobos) {
+                                    hobo.move(player, null);
+                                }
                             }
                         }
-
+                        
                         camera.moveXY(player.getMiddleX() - (Main.width / 2), player.getMiddleY() - (Main.height / 2));
-                        camera.draw("Background");
+                        camera.drawImages("Images");
+//                        camera.draw("Background");
                         player.draw();
                         for (Hobo hobo : hobos) {
                             hobo.draw();
                         }
-
+                        
+                        if (objects.getVictory().intersects(player.getCollision())) {
+                            victory = true;
+                        }
+                        
+                        if (objects.getLifts().intersects(player.getCollision())) {
+                            player.setSuperJump(true);
+                        } else {
+                            player.setSuperJump(false);
+                        }
+                        
                         Iterator<Coin> iter = objects.getCoins().listIterator();
 
                         //Need to use sprite class for coins! Then the coins dont just disappear when collected!
@@ -134,15 +179,24 @@ public class Test1 extends MapSuper implements Section {
                             if (coin.getRemove()) {
                                 iter.remove();
                             } else {
-                                coin.draw(); 
+                                coin.draw();
                             }
-
+                            
                         }
-
+                        
                         camera.draw("Frontground");
                         gui.draw(l);
                         score.updateScore();
                         gui.drawScore(score);
+                        if (cut != null) {
+                            if (!cut.getFinished()) {
+                                cut.play(player, gui);
+                            } else {
+                                cutscenes.removeCut(cut);
+                                cut = null;
+                                
+                            }
+                        }
                         if (text != null) {
                             if (gui.getText() == null) {
                                 if (!written) {
@@ -159,7 +213,7 @@ public class Test1 extends MapSuper implements Section {
                             } else {
                                 gui.drawText();
                             }
-
+                            
                         }
                         if (Main.keys.getInput().contains("ESCAPE")) {
                             pause.setPaused(true);
@@ -170,17 +224,20 @@ public class Test1 extends MapSuper implements Section {
                         if (Main.keys.getInput().contains("SUBTRACT")) {
                             camera.zoom(Camera.Direction.DOWN);
                         }
-
-                        text = checkCollision();
-
+                        
+                        if (cut == null) {
+                            cut = checkCutCollision();
+                        }
+                        text = checkTextCollision();
+                        
                     } else {
                         pause.draw();
                     }
                 }
-
+                
             }
         }.start();
-
+        
         Main.stage.show();
     }
 }

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <map version="1.0" tiledversion="1.1.4" orientation="orthogonal" renderorder="right-down" width="378" height="136" tilewidth="8" tileheight="8" infinite="0" nextobjectid="45">
     <tileset firstgid="1" name="Helsinki tileset" tilewidth="8" tileheight="8" tilecount="1024" columns="32">
-        <image source="./levels/tileset.png" width="256" height="256"/>
+        <image source="tileset.png" width="256" height="256"/>
     </tileset>
     <layer name="Background" width="378" height="136">
         <data encoding="base64">

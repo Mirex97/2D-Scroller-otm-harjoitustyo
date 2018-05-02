@@ -36,6 +36,7 @@ public final class Player extends Animate {
     private static final int CONFRIGHT = 10;
 
     private boolean turning = false;
+    private boolean superjump = false;
 
     private Sprite sprite;
 
@@ -61,6 +62,10 @@ public final class Player extends Animate {
 
         setImage(this.sprite.getImage());
 
+    }
+    
+    public void setSuperJump(boolean on) {
+        superjump = on;
     }
 
     public void makeFrames() {
@@ -91,6 +96,37 @@ public final class Player extends Animate {
 
     }
 
+    public void moveCUT(Dir direction) {
+
+        
+        if (direction == Dir.UP && action != action.FALLING) {
+            action = action.JUMPING;
+        }
+        if (action != action.JUMPING) {
+            down();
+        }
+        if (action == Action.JUMPING) {
+            up(false);
+        }
+
+        if (direction == Dir.LEFT) {
+            if (input.contains("SHIFT")) {
+                leftRUN();
+            } else {
+                left();
+            }
+        }
+        if (direction == Dir.RIGHT) {
+            if (input.contains("SHIFT")) {
+                rightRUN();
+            } else {
+                right();
+            }
+        }
+
+        reloadCollision();
+        updateMiddles();
+    }
     public void move() {
 
         if (input.contains("W") && action != action.FALLING) {
@@ -100,7 +136,7 @@ public final class Player extends Animate {
             down();
         }
         if (action == Action.JUMPING) {
-            up();
+            up(superjump);
         }
 
         if (input.contains("A") && !input.contains("D")) {

@@ -42,7 +42,7 @@ public class Hobo extends Animate {
             down();
         }
         if (action == Action.JUMPING) {
-            up();
+            up(false);
         }
         if (player.getMiddleX() < this.middleX) {
             left();

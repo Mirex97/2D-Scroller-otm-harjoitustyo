@@ -28,7 +28,7 @@ public class Credits extends MapSuper implements Section {
 
     public Credits() throws Exception {
         super("Credits.tmx");
-        camera = new Camera(this.getMap(), 16);
+        camera = new Camera(this.getMap(), 8);
         map = this.getMap();
         stop = false;
         objects = new MapObjecthandler(this.getMap());
