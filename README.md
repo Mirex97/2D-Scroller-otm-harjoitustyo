@@ -24,7 +24,7 @@ Asemat ovat turva-alueita ja kentät ovat junan sisällä. Tietyissä kentissä 
 
 ## Foorumi 
 #### (Toinen projektini, jota olen tehnyt viikottain pelin ohella. Ovat tavallaan yhteydessä toisiinsa.)
-[VR The Adventure Forums - TSOHA](mirex-pelifoorumi.herokuapp.com)
+[VR The Adventure Forums - TSOHA](https://mirex-pelifoorumi.herokuapp.com/)
 
 ## Dokumentaatio
 
