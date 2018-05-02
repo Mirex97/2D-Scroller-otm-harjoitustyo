@@ -22,12 +22,20 @@ Asemat ovat turva-alueita ja kentät ovat junan sisällä. Tietyissä kentissä 
 - Kentät (Vain level1 joka myös kesken).
 (Nämä ovat kaikki pääosin Grafiikasta kiinni.)
 
+## Foorumi 
+#### (Toinen projektini, jota olen tehnyt viikottain pelin ohella. Ovat tavallaan yhteydessä toisiinsa.)
+[VR The Adventure Forums - TSOHA](mirex-pelifoorumi.herokuapp.com)
 
 ## Dokumentaatio
+
 [Käyttöohje](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/edit/master/dokumentointi/kayttoohje.md)
+
 [Vaativuusmäärittely](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/vaativuusm%C3%A4%C3%A4rittely.md)
+
 [Arkkitehtuuri](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/Arkkitehtuuri.md)
+
 [Työaikakirjanpito](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/Ty%C3%B6aikakirjanpito.md)
+
 [Tarina](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/Pelin%20tarina.md)
 
 
