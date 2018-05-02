@@ -3,7 +3,7 @@ Tähän on listattu päivät ja ajat (suurinpiirtein), mihin aikaan olen työst�
 Huom kirjanpito on jaettu osiin suunnittelu, graaffinen suunnittelu ja musiikin työstämiseen. Ja myös itse sovelluksen koodaamis ajat!
 Alku on hieman arvottu, koska ehdin jo aloittaa ennen tämän kirjanpidon tekoa.
 
-# Käytetty aika suurinpiirtein = 207h!!!
+# Käytetty aika suurinpiirtein = 230h!!!
 
 ## Suunnittelu (Sisältäen pelin kulun suunnittelua, yms)
 Päivä|Aika|Kuvaus
@@ -66,3 +66,6 @@ Päivä|Aika|Kuvaus
 22.4.2018 | 16h | Vedin all nighterin kun aloin säätämään tuon kirotun pom.xml:län ja tmx kartta ongelman kanssa. (Koska huomasin että vaativuuksissa oli .jar release niin halusin saavuttaa tämän. En onnistunut kuitenkaan vielä toteuttamaan tätä .jar tiedostoa.
 23.4.2018 | 18h | Taas allnighter, mutta sain ideaksi pakata .zip tiedoston .jar kansion sisälle! Tämä oli pahuksen mahtava idea! 
 24.4.2018 | 14h | Koska valvoin nukuin melkein koko päivän. Tein projektia vielä klo 8 aamulla saakka ja sammuin klo 17 saakka. Nyt tähän saakka klo 0:47 yritin saada aikaan testauksia ja toiminnallisuutta peliin. Peliin sain kolikoiden keruun ja spurgun siirtelyn ja background luokan ja muita turhia koodeja siivottua pois!
+30.4.2018 | 8h | Alkaa istuminen koneella rasittaa, Lisäsin peliin äänitehosteita ja pohdin kentän suunnittelua.Lisäsin peliin cutscenen testiksi ja ihan okei se toimii. Äänien kanssa voi havaita pientä ongelmia.
+1.4.2018 | 2h | Illalla tein lisää grafiikoita peliin. Aloin suunnittelemaan erilaisia hahmoja, mutta näiden animoiminen vie ikuisuuden.
+2.4.2018 | 20h | Koko päivän klo 3:sta saakka yritin saada ensimmäistä kenttää valmiiksi. Grafiikka muutoksen takia joudiin uusimaan kentän jo useampaan otteeseen (ja vieläkin ongelmia). Lisäsin hobon uuden skinin ja sisäisen cutscene testin alkuun (se ei toimi täydellisesti).
