@@ -5,6 +5,7 @@
  */
 package VR.mapitems;
 
+import VR.Main;
 import VR.entities.Player;
 import VR.gui.Gui;
 import java.awt.Rectangle;
@@ -83,7 +84,7 @@ public class Cutscene {
                 currentProp++;
             }
             if (split[1].equals("Buzz")) {
-                characters.add("Buzz");
+                characters.add("Intercom");
                 written = true;
                 text.add(properties.getProperty(keyset.get(currentProp)));
                 currentProp++;
@@ -126,11 +127,10 @@ public class Cutscene {
                 }
             }
             if (split[1].equals("Smurf")) {
-                characters.add("Smurf");
+                characters.add("Smurfradar");
                 written = true;
                 text.add(properties.getProperty(keyset.get(currentProp)));
                 currentProp++;
-                System.out.println("wat");
 
             }
 

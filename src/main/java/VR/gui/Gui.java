@@ -26,6 +26,8 @@ public class Gui {
     private int currentLetter = 0;
 
     private Timer timer;
+    private int uptime;
+    private boolean uptimer;
 
     public Gui() {
         timelimit = false;
@@ -53,6 +55,7 @@ public class Gui {
         background = new EntityCustom("gui/Gui.png");
         text = null;
 
+        uptimer = false;
     }
 
     public Text getText() {
@@ -64,6 +67,14 @@ public class Gui {
         this.text = text;
         if (text.getCharacters().get(0).equals("Player")) {
             portrait.setImage("characters/player/PlayerBox.png");
+        }
+        if (text.getTime() != -1) {
+            this.uptime = text.getTime();
+            uptimer = true;
+            System.out.println("test");
+        } else {
+            this.uptime = -1;
+            uptimer = false;
         }
         toggle = false;
         currentText = 0;
@@ -118,7 +129,7 @@ public class Gui {
                     if (text.getCharacters().get(currentText).equals("Player")) {
                         Main.gui.fillText(Main.options.getPlayername(), portrait.getX(), portrait.getY() + 3, portrait.getWidth());
                     } else {
-                        Main.gui.fillText(text.getCharacters().get(currentText), portrait.getX(), portrait.getY() + 20, portrait.getWidth());
+                        Main.gui.fillText(text.getCharacters().get(currentText), portrait.getX(), portrait.getY() + 3, portrait.getWidth());
                     }
                     Main.gui.setFont(Font.font("Impact", 20));
                     Main.gui.setFill(Color.WHITE);
@@ -134,11 +145,28 @@ public class Gui {
                             currentLetter = 0;
                             letters = text.getMessages().get(currentText).length();
                             currentText++;
+                            if (uptimer) {
+                                uptime = text.getTime();
+                            }
                         }
-                    }
 
+                        if (uptimer) {
+                            if (uptime > -1) {
+                                System.out.println(uptime);
+                                uptime--;
+                            } else {
+                                currentLetter = 0;
+                                letters = text.getMessages().get(currentText).length();
+                                currentText++;
+                                uptime = text.getTime();
+                            }
+                        }
+
+                    }
                 }
+
             }
+
         } else {
             if (!rolledUP) {
                 rolledDOWN = false;
@@ -159,7 +187,7 @@ public class Gui {
 
     }
 
-    //This is for drawing score into gui!
+//This is for drawing score into gui!
     public void drawScore(Score score) {
         Main.gui.setFont(Font.font("Impact", 20));
         Main.gui.fillText("" + score.getScore(), 10, 55);

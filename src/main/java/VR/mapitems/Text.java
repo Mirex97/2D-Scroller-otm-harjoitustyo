@@ -12,6 +12,7 @@ public class Text {
     private ArrayList<String> characters; //Character who talks!
     private ArrayList<String> messages; //Message to be displayed
     private String type;
+    private int time;
     
     public Text(String label, ArrayList<String> characters, ArrayList<String> messages, Rectangle rect, String type) {
         this.label = label;
@@ -19,8 +20,19 @@ public class Text {
         this.messages = messages;        
         this.collision = rect;
         this.type = type;
+        this.time = -1;
     }
 
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
+    }
+
+    
+    
     public String getType() {
         return type;
     }

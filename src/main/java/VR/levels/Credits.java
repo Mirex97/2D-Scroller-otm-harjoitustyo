@@ -85,11 +85,14 @@ public class Credits extends MapSuper implements Section {
                     if (text != null) {
                         if (gui.getText() == null) {
                             if (!written) {
-                                written = true;
-                                gui.write(text);
                                 if (!text.getType().equals("nonstop")) {
                                     talking = true;
+                                } else {
+                                    text.setTime(100);
                                 }
+                                written = true;
+                                gui.write(text);
+
                             } else {
                                 //RESET
                                 written = false;

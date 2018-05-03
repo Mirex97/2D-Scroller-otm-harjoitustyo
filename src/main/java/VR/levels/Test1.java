@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Test1 extends MapSuper implements Section {
-    
+
     private Camera camera;
     private GraphicsContext gc;
     private Gui gui;
@@ -37,12 +37,12 @@ public class Test1 extends MapSuper implements Section {
     private boolean stop;
     private Score score;
     private boolean victory = false;
-    
+
     public Test1() throws Exception {
         super("untitled.tmx");
         map = this.getMap();
         camera = new Camera(map, 16);
-        
+
         pause = Main.pauseMenu;
         cutscenes = new CutsceneObjects(map);
         objects = new MapObjecthandler(map);
@@ -54,15 +54,15 @@ public class Test1 extends MapSuper implements Section {
         for (EntitySuper spawn : objects.getHobos()) {
             hobos.add(new Hobo(map, this.getBoundary(), spawn.getX(), spawn.getY()));
         }
-        
+
         gc = Main.gc;
         gui = new Gui(300);
         player = new Player(map, this.getBoundary());
         player.setSpawnpoint((int) objects.getPlayerX() * 2, (int) objects.getPlayerY() * 2);
-        
+
         score = new Score();
     }
-    
+
     public Cutscene checkCutCollision() {
         for (Cutscene cut : cutscenes.getCuts()) {
             if (cut.getCollision().intersects(player.getCollision())) {
@@ -71,7 +71,7 @@ public class Test1 extends MapSuper implements Section {
         }
         return null;
     }
-    
+
     public Text checkTextCollision() {
         for (Text text : texts.getTexts()) {
             if (text.getCollision().intersects(player.getCollision())) {
@@ -80,11 +80,11 @@ public class Test1 extends MapSuper implements Section {
         }
         return null;
     }
-    
+
     public void setStop(boolean stop) {
         this.stop = stop;
     }
-    
+
     @Override
     public void animate() {
         //Camera test!
@@ -93,13 +93,12 @@ public class Test1 extends MapSuper implements Section {
             Text text = null;
             Cutscene cut = null;
             boolean written = false;
-            
+
             @Override
             public void handle(long l) {
-                
+
                 if (Main.delta.deltaTime(l)) {
-                    
-                    
+
                     if (victory) {
                         this.stop();
                         gui.clearRect();
@@ -113,7 +112,7 @@ public class Test1 extends MapSuper implements Section {
                         }
                         Main.cutscenes.getEnd().animate();
                     }
-                    
+
                     if (pause.getStop()) {
                         this.stop();
                         gui.clearRect();
@@ -133,7 +132,7 @@ public class Test1 extends MapSuper implements Section {
                         Main.bgMusic.changeClip(Main.musicloader.getMusic("MainEnd"));
                         Main.bgMusic.play();
                     }
-                    
+
                     if (!pause.getPaused()) {
                         gc.clearRect((0 - gc.getTransform().getTx()), (0 - gc.getTransform().getTy()), Main.width * Main.scale, Main.height * Main.scale);
                         Main.backGround.draw();
@@ -146,7 +145,7 @@ public class Test1 extends MapSuper implements Section {
                                 }
                             }
                         }
-                        
+
                         camera.moveXY(player.getMiddleX() - (Main.width / 2), player.getMiddleY() - (Main.height / 2));
                         camera.drawImages("Images");
 //                        camera.draw("Background");
@@ -154,17 +153,17 @@ public class Test1 extends MapSuper implements Section {
                         for (Hobo hobo : hobos) {
                             hobo.draw();
                         }
-                        
+
                         if (objects.getVictory().intersects(player.getCollision())) {
                             victory = true;
                         }
-                        
+
                         if (objects.getLifts().intersects(player.getCollision())) {
                             player.setSuperJump(true);
                         } else {
                             player.setSuperJump(false);
                         }
-                        
+
                         Iterator<Coin> iter = objects.getCoins().listIterator();
 
                         //Need to use sprite class for coins! Then the coins dont just disappear when collected!
@@ -175,15 +174,15 @@ public class Test1 extends MapSuper implements Section {
                                 score.addScore(coin.getValue());
                                 coin.destroy();
                             }
-                            
+
                             if (coin.getRemove()) {
                                 iter.remove();
                             } else {
                                 coin.draw();
                             }
-                            
+
                         }
-                        
+
                         camera.draw("Frontground");
                         gui.draw(l);
                         score.updateScore();
@@ -194,15 +193,20 @@ public class Test1 extends MapSuper implements Section {
                             } else {
                                 cutscenes.removeCut(cut);
                                 cut = null;
-                                
+
                             }
                         }
                         if (text != null) {
                             if (gui.getText() == null) {
                                 if (!written) {
+                                    if (!text.getType().equals("nonstop")) {
+                                        talking = true;
+                                    } else {
+                                        text.setTime(100);
+                                    }
                                     written = true;
                                     gui.write(text);
-                                    talking = true;
+
                                 } else {
                                     //RESET
                                     written = false;
@@ -213,7 +217,7 @@ public class Test1 extends MapSuper implements Section {
                             } else {
                                 gui.drawText();
                             }
-                            
+
                         }
                         if (Main.keys.getInput().contains("ESCAPE")) {
                             pause.setPaused(true);
@@ -224,20 +228,22 @@ public class Test1 extends MapSuper implements Section {
                         if (Main.keys.getInput().contains("SUBTRACT")) {
                             camera.zoom(Camera.Direction.DOWN);
                         }
-                        
+
                         if (cut == null) {
                             cut = checkCutCollision();
                         }
-                        text = checkTextCollision();
-                        
+                        if (text == null) {
+                            text = checkTextCollision();
+                        }
+
                     } else {
                         pause.draw();
                     }
                 }
-                
+
             }
         }.start();
-        
+
         Main.stage.show();
     }
 }
