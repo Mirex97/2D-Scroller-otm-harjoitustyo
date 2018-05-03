@@ -7,6 +7,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 
+/**
+ * OptionsController, käsittelee options sivun toiminnot. Tallentaa käyttäjän
+ * asetukset tietokantaan tai poistaa käyttäjän.
+ *
+ * @version 1.0 3 May 2018
+ * @author Mikael Kukkamäki
+ */
 public class OptionsController {
 
     @FXML

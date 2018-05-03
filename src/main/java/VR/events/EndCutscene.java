@@ -33,85 +33,87 @@ public class EndCutscene implements Section {
 
             @Override
             public void handle(long l) {
-                if (fadeIn) {
-                    Main.bgMusic.setVolume(volume * Main.options.getVolume());
-
-                    if (volume > 0) {
-                        volume -= 0.05;
-                    }
-                    if (volume <= 0) {
-                        volume = 0.0;
-                    }
-                    Main.gui.setGlobalAlpha(alpha);
-                    Main.gui.setFill(Color.BLACK);
-                    Main.gui.fillRect(0, 0, Main.width, Main.height);
-                    if (alpha < 1) {
-                        alpha += 0.01;
-
-                    } else {
-                        alpha = 1;
-                        volume = 1;
-                        Main.bgMusic.changeClip(Main.musicloader.getMusic("MainEnd"));
+                if (Main.delta.deltaTime(l)) {
+                    if (fadeIn) {
                         Main.bgMusic.setVolume(volume * Main.options.getVolume());
-                        Main.bgMusic.play();
 
-                        fadeIn = false;
-                    }
-                    Main.bgMusic.reloadVolume();
-                } else {
-                    Main.gui.setFill(Color.BLACK);
-                    Main.gui.fillRect(0, 0, Main.width, Main.height);
-                    Main.gui.setFill(Color.WHITE);
-                    if (!fadeOut) {
-                        if (Main.keys.getInput().contains("ENTER") && currentLetter >= currentText.length()) {
-                            scene++;
-
-                            if (scene >= maxScene) {
-                                fadeOut = true;
-                            } else {
-                                currentLetter = 0;
-                                currentText = getSceneText();
-                            }
+                        if (volume > 0) {
+                            volume -= 0.05;
                         }
-                        if (currentLetter < currentText.length()) {
-                            currentLetter++;
+                        if (volume <= 0) {
+                            volume = 0.0;
                         }
-
-                    } else {
                         Main.gui.setGlobalAlpha(alpha);
-                        if (alpha > 0) {
-                            alpha -= 0.01;
+                        Main.gui.setFill(Color.BLACK);
+                        Main.gui.fillRect(0, 0, Main.width, Main.height);
+                        if (alpha < 1) {
+                            alpha += 0.01;
+
                         } else {
-                            stop();
-                            Main.pauseMenu.clearRect();
-                            Main.pauseMenu = new Pause();
-                            try {
-                                Main.test = new Test1();
-                            } catch (Exception e) {
-                                System.out.println("Did not work! Test1!");
-                                Main.login.error();
+                            alpha = 1;
+                            volume = 1;
+                            Main.bgMusic.changeClip(Main.musicloader.getMusic("MainEnd"));
+                            Main.bgMusic.setVolume(volume * Main.options.getVolume());
+                            Main.bgMusic.play();
+
+                            fadeIn = false;
+                        }
+                        Main.bgMusic.reloadVolume();
+                    } else {
+                        Main.gui.setFill(Color.BLACK);
+                        Main.gui.fillRect(0, 0, Main.width, Main.height);
+                        Main.gui.setFill(Color.WHITE);
+                        if (!fadeOut) {
+                            if (Main.keys.getInput().contains("ENTER") && currentLetter >= currentText.length()) {
+                                scene++;
+
+                                if (scene >= maxScene) {
+                                    fadeOut = true;
+                                } else {
+                                    currentLetter = 0;
+                                    currentText = getSceneText();
+                                }
                             }
-                            Main.gui.clearRect(0, 0, Main.width, Main.height);
-                            Main.menu.reset();
-                            Main.menu.setStop(false);
-                            Main.menu.animate();
-                            Main.pauseMenu.setPaused(false);
+                            if (currentLetter < currentText.length()) {
+                                currentLetter++;
+                            }
+
+                        } else {
+                            Main.gui.setGlobalAlpha(alpha);
+                            if (alpha > 0) {
+                                alpha -= 0.01;
+                            } else {
+                                stop();
+                                Main.pauseMenu.clearRect();
+                                Main.pauseMenu = new Pause();
+                                try {
+                                    Main.test = new Test1();
+                                } catch (Exception e) {
+                                    System.out.println("Did not work! Test1!");
+                                    Main.login.error();
+                                }
+                                Main.gui.clearRect(0, 0, Main.width, Main.height);
+                                Main.menu.reset();
+                                Main.menu.setStop(false);
+                                Main.menu.animate();
+                                Main.pauseMenu.setPaused(false);
+                            }
+
                         }
+                        Text texti = new Text(currentText);
+                        texti.setFont(Font.font("Impact", 20));
+                        double width = texti.getLayoutBounds().getWidth();
+                        System.out.println(width);
+                        Main.gui.setFont(Font.font("Impact", 20));
+                        if (currentLetter < currentText.length()) {
+                            if (currentText.charAt(currentLetter) == ' ') {
+                                Main.talk.play();
+                            }
+                        }
+                        Main.gui.fillText(currentText.substring(0, currentLetter), (Main.width / 2) - (width / 2), 100);
+                        Main.gui.setGlobalAlpha(1);
 
                     }
-                    Text texti = new Text(currentText);
-                    texti.setFont(Font.font("Impact", 20));
-                    double width = texti.getLayoutBounds().getWidth();
-                    System.out.println(width);
-                    Main.gui.setFont(Font.font("Impact", 20));
-                    if (currentLetter < currentText.length()) {
-                        if (currentText.charAt(currentLetter) == ' ') {
-                            Main.talk.play();
-                        }
-                    }
-                    Main.gui.fillText(currentText.substring(0, currentLetter), (Main.width / 2) - (width / 2), 100);
-                    Main.gui.setGlobalAlpha(1);
-
                 }
             }
         }.start();

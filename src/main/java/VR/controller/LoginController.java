@@ -9,6 +9,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+/**
+ * LoginController, käsittelee kirjautumissivun toiminnot.
+ * Käyttää tietokantoja ja täällä niihin myös lisätään tiedot.
+ *
+ * @version 1.0 3 May 2018
+ * @author Mikael Kukkamäki
+ */
 public class LoginController {
 
     @FXML

@@ -21,6 +21,13 @@ import tiled.core.ObjectGroup;
 import tiled.core.Tile;
 import tiled.core.TileLayer;
 
+/**
+ * Camera luokka, joka käsittelee annetun kentän näyttämisen ruudulla.
+ *
+ * @version 1.0 3 May 2018
+ * @author Mikael Kukkamäki
+ * @see VR.entities.EntitySuper
+ */
 public class Camera extends EntitySuper {
 
     //Kameran sijainti + width ja height = kuvan alue!
@@ -51,26 +58,49 @@ public class Camera extends EntitySuper {
     private HashMap<Integer, Image> tiles;
     private HashMap<Integer, Image> images;
     private double scale;
-    private ObjectGroup group;
 
     //Piirtäminen
     private GraphicsContext gc;
 
-    //Enum
+    /**
+     * Direction enum sisältää suunnat joihin kamera liikkuu.
+     * Vanha metodi, nyt käytössä vain zoomaamiseen.
+     */
     public enum Direction {
         STILL, UP, DOWN, LEFT, RIGHT
     }
 
+    /**
+     * Konstruktori, joka asettaa kameran kohtaan (0, 0).
+     *
+     * @param map kenttä, joka halutaan piirtää.
+     * @param size tilesize, joka määrittää tile koon. (.tmx kartta).
+     */
     public Camera(Map map, int size) {
         super(0, 0);
         init(map, size);
     }
 
+    /**
+     * Konstruktori, joka asettaa kameran kohtaan (x, y).
+     *
+     * @param map kenttä, joka halutaan piirtää.
+     * @param x, x koordinaatti.
+     * @param y, y koordinaatti.
+     * @param size tilesize, joka määrittää tile koon. (.tmx kartta).
+     */
     public Camera(Map map, int x, int y, int size) {
         super(x, y);
         init(map, size);
     }
 
+    /**
+     * metodi init osana konstruktoria. tämä asettaa kameran valmiiksi
+     * parametrissa annettua map oliota käyttäen.
+     *
+     * @param map kenttä.
+     * @param size tilekoko.
+     */
     public void init(Map map, int size) { //Osa konstruktoria, rikkoo toiston!
         this.tileSize = size * gameScale; //<-- Jos pelissä käytettäänkin suurempaa tilekokoa! Vaihda tämä.
         // Voi myös laskea tilekoon tmx:stä mutta käy se näinkin!
@@ -79,7 +109,6 @@ public class Camera extends EntitySuper {
         HEIGHT = Main.height;
 
         this.map = map;
-        group = new ObjectGroup(map);
 
         tiles = new HashMap<>();
         images = new HashMap<>();
@@ -103,15 +132,22 @@ public class Camera extends EntitySuper {
         //Tarvitaan varmaan kaksi offsettiä! Tai sitten ei.
     }
 
+    /**
+     * Päivittää oikeat Offsetit. Tämän avulla saadaan sulavuus kameran
+     * liikkeeseen.
+     */
     public void update() {
         this.tileOffsetX = (int) (0 - gc.getTransform().getTx()) % tileSize;
         this.tileOffsetY = (int) (0 - gc.getTransform().getTy()) % tileSize;
     }
 
-    public void followPlayer() {
-        //TODO
-    }
-
+    /**
+     * metodi zoom asettaa kameran zoomauksen, joko suuremmaksi tai palauttaa
+     * sen. Muuttaa koko canvas olion skaalausta. (Aiheuttaa hieman sumentamista
+     * liian lähelle mentäessä).
+     *
+     * @param dir suunta johon zoomataan. UP on sisään ja DOWN ulos.
+     */
     public void zoom(Direction dir) {
 
         if (dir == Direction.DOWN) {
@@ -132,6 +168,13 @@ public class Camera extends EntitySuper {
 
     }
 
+    /**
+     * metodi moveXY siirtää kameran kohtaan (x, y).
+     * Kameran saa seuraamaan pelaajaa antamalla sen keski x ja y:n.
+     *
+     * @param x x-koordinaatti johon kamera liikutetaan.
+     * @param y y-koordinaatti johon kamera liikutetaan.
+     */
     public void moveXY(double x, double y) {
         if (this.mapYMin <= y && y <= (this.mapYMax - HEIGHT) + ((HEIGHT / Math.pow(2, scale)) * scale)) {
             Main.gc.setTransform(gc.getTransform().getMxx(),
@@ -188,18 +231,31 @@ public class Camera extends EntitySuper {
         update();
     }
 
-    public ObjectGroup getGroup() {
-        return this.group;
-    }
+    
 
+    /**
+     * metodi getTileOffsetX palauttaa X:n offsetin.
+     * 
+     * @return palauttaa offsetin.
+     */
     public double getTileOffsetX() {
         return this.tileOffsetX;
     }
 
+    /**
+     * metodi getTileOffsetY palauttaa Y:n offsetin.
+     * 
+     * @return palauttaa offsetin.
+     */
     public double getTileOffsetY() {
         return this.tileOffsetY;
     }
 
+    /**
+     * metodi drawImages piirtää kentän kuvat canvakselle.
+     * Tämä on uusi metodi kentän tulostusta varten.
+     * @param layerName tason nimi, joka on määritetty .tmx kartassa.
+     */
     public void drawImages(String layerName) {
         ObjectGroup layer = null;
         for (MapLayer meh : map.getLayers()) {
@@ -234,6 +290,14 @@ public class Camera extends EntitySuper {
         }
     }
 
+    /**
+     * metodi draw piirtää kentän canvakselle (tiles).
+     * Tämä on vanha metodi, jota käytetään vielä peli alueen piirtämiseen.
+     * Aiheutti pätkintää, ja myös .tmx kartan suurentumista mitä enemmän tile tasoja oli.
+     * käyty metodia drawImage mieluummin.
+     * @param layerName tason nimi, joka on määritetty .tmx kartassa.
+     * @see VR.camera.Camera#drawImages(java.lang.String) 
+     */
     public void draw(String layerName) {
         TileLayer layer = null;
         for (MapLayer meh : map.getLayers()) {
@@ -277,6 +341,12 @@ public class Camera extends EntitySuper {
 
     }
 
+    
+    /**
+     * metodi createImage muuttaa java.awt.Image olion javafx.scene.imageksi.
+     * @param image kuva joka halutaan muutta. Tässä luokassa se olisi tilesit ja kentän kuvat.
+     * @return palauttaa javafx kuvan.
+     */
     public javafx.scene.image.Image createImage(java.awt.Image image) throws Exception {
         if (!(image instanceof RenderedImage)) {
             BufferedImage bufferedImage = new BufferedImage(image.getWidth(null),
