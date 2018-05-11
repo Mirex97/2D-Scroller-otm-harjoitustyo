@@ -59,3 +59,26 @@ Kun kaikki on valmista niin klikkaa save ja palaa äsköiselle sivulle ja lyö S
 ### Pelin sisällä
 ![A-4](https://raw.githubusercontent.com/Mirex97/2D-Scroller-otm-harjoitustyo/master/dokumentointi/kuvat/A-4.PNG)
 Intro pitäisi käynnistyä ja pääset pelin sisäiseen menuun!
+
+Oli tarkoituksena tehdä vaihdettavat painikkeet, mutta keskityin nämä päivät pelin viimeistelyyn.
+Painikkeiden vaihtaminen on kuitenkin täysin mahdollista.
+
+Pelin näppäimet:
+### Näppäimet
+#### Pelin sisällä
+Näppäin | Toiminto
+---|---
+W | Hyppää
+AD | Liikkuminen
+SHIFT | Juoksu
+PLUS | Lähennä kuvaa
+MIINUS | Loitonna kuvaa
+ENTER | Hyväksy / Seuraava teksti.
+#### Pelin sisäinen menu ja pause.
+Näppäin | Toiminto
+---|---
+ENTER | Valitse
+W Tai Nuoli ylös | Valinta ylös
+S Tai Nuoli alas | Valinta alas
+
+
