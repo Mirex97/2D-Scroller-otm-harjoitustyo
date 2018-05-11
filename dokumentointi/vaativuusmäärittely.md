@@ -38,6 +38,8 @@ Options ja Users on nyt vain toiminnassa. Saves taulun voi ottaa käyttöön kun
   - En halunnut luoda uusia kenttä jos edes ensimmäinen ei toimi, mutta tällä hetkellä pitäisi kaikki pelittää.
   - Pelin voi pysäyttää painamalla 'ESCAPE' nappia ja tämän kautta voi sitten poistua valikkoon.
 - Pelissä voi nyt seikkailla.
+- Pelin päätyttyä palataan takaisin menuun. Paitsi jos et läpäissyt kenttää niin se alkaa alusta.
+  - Jatkoideana checkpointit!
 
 ## Jatkokehitysideoita
 ### Tavoitteet.
