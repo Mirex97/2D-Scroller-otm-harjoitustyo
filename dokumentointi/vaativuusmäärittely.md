@@ -29,16 +29,15 @@ Options ja Users on nyt vain toiminnassa. Saves taulun voi ottaa käyttöön kun
 ### Pelissä
 - Käyttäjä näkee alku intron, jonka jälkeen pelaaja siirtyy valikkoon.
   - Valikosta on näkyvissä "New Game, Continue, Load, Credits ja Quit"
-    - Kenttien puutteiden takia en saves kantaa luonut pidemmälle.
-    - Joten vain New Game, Credits ja Quit toimivat tällä hetkellä.
-    - Toiminnallisuus ja tietokanta on valmiina sitten kun kenttiä on enemmän.
-      - Kanta tallentaa avainsanoja, joilla sitten toteutetaan eri tapahtumat.
-      - Eräällä tavalla kuten Achievements.
+    - Vain New Game, Credits ja Quit toimivat tällä hetkellä.
+    
 
 ### Pelin sisällä
 - Peli alkaa suoraan tarinalla ja siirtyy ensimmäiseen kenttään.
 - Kenttiä on vain tällä hetkellä yksi (pois lukien lopputekstit).
   - En halunnut luoda uusia kenttä jos edes ensimmäinen ei toimi, mutta tällä hetkellä pitäisi kaikki pelittää.
+  - Pelin voi pysäyttää painamalla 'ESCAPE' nappia ja tämän kautta voi sitten poistua valikkoon.
+- Pelissä voi nyt seikkailla.
 
 ## Jatkokehitysideoita
 ### Tavoitteet.
