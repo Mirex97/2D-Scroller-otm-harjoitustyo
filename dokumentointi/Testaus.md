@@ -39,3 +39,5 @@ Ainoastaan tuo ääniajuri ongelma on vielä avoin, mutta tästä on kerrottu li
 ## Laatuongelmat
 Ääniajuri ongelma (ainakin linuxilla).
 Linuxilla peli välkkyy hieman (Delta-time ongelma), mutta kuitenkin se on pelattavissa!
+Löyty uusi ongelma! Full Screen moodi ei toimi linuxilla. Se jää nyt laatuongelmaksi.
+Windowsilla kaikki pelittää kuin rasvattu.
