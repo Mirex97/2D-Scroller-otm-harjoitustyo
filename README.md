@@ -37,6 +37,8 @@ Pelistä on myös Foorumi sivu käytössä, joka on osa TietokantaSovellus kurss
 
 [Työaikakirjanpito](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/Ty%C3%B6aikakirjanpito.md)
 
+[Testausdokumentti](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/Testaus.md)
+
 [Tarina](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/Pelin%20tarina.md)
 
 
