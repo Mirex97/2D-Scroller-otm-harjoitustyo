@@ -1,17 +1,50 @@
 # Käyttöohje
-Voit ladata Pelin tiedoston joko releasien kautta, tai tutustumalla [VR The Adventure - Forumiin!](https://mirex-pelifoorumi.herokuapp.com)
+Voit ladata Pelin tiedoston joko releasien kautta, tai tutustumalla [VR The Adventure - Forumiin!](https://mirex-pelifoorumi.herokuapp.com).
+Lataus linkki löytyy sivun pohjalta, mutta se vie myös githubin release osioon.
 
-# Alku menu
+
+## Konfiguraatio
+Pelin käynnistyessä, tämä purkaa levelsandstuff.zip tiedoston kansioon, jossa peli sijaitsee ja samalla luo tietokannan samaan paikkaan.
+(Linuxilla db tiedosto ilmestyykin home kansion alle! Kannattaa tuplacheckata, ettei ole vanhaa tietokantaa siellä! Päivitysten varalta.)
+Peli myös olettaa, että käyttäjällä on toimiva äänentoisto! (Muuten ei pysty jatkaa, huomasin tämän yliopiston koneella, jossa ei ollut ääniajuria).
+
+# Ohjelman käynnistys
+Tämän voi joko suorittaa komentoriviltä tai suoraan tuplaklikkaamalla tiedosto auki.
+```
+// X.X = versio
+java -jar VR_The_Adventure-X.X-launcher.jar
+```
+Linuxilla, kannattaa odottaa hetki jos ei käynnisty heti ja sitten kokeilla uudelleen.
+
+# Alkumenu
 ### Kirjautuminen ja Rekisteröinti
+![A-1](https://raw.githubusercontent.com/Mirex97/2D-Scroller-otm-harjoitustyo/master/dokumentointi/kuvat/A-1.PNG)
+
 Kirjoita käyttäjänimesi ja salasanasi ja klikkaa "Register" nappia. 
 Tämä automaattisesti klikkaa myös login nappia ja kirjautuu sisälle!
 Tyhjä salasana on myös hyväksytty, mutta turvallisuus syistä kannattaa heittää jokin salasana.
+Jos on jo käyttäjä niin klikkaa suoraan login syötettyäsi tiedot!
+Jos käyttäjä on jo varattu niin menu ilmoittaa siitä.
 
-### Menu
-Kannattaa tässä vaiheessa mennä "Options" sivulle ja säätää ääntä ja vaihtaa pelaajan nimeä. Default nimi on "Player".
-Sitten klikkaa "Start Game" nappia!
+### Mini-menu
+Tämä on viimeinen vaihe ennen pelin käynnistystä.
+Kannattaa kuitenkin ensiksi poiketa "Options" sivun kautta heti aluksi!
+![A-2](https://raw.githubusercontent.com/Mirex97/2D-Scroller-otm-harjoitustyo/master/dokumentointi/kuvat/A-2.PNG)
+
+### Options
+![A-3](https://raw.githubusercontent.com/Mirex97/2D-Scroller-otm-harjoitustyo/master/dokumentointi/kuvat/A-3.PNG)
+
+Täältä löytyy paljon hyödyllisiä asetuksia pelaamisen mukauttamiseen ja myös uusia toiminnallisuuksia!
+(NEW) Resoluutio ja Fullscreen mode!
+Peli sisältää kokoruututilan, mutta oletuksena se käynnistyy windowed moodissa ja 1024x764 resoluutiolla.
+Äänenvoimakkuus joko tehostaa tai mykistää äänet! (Suosittelen pitämään keskellä. Ellei ole liian kovalla.) 
+Pelaajan nimen vaihdolla voit vaikuttaa pelin sisäisen hahmon nimeen! Kätevää!
+Remove Account: Vältetään tällä kertaa.
+
+Kun kaikki on valmista niin klikkaa save ja palaa äsköiselle sivulle ja lyö Start Game nappia!
 
 ### Pelin sisällä
+![A-4](https://raw.githubusercontent.com/Mirex97/2D-Scroller-otm-harjoitustyo/master/dokumentointi/kuvat/A-4.PNG)
 Intro pitäisi käynnistyä ja pääset seuraavaan menuun.
 Tällä hetkellä vain "New Game", "Credits" ja "Quit" toimivat. Tiedät varmaan mitä niistä tapahtuu!
 Pelissä voi palata takaisin menuun painamalla "Escape" nappia ja valitsemalla "Quit" pause valikosta!
