@@ -1,4 +1,5 @@
-Lataa projekti joko zip tiedostona tai sitten kokeile ensimmäistä pre-release .jar tiedostoa!
+# Käyttöohje
+Voit ladata Pelin tiedoston joko releasien kautta, tai tutustumalla [VR The Adventure - Forumiin!](https://mirex-pelifoorumi.herokuapp.com)
 
 # Alku menu
 ### Kirjautuminen ja Rekisteröinti
