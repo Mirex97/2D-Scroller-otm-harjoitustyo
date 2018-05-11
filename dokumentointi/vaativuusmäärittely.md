@@ -6,41 +6,41 @@ Läpäistä läpi ja käyttää vapaa-aikaa! Peliin voi kirjautua käyttäjäll�
 ## Käyttäjät
 Käyttäjät normaaleita käyttäjiä, joihin voi kirjautua.
 
-## Käyttöliittymäluonnos
+## Käyttöliittymäluonnos (Ensinnäinen)
 Sovellus avaa pienen ikkunan jonka avulla voi kirjautua / rekisteröityä käyttäjälle.
 Samalla voi myös määrittää asetuksia profiilille ennen itse pelin käynnistämistä.
 Tämän jälkeen peli aukeaa painamalla Start nappia!
 ![Login](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/kuvat/Login.png.png)
 ![Ingame](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/kuvat/Ingame.png)
 
-## Alpha version toiminnallisuus
+## Tämänhetkisen Version toiminnallisuus
 ### Alussa
-- Käyttäjä voi luoda käyttiksen (Uniikki ja pituus vaikka 16) nimi + salasana.
-  - Käyttäjälle ladataan perusasetukset alussa.
+- Käyttäjä voi luoda käyttiksen (nimi + salasana).
+  - Käyttäjälle ladataan perusasetukset alussa (Näitä voi muokata options valikosta).
 - Käyttäjä voi kirjautua luomaansa käyttäjään, antamalla nimen ja salasanan.
   - Käyttäjä voi muokata asetuksiaan.
   - Käyttäjä voi käynnistää pelin tai poistua.
 
 ### Pelissä
 - Käyttäjä näkee alku intron, jonka jälkeen pelaaja siirtyy valikkoon.
-  - Valikosta voi valita "New Game, Continue, Load, Credits ja Quit"
-    - Valikon vaihtoehdot Load ja Credits avaa uuden näkymän (Load tallennukset ja Credits lopputekstit).
-    - Näkymä siis tulee menun päälle, periaatteessa saman näkymä... eri luokka vain!
-  - New Game ja Continue vievät peliin kuten Load näkymäkin kun valitsee tallennuksen.
+  - Valikosta on näkyvissä "New Game, Continue, Load, Credits ja Quit"
+    - Kenttien puutteiden takia en saves kantaa luonut pidemmälle.
+    - Joten vain New Game, Credits ja Quit toimivat tällä hetkellä.
+    - Toiminnallisuus ja tietokanta on valmiina sitten kun kenttiä on enemmän.
+      - Kanta tallentaa avainsanoja, joilla sitten toteutetaan eri tapahtumat.
+      - Eräällä tavalla kuten Achievements.
 
 ### Pelin sisällä
-- Pelin alussa pienehkö tutorial! Tutoriaalissa käydään läpi mahdollisia toimintoja. (Eräänlainen showcase).
-- Käyttäjä voi nyt seikkailla kentissä ja edetä kohti final bossia vastaan (No Spoilers)!
-  - Aluksi kuitenkin on vain simppeli kenttä käytössä. (Lisään sitten jatkossa).
+- Peli alkaa suoraan tarinalla ja siirtyy ensimmäiseen kenttään.
+- Kenttiä on vain tällä hetkellä yksi (pois lukien lopputekstit).
+  - En halunnut luoda uusia kenttä jos edes ensimmäinen ei toimi, mutta tällä hetkellä pitäisi kaikki pelittää.
 
 ## Jatkokehitysideoita
 ### Tavoitteet.
-- Lisäkenttien lisääminen.
-- Lisää hahmoja joille puhua turva-alueilla.
-- Peli ikkunan koon vaihto + fullscreen  (DONE) 
-  - Lisäsin sen koska palautteen antaja ehdotti resoluution vaihtoa! Ja se ei ollutkaan hankalaa :D
-- Easter eggs!
-- Bosseja ja täytettä peliin.
+- Lisäkenttien lisääminen ja turva-alueet, joista voi käydä kauppaa kerätyillä kolikoilla.
+- Hahmoja joille puhua turva-alueilla.
+- Peli ikkunan koon vaihto + fullscreen  (DONE)
+- Bosseja ja täytettä peliin!
 
 ### Myöhemmin
 - MMO <-- just kidding...
