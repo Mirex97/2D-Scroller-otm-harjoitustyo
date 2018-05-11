@@ -1,6 +1,7 @@
 package VR.entities;
 
 import VR.Main;
+import VR.gui.Timer;
 import java.awt.Graphics;
 import java.awt.geom.Area;
 import java.awt.geom.Rectangle2D;
@@ -9,6 +10,7 @@ import java.awt.image.RenderedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javax.imageio.ImageIO;
 import tiled.core.Map;
@@ -21,7 +23,7 @@ public final class Player extends Animate {
 
     private ArrayList<Image[]> sprites;
     private final int[] frameAmount = {
-        6, 6, 5, 12, 12, 7, 7, 6, 6, 8, 8
+        6, 6, 5, 12, 12, 7, 7, 6, 6, 8, 8, 6, 6
     };
     private static final int WALKINGRIGHT = 0;
     private static final int WALKINGLEFT = 1;
@@ -34,15 +36,24 @@ public final class Player extends Animate {
     private static final int FALLRIGHT = 8;
     private static final int CONFLEFT = 9;
     private static final int CONFRIGHT = 10;
+    private static final int SPRINTLEFT = 11;
+    private static final int SPRINTRIGHT = 12;
 
     private boolean turning = false;
     private boolean superjump = false;
+    private boolean confused = false;
+    private boolean confusedHelper = false;
+    private final int confusionMeterMaxed = 10;
+    private int confusionMeter = 10;
+    private Timer confTimer;
 
     private Sprite sprite;
 
     public Player(Map map, Area area) {
         super(map, area);
         this.area = area;
+
+        confTimer = new Timer(7);
 
         this.sprite = new Sprite();
         this.sprite.setDelay(100);
@@ -63,9 +74,52 @@ public final class Player extends Animate {
         setImage(this.sprite.getImage());
 
     }
-    
+
+    public void setAction(Action action) {
+        this.action = action;
+    }
+
     public void setSuperJump(boolean on) {
         superjump = on;
+    }
+
+    public void setConfused(boolean on) {
+        confused = on;
+        if (on) {
+            this.action = Action.CONFUSED;
+        }
+        confTimer.setOn(on);
+    }
+
+    public void justSetConfused(boolean on) {
+        confused = on;
+    }
+
+    public void reset_confusionMeter() {
+        confusionMeter = confusionMeterMaxed;
+    }
+    
+    public boolean is_meterDown() {
+        if (confusionMeter == 0) {
+            return true;
+        }
+        return false;
+    }
+    
+    public void dec_confusionMeter() {
+        if (confusionMeter > 0) {
+            confusionMeter--;
+        } else {
+            confusionMeter = 0;
+        }
+    }
+
+    public boolean getConfused() {
+        return confused;
+    }
+
+    public Timer getConfTimer() {
+        return confTimer;
     }
 
     public void makeFrames() {
@@ -75,8 +129,6 @@ public final class Player extends Animate {
         } catch (Exception e) {
             System.out.println("ERROR player image not found");
             Main.login.error();
-//            e.printStackTrace();
-//            System.exit(-1);
         }
 
         int cwidth = 32;
@@ -98,7 +150,6 @@ public final class Player extends Animate {
 
     public void moveCUT(Dir direction) {
 
-        
         if (direction == Dir.UP && action != action.FALLING) {
             action = action.JUMPING;
         }
@@ -127,6 +178,7 @@ public final class Player extends Animate {
         reloadCollision();
         updateMiddles();
     }
+
     public void move() {
 
         if (input.contains("W") && action != action.FALLING) {
@@ -169,7 +221,11 @@ public final class Player extends Animate {
                 previousFace = face.LEFT;
                 turning = false;
 
-                //HERE ALL ACTIONS!
+                if (super.action == Action.CONFUSED) {
+                    this.sprite.setFrames(sprites.get(CONFLEFT));
+                    this.sprite.setDelay(100);
+                }
+
                 if (super.action == Action.WALKING) {
                     this.sprite.setFrames(sprites.get(WALKINGLEFT));
                     this.sprite.setDelay(100);
@@ -188,8 +244,13 @@ public final class Player extends Animate {
                     this.sprite.setDelay(100);
                     this.sprite.setLoop(4);
                 }
+                if (super.action == Action.RUNNING) {
+                    this.sprite.setFrames(sprites.get(SPRINTLEFT));
+                    this.sprite.setDelay(100);
+                }
 
             }
+
             this.previousAction = this.action;
         }
         if (super.face == face.RIGHT) {
@@ -201,8 +262,11 @@ public final class Player extends Animate {
             } else if (previousFace != face.RIGHT && turning && this.sprite.hasPlayedOnce() || previousAction != action) {
                 previousFace = face.RIGHT;
                 turning = false;
+                if (super.action == Action.CONFUSED) {
+                    this.sprite.setFrames(sprites.get(CONFRIGHT));
+                    this.sprite.setDelay(100);
+                }
 
-                //HERE ALL ACTIONS
                 if (super.action == Action.WALKING) {
                     this.sprite.setFrames(sprites.get(WALKINGRIGHT));
                     this.sprite.setDelay(100);
@@ -221,21 +285,41 @@ public final class Player extends Animate {
                     this.sprite.setDelay(100);
                     this.sprite.setLoop(4);
                 }
+                if (super.action == Action.RUNNING) {
+                    this.sprite.setFrames(sprites.get(SPRINTRIGHT));
+                    this.sprite.setDelay(100);
+                }
 
             }
+
             this.previousAction = this.action;
         }
     }
 
-    public void draw() {
-        //Need images from sprite class! And get action and direction from super!
+    public void draw(long time) {
         this.sprite.update();
         changeActionFrames();
+        if (confTimer.getOn()) {
+
+            confTimer.update(time);
+            if (confTimer.getTime() <= (confTimer.getMaxTime() / 2)) {
+                this.justSetConfused(false);
+            }
+        }
+        if (confTimer.getEnded()) {
+            confTimer.setTime(confTimer.getMaxTime());
+            confTimer.setOn(false);
+            this.setConfused(false);
+        }
 
         setImage(this.sprite.getImage());
+        if (confTimer.getOn() && !this.confused) {
+            Main.gc.setGlobalAlpha(0.5);
+        }
         Main.gc.drawImage(image, x, y);
-//        Main.gc.fillRect(collision.x, collision.y, collision.width, collision.height);
+        Main.gc.setGlobalAlpha(1);
     }
+    
 
     public void setSpawnpoint(int x, int y) {
         this.setXY(x, y);

@@ -34,7 +34,6 @@ public class Coin extends EntitySuper {
 
         collision = new Rectangle.Double(x, y, 32, 32);
         Random rand = new Random();
-        //Coin is worth normally 3 but might get randomly extra value!
         value = 3 + rand.nextInt(5);
     }
 

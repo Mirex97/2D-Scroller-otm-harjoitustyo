@@ -5,9 +5,12 @@ import VR.entities.EntityCustom;
 import VR.events.NewGameCutscene;
 import VR.gui.Pause;
 import VR.handlers.Keylistener;
+import VR.levels.Test1;
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.GraphicsContext;
 import VR.sections.Section;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Menu implements Section {
 
@@ -130,31 +133,31 @@ public class Menu implements Section {
                     }
                     logo.draw(gc);
 
-                    //CONTINUE
+                    
                     if (selection == 0) {
                         continueGame.draw(gc);
                     } else {
                         continueGameNot.draw(gc);
                     }
-                    //NEWGAME
+                    
                     if (selection == 1) {
                         newGame.draw(gc);
                     } else {
                         newGameNot.draw(gc);
                     }
-                    //LOAD
+                    
                     if (selection == 2) {
                         load.draw(gc);
                     } else {
                         loadNot.draw(gc);
                     }
-                    //CREDITS
+                    
                     if (selection == 3) {
                         credits.draw(gc);
                     } else {
                         creditsNot.draw(gc);
                     }
-                    //QUIT
+                    
                     if (selection == 4) {
                         quit.draw(gc);
                     } else {
@@ -177,8 +180,16 @@ public class Menu implements Section {
             if (!stop) {
                 stop = true;
                 gc.save();
+                if (Main.test.getStop()) {
+                    try {
+                        Main.test = new Test1("untitled.tmx");
+                    } catch (Exception ex) {
+                        System.out.println("Error in Test1");
+                        Main.login.error();
+                    }
+                }
                 Main.cutscenes.getNew().animate();
-//                Main.test.animate();
+              
 
             }
         }

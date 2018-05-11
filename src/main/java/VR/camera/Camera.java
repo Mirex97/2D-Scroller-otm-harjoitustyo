@@ -30,36 +30,35 @@ import tiled.core.TileLayer;
  */
 public class Camera extends EntitySuper {
 
-    //Kameran sijainti + width ja height = kuvan alue!
-    private int WIDTH; //width = Main.Width;
-    private int HEIGHT; // height = Main.height;
+    
+    private double WIDTH;
+    private double HEIGHT;
 
-    //kartan (tiles) koko ettei mennä niitten yli!
     private int mapXMin;
     private int mapXMax;
     private int mapYMin;
     private int mapYMax;
     private int speed;
 
-    private final int gameScale = 2; //Pelin scaalaus on 2, pienempänä se ei näytä hyvältä.
+    private final int gameScale = 2;
 
-    private double middleX; // hyödyllinen jos halutaan siirtää kamera tiettyyn kohtaan!
-    private double middleY; // esimerkiksi cutscenet!
+    private double middleX; 
+    private double middleY; 
 
-    private int tileSize; //Tämä on 32*32!!!
-    //offset asettaa luettavan tilen ohi riippuen x:n mukaan.
-    private double tileOffsetX; //offset tmx kartan tiles:ien lukemiseen.
+    private int tileSize; 
+    
+    private double tileOffsetX; 
     private double tileOffsetY;
-    private int drawTilesWidth; //tmx kartan tiles:ien määrä jotka pitää piirtää kartalle.
+    private int drawTilesWidth; 
     private int drawTilesHeight;
 
-    //TMX kartan luku!
+    
     private Map map;
     private HashMap<Integer, Image> tiles;
     private HashMap<Integer, Image> images;
     private double scale;
 
-    //Piirtäminen
+    
     private GraphicsContext gc;
 
     /**
@@ -101,9 +100,8 @@ public class Camera extends EntitySuper {
      * @param map kenttä.
      * @param size tilekoko.
      */
-    public void init(Map map, int size) { //Osa konstruktoria, rikkoo toiston!
-        this.tileSize = size * gameScale; //<-- Jos pelissä käytettäänkin suurempaa tilekokoa! Vaihda tämä.
-        // Voi myös laskea tilekoon tmx:stä mutta käy se näinkin!
+    public void init(Map map, int size) { 
+        this.tileSize = size * gameScale;
         gc = Main.gc;
         WIDTH = Main.width;
         HEIGHT = Main.height;
@@ -112,24 +110,22 @@ public class Camera extends EntitySuper {
 
         tiles = new HashMap<>();
         images = new HashMap<>();
-        mapXMin = 0; //Kartan minimi ja maximi aina 0!
+        mapXMin = 0;
         mapYMin = 0;
-        speed = 3; // <-- saatetaan tarvita! Todennäköisesti ehkä ei.
+        speed = 3;
         mapXMax = map.getWidth() * tileSize;
         mapYMax = map.getHeight() * tileSize;
 
         scale = 0;
 
-        middleX = (this.x + this.WIDTH) / 2; //Tarvitsee vielä korjauksen!
+        middleX = (this.x + this.WIDTH) / 2;
         middleY = (this.y + this.HEIGHT) / 2;
 
-        drawTilesWidth = (WIDTH + tileSize) / tileSize; //Piirrettävien tiles:ien leveys!
-        drawTilesHeight = (HEIGHT + tileSize) / tileSize; //Piirrettävien tiles:ien korkeus!
+        drawTilesWidth = ((int) WIDTH + tileSize) / tileSize;
+        drawTilesHeight = ((int) HEIGHT + tileSize) / tileSize;
 
-        tileOffsetX = this.x % tileSize; //Getterit ja setterit! Tarvitaan oikeaan hahmojen sijoittamiseen!
-        tileOffsetY = this.y % tileSize; // Nyt totesin että tämä saattaa olla väärin!
-        // Käytetään ehkä vain kameran x ja y koordinaatteja sijoittamaan objektit!
-        //Tarvitaan varmaan kaksi offsettiä! Tai sitten ei.
+        tileOffsetX = this.x % tileSize;
+        tileOffsetY = this.y % tileSize;
     }
 
     /**
@@ -159,10 +155,14 @@ public class Camera extends EntitySuper {
 
             Main.canvas.setScaleX(scale + 1);
             Main.canvas.setScaleY(scale + 1);
+            Main.backgroundCanvas.setScaleX(scale + 1);
+            Main.backgroundCanvas.setScaleY(scale + 1);
         } else if (dir == Direction.UP) {
             scale += 0.01;
             Main.canvas.setScaleX(scale + 1);
             Main.canvas.setScaleY(scale + 1);
+            Main.backgroundCanvas.setScaleX(scale + 1);
+            Main.backgroundCanvas.setScaleY(scale + 1);
         }
         update();
 
@@ -266,7 +266,7 @@ public class Camera extends EntitySuper {
         }
         if (layer == null) {
             System.out.println("Layer not found! DOUBLE CHECK");
-            System.exit(-1);
+            Main.login.error();
         }
         Iterator<MapObject> meh = layer.getObjects();
         while (meh.hasNext()) {
@@ -277,11 +277,10 @@ public class Camera extends EntitySuper {
                 tileImage = images.get(tile.getId());
             } else {
                 try {
-                    System.out.println("why?");
                     tileImage = createImage(object.getTile().getImage().getScaledInstance((int) object.getWidth() * this.gameScale, (int) object.getHeight() * gameScale, 1));
                 } catch (Exception e) {
                     System.out.println("WAT! Create image error!");
-                    System.exit(-1);
+                    Main.login.error();
                 }
                 images.put(tile.getId(), tileImage);
             }
@@ -307,7 +306,7 @@ public class Camera extends EntitySuper {
         }
         if (layer == null) {
             System.out.println("Layer not found! DOUBLE CHECK");
-            System.exit(-1);
+            Main.login.error();
         }
         Tile tile = null;
         int tileId;

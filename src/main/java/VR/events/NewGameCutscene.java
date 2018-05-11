@@ -8,11 +8,10 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
-//This cutscene will be played everytime a new game is started! --> Takes the player into tutorial.
 public class NewGameCutscene implements Section {
 
     private int scene;
-    private final int maxScene = 3;
+    private final int maxScene = 4;
 
     public NewGameCutscene() {
         scene = 0;
@@ -90,7 +89,6 @@ public class NewGameCutscene implements Section {
                         Text texti = new Text(currentText);
                         texti.setFont(Font.font("Impact", 20));
                         double width = texti.getLayoutBounds().getWidth();
-                        System.out.println(width);
                         Main.gui.setFont(Font.font("Impact", 20));
                         Main.gui.fillText(currentText.substring(0, currentLetter), (Main.width / 2) - (width / 2), 100);
                         Main.gui.setGlobalAlpha(1);
@@ -106,18 +104,23 @@ public class NewGameCutscene implements Section {
     public String getSceneText() {
         String text = "";
         if (scene == 0) {
-            text = "This is a story of a student!";
+            text = "This is a story of a young Student!";
             return text;
         }
         if (scene == 1) {
-            text = "And this is a test message!";
+            text = "It was a long friday evening and after a long seminar at Helsinki University, \n"
+                    + "the Student arrived at Helsinki railway station on his way back to Kerava.\n\n"
+                    + "But suddenly...";
             return text;
         }
         if (scene == 2) {
-            text = "Yeah... it works! But anyways... The story!\n\n"
-                    + "After a long lecture in Helsinki, our student has finally\n"
-                    + "boarded the K-Train. But the student didn't have enough money\n"
-                    + "to load his traveling card! To be continued...";
+            text = "The student realized too late while boarding the infamous K-Train that...";
+            return text;
+        }
+        if (scene == 3) {
+            text = "He didn't have enough money to buy a travelling ticket!\n"
+                    + "The Student has no other choice to travel as an Outlaw\n\n"
+                    + "To be continued...";
             return text;
         }
 

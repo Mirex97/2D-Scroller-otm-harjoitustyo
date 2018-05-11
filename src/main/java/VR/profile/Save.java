@@ -1,16 +1,11 @@
 
 package VR.profile;
 
-//This class handles saves!
+
 public class Save {
     private int id;
     private String letter;
-    private boolean tutorialDone; 
-    //These determine what safezone is in use. 
-    //And also which level can the player go to.
-    //For example level1Done is true and level2Done false.
-    //This means the players safezone is pasila and he can play level2.
-    //tutorialDone means that the player wont get the start intro anymore!
+    private boolean tutorialDone;
     private boolean level1Done;
     private boolean level2Done;
     public Save(int id, String letter, boolean tutorialDone, 

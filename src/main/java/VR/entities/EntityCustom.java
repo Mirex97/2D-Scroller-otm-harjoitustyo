@@ -9,7 +9,7 @@ public class EntityCustom extends EntitySuper {
     private boolean timerON = false;
     private String location;
     private Image image;
-    private int speed; //for drawing purposes;
+    private double speed;
     private boolean draw = true;
 
     public enum Dir {
@@ -41,7 +41,7 @@ public class EntityCustom extends EntitySuper {
     }
 
     //**Constructor for EntityCustom, Location for image location, x, y, speed, scale*/
-    public EntityCustom(String location, double x, double y, int speed, double scale) {
+    public EntityCustom(String location, double x, double y, double speed, double scale) {
         super(x, y);
         this.location = location;
         this.scale = scale;
@@ -125,6 +125,7 @@ public class EntityCustom extends EntitySuper {
         }
         image = new Image(location, (width * scale), (height * scale), true, true);
     }
+    
     
     /**Reloads image*/
     public void reloadImage() {

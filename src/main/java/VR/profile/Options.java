@@ -6,12 +6,16 @@ public class Options {
     private double volume;
     private String playername;
     private int profile_id;
-
-    public Options(int id, int profileid, double volume, String playername) {
+    private int resolution;
+    private boolean fullscreen;
+    
+    public Options(int id, int profileid, double volume, String playername, int resolution, boolean fullscreen) {
         this.id = id;
         this.profile_id = profileid;
         this.volume = volume;
         this.playername = playername;
+        this.resolution = resolution;
+        this.fullscreen = fullscreen;
     }
 
     public int getId() {
@@ -21,6 +25,24 @@ public class Options {
     public void setId(int id) {
         this.id = id;
     }
+
+    public int getResolution() {
+        return resolution;
+    }
+
+    public void setResolution(int resolution) {
+        this.resolution = resolution;
+    }
+
+    public boolean isFullscreen() {
+        return fullscreen;
+    }
+
+    public void setFullscreen(boolean fullscreen) {
+        this.fullscreen = fullscreen;
+    }
+    
+    
 
     public int getProfile_id() {
         return profile_id;

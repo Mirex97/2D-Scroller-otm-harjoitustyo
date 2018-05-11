@@ -69,14 +69,14 @@ public class Credits extends MapSuper implements Section {
                     gc.clearRect((0 - gc.getTransform().getTx()), (0 - gc.getTransform().getTy()), Main.width * Main.scale, Main.height * Main.scale);
 
                     if (!talking) {
-                        //Do not move if talking!
+                        
                         player.move();
 
                     }
 
                     camera.moveXY((int) player.getMiddleX() - (Main.width / 2), (int) player.getMiddleY() - (Main.height / 2));
                     camera.draw("Background");
-                    player.draw();
+                    player.draw(l);
                     for (Coin coin : objects.getCoins()) {
                         coin.draw();
                     }
@@ -94,7 +94,6 @@ public class Credits extends MapSuper implements Section {
                                 gui.write(text);
 
                             } else {
-                                //RESET
                                 written = false;
                                 texts.removeText(text);
                                 text = null;

@@ -32,6 +32,7 @@ public class MusicLoader {
         addMusic("MainMiddle", "/music/Keski(MAIN).wav");
         addMusic("MainEnd", "/music/Loppu(MAIN).wav");
         addMusic("Dream", "/music/DREAM.wav");
+        addMusic("Cancelled", "/music/CANCELLED.wav");
         addFX("SELECT", "/fx/SELECT.wav");
         addFX("TALK", "/fx/TALK.wav");
 
@@ -94,8 +95,6 @@ public class MusicLoader {
         } catch (Exception e) {
             System.out.println("Audio error :S");
             Main.login.error();
-//            e.printStackTrace();
-//            System.exit(-1);
         }
 
         music.put(name, clip);
@@ -127,10 +126,8 @@ public class MusicLoader {
             clip = AudioSystem.getClip();
             clip.open(dais);
         } catch (Exception e) {
-//            System.out.println("Audio error :S");
-//            Main.login.error();
-            e.printStackTrace();
-            System.exit(-1);
+            System.out.println("Audio error :S");
+            Main.login.error();
         }
 
         fx.put(name, clip);

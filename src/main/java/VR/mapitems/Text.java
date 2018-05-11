@@ -1,6 +1,5 @@
 package VR.mapitems;
 
-//Handles all texts and makes them appear in the gui!
 
 import java.awt.Rectangle;
 import java.util.ArrayList;
@@ -8,9 +7,9 @@ import java.util.ArrayList;
 public class Text {
 
     private Rectangle collision;
-    private String label; //Topic of the message.
-    private ArrayList<String> characters; //Character who talks!
-    private ArrayList<String> messages; //Message to be displayed
+    private String label;
+    private ArrayList<String> characters;
+    private ArrayList<String> messages;
     private String type;
     private int time;
     

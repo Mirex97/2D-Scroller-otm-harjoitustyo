@@ -28,8 +28,6 @@ public class FrameMaker {
         } catch (Exception e) {
             System.out.println("ERROR player image not found");
             Main.login.error();
-//            e.printStackTrace();
-//            System.exit(-1);
         }
         for (int i = 0; i < frameAmount.length; i++) {
             Image[] images = new Image[frameAmount[i]];

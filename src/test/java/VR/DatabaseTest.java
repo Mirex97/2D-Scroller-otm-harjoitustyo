@@ -62,7 +62,7 @@ public class DatabaseTest {
         String rem = System.getProperty("user.dir").replace('\\', '/') + "/test.db";
 
         if (!rem.equals("wat")) {
-            System.out.println(rem);
+            
             File remove = new File(rem);
             if (remove.exists()) {
                 System.out.println("EXISTS");
@@ -137,7 +137,7 @@ public class DatabaseTest {
         try {
             prof = profs.saveOrUpdate(prof);
             Profile save = prof;
-            opt = new Options(-1, prof.getId(), 1.0, "MEH");
+            opt = new Options(-1, prof.getId(), 1.0, "MEH", 100, true);
             opt = opts.saveOrUpdate(opt);
             assertTrue("Profile has incorrect id! " + prof.getId(), prof.getId() != -1);
             assertTrue("Options has incorrect id! " + opt.getId(), opt.getId() != -1);
@@ -160,9 +160,4 @@ public class DatabaseTest {
         }
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
 }

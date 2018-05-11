@@ -7,15 +7,12 @@ import tiled.core.Map;
 
 public class Animate extends EntitySuper {
 
-    // Collision
     protected Rectangle2D.Double collision;
-    //Movement
     protected int jumpSpeed = 4;
-    protected final int runningSpeed = 6;
-    protected final int walkingSpeed = 3;
+    protected int runningSpeed = 6;
+    protected double walkingSpeed = 3;
     protected int fallingSpeed = 5;
 
-    // Amplifiers for Falling and Jumping!
     protected double jumpAmplifier = 0;
     protected double jumpArk = 0.3;
     protected double jumpArkRelease = 0.2;
@@ -36,9 +33,13 @@ public class Animate extends EntitySuper {
 
     protected double middleX;
     protected double middleY;
+    
+    public void setWalkingSpeed(double speed) {
+        this.walkingSpeed = speed;
+    }
 
     public enum Action {
-        IDLE, WALKING, RUNNING, JUMPING, FALLING
+        IDLE, WALKING, RUNNING, JUMPING, FALLING, CONFUSED
     }
 
     public enum Facing {
@@ -122,7 +123,7 @@ public class Animate extends EntitySuper {
     public void left() {
         if (action != Action.JUMPING && action != Action.FALLING) {
 
-            action = Action.WALKING; //ONLY FOR ANIMATION!
+            action = Action.WALKING;
 
         }
 
@@ -137,7 +138,7 @@ public class Animate extends EntitySuper {
 
     public void leftRUN() {
         if (action != Action.JUMPING && action != Action.FALLING) {
-            action = Action.RUNNING; //ONLY FOR ANIMATION!
+            action = Action.RUNNING;
         }
         if (!collides(Dir.LEFT)) {
             if (face == Facing.RIGHT && action != Action.FALLING

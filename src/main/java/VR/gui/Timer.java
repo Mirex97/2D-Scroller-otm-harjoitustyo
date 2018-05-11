@@ -1,26 +1,37 @@
 package VR.gui;
 
-//Taken from Gui! Better to have it differently!
 public class Timer {
 
     private int time;
     private boolean on;
     private boolean ended;
     private long lastTime;
+    private final int maxTime;
 
     public Timer(int time) {
+        maxTime = time;
         this.time = time;
         ended = false;
         on = false;
         lastTime = 0;
     }
+    
+    public void resetAll() {
+        this.time = maxTime;
+        ended = false;
+        on = false;
+    }
 
     public void setTime(int time) {
         this.time = time;
+        ended = false;
     }
 
     public int getTime() {
         return time;
+    }
+    public int getMaxTime() {
+        return maxTime;
     }
     
     public boolean getEnded() {
@@ -38,13 +49,11 @@ public class Timer {
     public void count() {
         time--;
         if (time <= 0) {
-            System.out.println("wat");
             time = 0;
             ended = true;
         }
     }
 
-    //For animation purposes!
     public void update(long currentTime) {
         if (lastTime != 0) {
             if (currentTime > lastTime + 1_000_000_000) {

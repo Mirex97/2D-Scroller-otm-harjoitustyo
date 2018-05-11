@@ -32,6 +32,8 @@ public class Database {
                 + " profile_id Integer, \n"
                 + " volume Double, \n"
                 + " playername String NOT NULL, \n"
+                + " resolution Integer NOT NULL, \n"
+                + " fullscreen Boolean NOT NULL, \n"
                 + " FOREIGN KEY (profile_id) REFERENCES Profiles(id)\n"
                 + ");";
         String saves = "CREATE TABLE IF NOT EXISTS saves (\n"
@@ -46,7 +48,6 @@ public class Database {
                 + ");";
         try (Connection conn = DriverManager.getConnection(this.databaseAddress)) {
             Statement prof = conn.createStatement();
-            // create a new table
             prof.execute(profiles);
             prof.execute(options);
             prof.execute(saves);

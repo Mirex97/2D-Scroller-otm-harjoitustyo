@@ -9,7 +9,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
-//This cutscene will be played everytime a new game is started! --> Takes the player into tutorial.
 public class EndCutscene implements Section {
 
     private int scene;
@@ -86,12 +85,6 @@ public class EndCutscene implements Section {
                                 stop();
                                 Main.pauseMenu.clearRect();
                                 Main.pauseMenu = new Pause();
-                                try {
-                                    Main.test = new Test1();
-                                } catch (Exception e) {
-                                    System.out.println("Did not work! Test1!");
-                                    Main.login.error();
-                                }
                                 Main.gui.clearRect(0, 0, Main.width, Main.height);
                                 Main.menu.reset();
                                 Main.menu.setStop(false);
@@ -103,7 +96,6 @@ public class EndCutscene implements Section {
                         Text texti = new Text(currentText);
                         texti.setFont(Font.font("Impact", 20));
                         double width = texti.getLayoutBounds().getWidth();
-                        System.out.println(width);
                         Main.gui.setFont(Font.font("Impact", 20));
                         if (currentLetter < currentText.length()) {
                             if (currentText.charAt(currentLetter) == ' ') {
@@ -124,31 +116,33 @@ public class EndCutscene implements Section {
     public String getSceneText() {
         String text = "";
         if (scene == 0) {
-            text = "This was a demo...";
+            text = "This was a demo... full release in near future possibly.";
             return text;
         }
         if (scene == 1) {
-            text = "Didn't see that coming! :P";
+            text = "Tämä oli siis harjoitus ja myös tavoite luoda ensimmäinen oma pelini.\n"
+                    + "Alunperin suunnittelin tekeväni koko pelin valmiiksi näiden kahden kuukauden aikana,\n "
+                    + "mutta tämä sitten tyssääntyi "
+                    + "erilaisiin ongelmiin. \n\n"
+                    + "Ja ehkä hieman laajahkon projektin valitsin itselleni mutta paljon tästä oppii. \n\n"
+                    + "Tämä oli siis hyvin tärkeä haaste itselleni päästä kokeilemaan miltä\n"
+                    + "pelinkehittäjänä tuntuu olla ja tiedän nyt 100% varmasti,\n "
+                    + "että haluan jatkaa näiden parissa! \n"
+                    + "(On jo muutamia ideoita lisää mitä tehdä ja \n "
+                    + "tänä kesänä itseasiassa haluan aloittaa heti uuden pelin tekemisen.) \n "
+                    + "Tietysti pitää tehdä VR The Adventure remastered versio, \n "
+                    + "jollain pelimoottorilla!";
             return text;
         }
         if (scene == 2) {
-            text = "Viimeiset sanat: On ollut pahuksen hauskaa tehdä tätä projektia vaikka pieneltä vaikuttaa! \n"
-                    + "(Tämä oli ensimmäinen koskaan tekemäni peli!)\n\n"
-                    + "Kuitenkin nyt on jäänyt pahasti ajasta kiinni (ja tämä oli tosi laaja projekti näin vähälle ajalle muutenkin)\n "
-                    + "Mutta kuitenkin tarkoituksena olikin alun perin tutustua pelien tekoon \n"
-                    + "ja myös ymmärtää minkälaista se on! (Jatkoa ajatellen siis!)\n"
-                    + "Jatkokehitys ideana aijon luoda kunnon pelin \n\n"
-                    + "ja tähän käytän pelimoottorina esimerkiksi \n"
-                    + "Unityä tai Unrealia (Niistä olen kiinnostunut tällä hetkellä)\n\n"
-                    + "Virheitä joita tein alusta pitäen: Ei kunnon suunnitelmia alussa ja menin heti työn kimppuun.\n"
-                    + "(Innostuin ehkä vähän liikaakin pelistä alusta pitäen ja ongelmia alkoi kasaantua \n"
-                    + "(Viitaten libtiled ja mavenin yhteensopivuus. Jonka sain korjattua onneksi!))\n"
-                    + "Grafiikan puute rajoitti myös paljon projektin tekoa. Ja sen aikavaativuus!\n"
-                    + "Nyt ymmärrän paremmin miksi pelien tekemisessä vie niin paljon aikaa.\n"
-                    + "Mutta kuitenkin opin tosi paljon kaikkea uutta.\n"
-                    + "Käytetyt sovellukset: Tiled (Kentät), Audacity, Aseprite (Kaikki grafiikat), \n"
-                    + "Netbeans, Rytmik Ultimate (ÄÄnitehosteet)\n"
-                    + "Kiitokset vielä Tuukalle biiseistä!";
+            text = "Vielä viimeiset sanat: Kiitokset Tuukalle hyvistä biiseistä,\n "
+                    + "varmaan jatkossakin pyydän häneltä jeesiä jälleen!\n"
+                    + "Käytetyt sovellukset: Aseprite, Audacity, Tiled "
+                    + "ja tietysti Netbeans!\n"
+                    + "PS. Kannattaa tutustua Tiled sovellukseen.\n"
+                    + "Pelini oli inspiroitu 'Shovel Knight' pelistä \n "
+                    + "ja sen kautta myös löysin tämän kyseisen ohjelman.\n"
+                    + "Ja ei ole pöllömpi! Jatkossa aijon käyttää sitä uudelleen ja paremmin.";
             return text;
         }
 

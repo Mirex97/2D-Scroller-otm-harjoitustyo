@@ -26,7 +26,13 @@ public class OptionsDao implements Dao<Options, Integer> {
         if (!hasOne) {
             return null;
         }
-        Options option = new Options(rs.getInt("id"), rs.getInt("profile_id"), rs.getDouble("volume"), rs.getString("playername"));
+        Options option = new Options(
+                rs.getInt("id"),
+                rs.getInt("profile_id"),
+                rs.getDouble("volume"),
+                rs.getString("playername"),
+                rs.getInt("resolution"),
+                rs.getBoolean("fullscreen"));
         rs.close();
         stmt.close();
         conn.close();
@@ -47,25 +53,32 @@ public class OptionsDao implements Dao<Options, Integer> {
         boolean hasOne = rs.next();
         if (hasOne) {
             testStatement.close();
-            PreparedStatement updateStatement = conn.prepareStatement("UPDATE Options SET volume = ?, playername = ? "
+            PreparedStatement updateStatement = conn.prepareStatement("UPDATE Options SET volume = ?, "
+                    + "playername = ?,"
+                    + "resolution = ?,"
+                    + "fullscreen = ?"
                     + "WHERE (profile_id = ?)");
             updateStatement.setDouble(1, object.getVolume());
             updateStatement.setString(2, object.getPlayername());
-            updateStatement.setInt(3, object.getProfile_id());
+            updateStatement.setInt(3, object.getResolution());
+            updateStatement.setBoolean(4, object.isFullscreen());
+            updateStatement.setInt(5, object.getProfile_id());
             updateStatement.executeUpdate();
             updateStatement.close();
-            
+
             rs.close();
             conn.close();
             return null;
         }
         testStatement.close();
         rs.close();
-        PreparedStatement saveStatement = conn.prepareStatement("INSERT INTO Options (profile_id, volume, playername) "
-                + "VALUES (?, ?, ?)");
+        PreparedStatement saveStatement = conn.prepareStatement("INSERT INTO Options (profile_id, volume, playername, resolution, fullscreen) "
+                + "VALUES (?, ?, ?, ?, ?)");
         saveStatement.setInt(1, object.getProfile_id());
         saveStatement.setDouble(2, object.getVolume());
         saveStatement.setString(3, object.getPlayername());
+        saveStatement.setInt(4, object.getResolution());
+        saveStatement.setBoolean(5, object.isFullscreen());
         saveStatement.executeUpdate();
         saveStatement.close();
 

@@ -19,14 +19,14 @@ public class OptionsTest {
     
     @Before
     public void setUp() {
-        option = new Options(1, 2, 1.4, "Player");
+        option = new Options(1, 2, 1.4, "Player", 100, true);
     }
     
     @Test
     public void setIDsAndPlayerSettings() {
         option.setId(3);
         option.setProfile_id(3);
-        option.setVolume(0); //Same as mute.
+        option.setVolume(0);
         option.setPlayername("Do a barrel roll!");
         assertTrue("Set id didn't work! " + option.getId(), option.getId() == 3);
         assertTrue("Set prof_id didn't work! " + option.getProfile_id(), option.getProfile_id() == 3);

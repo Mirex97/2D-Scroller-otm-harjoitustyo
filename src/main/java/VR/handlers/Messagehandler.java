@@ -66,8 +66,6 @@ public class Messagehandler {
                 messages.add(object.getProperties().getProperty(testing));
                 
             }
-//            Collections.reverse(characters);
-//            Collections.reverse(messages);
 
             Text text = new Text(label, characters, messages, collision, object.getType());
             texts.add(text);

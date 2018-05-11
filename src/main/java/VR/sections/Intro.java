@@ -3,15 +3,14 @@ package VR.sections;
 import VR.Main;
 import VR.audio.AudioPlayer;
 import VR.entities.EntityCustom;
-import VR.events.Level1Cutscenes;
 import VR.handlers.Keylistener;
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-//import javafx.scene.paint.Color;
+
 import javafx.stage.Stage;
 import VR.sections.Section;
-//import javafx.stage.StageStyle;
+
 
 public class Intro implements Section {
 
@@ -26,27 +25,12 @@ public class Intro implements Section {
     private Boolean anyKeyPressed = false;
     private final Keylistener keys;
 
-    private final int width;
-    private final int height;
+    private final double width;
+    private final double height;
     private final double scale;
 
-    private Level1Cutscenes cut;
 
-    /*Mitä pitää tehdä vielä: Toiminnallisuus valikolle <-- oma luokka?. 
-    Valikko heittää siitä peliin tai pois pelistä. Valikko myös tallennuksille.
-    Lisäksi myös creditsit! Luon näille mahdollisesti omat luokat, 
-    koska venyy tämän metodi liian pitkäksi.
-    Napit:
-    - New Game (aloittaa uuden pelin).
-    - Load Game (lataa jo tallennetun pelin, tulostaa No saves jos ei ole tallennuksia).
-    - Credits (heittää lopputeksteihin. Ja jos sen skippaa niin palaa takaisin menuun.)
-    - Quit (sulkee pelin, sama toiminnallisuus kuin nytten --> Stage.Close()).
     
-    Vielä kertaalleen mitkä animaatiot puuttuvat:
-    - Valikko <-- Todennäköisesti tässä luokassa. Pitkän rimpsun perään. MUUTOS tästä tuleekin luokka!!
-    - Lopputekstit <-- Oma luokka! Voi kutsua sitten pelin voitettua!
-    - Tallennus menu <-- Oma luokka. Tämän metodi vain kutsuu draw ja välittää profiilin tiedot.
-    - DONE*/
     public Intro() {
         width = Main.width;
         height = Main.height;
@@ -55,8 +39,6 @@ public class Intro implements Section {
         stage = Main.stage;
         canvas = Main.canvas;
 
-//        stage.initStyle(StageStyle.TRANSPARENT);
-//        scene.setFill(Color.TRANSPARENT);
         gc = Main.gc;
 
         /*Load manageri näitä varten!*/
@@ -76,7 +58,6 @@ public class Intro implements Section {
         this.logo.setDir(EntityCustom.Dir.STILL);
         this.logo.setOpacity(0.0);
 
-        cut = new Level1Cutscenes(stage, gc);
     }
 
     @Override

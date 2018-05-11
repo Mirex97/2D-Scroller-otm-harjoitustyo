@@ -1,7 +1,7 @@
 package VR.entities;
 
-//Enemy who walks slowly towards player! Only moves when player is at certain range! Otherwise idles!
 import VR.Main;
+import VR.gui.Timer;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.geom.Area;
@@ -10,16 +10,19 @@ import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.util.Random;
 import javafx.scene.image.Image;
 import javax.imageio.ImageIO;
 import tiled.core.Map;
 
-// Might jump!
-//If player touches him, he'll be stunned for a moment.
 public class Hobo extends Animate {
 
     private Image image;
     private final Area area;
+    private final int distance = 600;
+    private Timer tallyCounter;
+    private Random randomizer;
+    private boolean movement;
 
     public Hobo(Map map, Area area, double x, double y) {
         super(map, area);
@@ -29,14 +32,28 @@ public class Hobo extends Animate {
         setCollision(x, y);
         middleX = image.getWidth() / 2;
         middleY = image.getHeight() / 2;
+        this.setWalkingSpeed(0.5);
+        randomizer = new Random();
+        tallyCounter = new Timer(2);
+        movement = false;
     }
 
-    public void move(Player player, Area instructions) { //Unique for hobo
-        //Instructions is created from the tilemap objects and contains
-        //spots where character has to jump for example!
-        //if ([INSIDE AREA]) {
-        //action = action.JUMPING;
-        //}
+    public void move(Player player, Area instructions, long l) {
+        if (!movement) {
+            if (randomizer.nextInt(100) < 3) {
+                if (randomizer.nextInt(100) < 10) {
+                    action = Action.JUMPING;
+                }
+                movement = true;
+                tallyCounter.setOn(true);
+            }
+        } else {
+            tallyCounter.update(l);
+            if (tallyCounter.getEnded()) {
+                movement = false;
+                tallyCounter.resetAll();
+            }
+        }
 
         if (action != action.JUMPING) {
             down();
@@ -44,11 +61,15 @@ public class Hobo extends Animate {
         if (action == Action.JUMPING) {
             up(false);
         }
-        if (player.getMiddleX() < this.middleX) {
-            left();
-        }
-        if (player.getMiddleX() > this.middleX) {
-            right();
+
+        if (movement) {
+            if (player.getMiddleX() > (this.x - distance) && player.getMiddleX() < this.x) {
+                left();
+            }
+            if (player.getMiddleX() < (distance + this.x + this.width) && player.getMiddleX() > (this.x + this.width)) {
+                right();
+            }
+
         }
 
         reloadCollision();
@@ -56,11 +77,7 @@ public class Hobo extends Animate {
     }
 
     public void draw() {
-        //Need images from sprite class! And get action and direction from super!
-//        System.out.println(super.face);
-//        System.out.println(super.action);
         Main.gc.drawImage(image, x, y);
-//        Main.gc.fillRect(collision.x, collision.y, collision.width, collision.height);
     }
 
     public void setSpawnpoint(int x, int y) {

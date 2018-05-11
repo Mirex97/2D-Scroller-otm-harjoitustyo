@@ -18,6 +18,8 @@ public class Gui {
     private Text text;
     private EntityCustom speechBox;
     private EntityCustom portrait;
+    
+    
 
     private int textMinY;
     private int textAmount = 0;
@@ -51,7 +53,7 @@ public class Gui {
         speechBox.setSpeed(2);
         speechBox.setY(0 - (int) speechBox.getHeight());
         textMinY = 0 - (int) speechBox.getHeight();
-        portrait = new EntityCustom("characters/player/PlayerBox.png");
+        portrait = Main.images.getPlayer();
         background = new EntityCustom("gui/Gui.png");
         text = null;
 
@@ -62,16 +64,14 @@ public class Gui {
         return text;
     }
 
-    //Set writable text!
     public void write(Text text) {
         this.text = text;
         if (text.getCharacters().get(0).equals("Player")) {
-            portrait.setImage("characters/player/PlayerBox.png");
+            portrait = Main.images.getPlayer();
         }
         if (text.getTime() != -1) {
             this.uptime = text.getTime();
             uptimer = true;
-            System.out.println("test");
         } else {
             this.uptime = -1;
             uptimer = false;
@@ -86,11 +86,10 @@ public class Gui {
 
     }
 
-    public void clearRect() { //for manual use!
+    public void clearRect() {
         Main.gui.clearRect(0, 0, Main.width, Main.height);
     }
 
-//This is the main draw method!
     public void draw(long l) {
         Main.gui.clearRect(0, 0, Main.width, Main.height);
         background.draw(Main.gui);
@@ -113,8 +112,6 @@ public class Gui {
         if (!toggle) {
             if (!rolledDOWN) {
                 rolledUP = false;
-                //Set everything to move down!
-                //Once done set rolledDOWN to true;
                 speechBox.setDir(EntityCustom.Dir.DOWN);
                 if (speechBox.getY() >= 0) {
                     speechBox.setDir(EntityCustom.Dir.STILL);
@@ -127,13 +124,19 @@ public class Gui {
                     Main.gui.setFont(Font.font("Impact", 15));
                     Main.gui.setFill(Color.WHITE);
                     if (text.getCharacters().get(currentText).equals("Player")) {
+                        portrait = Main.images.getPlayer();
                         Main.gui.fillText(Main.options.getPlayername(), portrait.getX(), portrait.getY() + 3, portrait.getWidth());
                     } else {
+                        if (text.getCharacters().get(currentText).equals("Intercom")) {
+                            portrait = Main.images.getIntercom();
+                        }
+                        if (text.getCharacters().get(currentText).equals("Smurfradar")) {
+                            portrait = Main.images.getRadar();
+                        }
                         Main.gui.fillText(text.getCharacters().get(currentText), portrait.getX(), portrait.getY() + 3, portrait.getWidth());
                     }
                     Main.gui.setFont(Font.font("Impact", 20));
                     Main.gui.setFill(Color.WHITE);
-//                    Main.gui.setFont(meh);
                     Main.gui.fillText(text.getMessages().get(currentText).substring(0, currentLetter), portrait.getX() + portrait.getWidth() + 50, portrait.getY() + (portrait.getHeight() / 2), speechBox.getWidth());
                     if (currentLetter < text.getMessages().get(currentText).length()) {
                         if (text.getMessages().get(currentText).charAt(currentLetter) == ' ') {
@@ -152,7 +155,6 @@ public class Gui {
 
                         if (uptimer) {
                             if (uptime > -1) {
-                                System.out.println(uptime);
                                 uptime--;
                             } else {
                                 currentLetter = 0;
@@ -170,8 +172,6 @@ public class Gui {
         } else {
             if (!rolledUP) {
                 rolledDOWN = false;
-                //Set everything to move up!
-                //Once done set rolledUP to true;
                 speechBox.setDir(EntityCustom.Dir.UP);
                 if (speechBox.getY() <= textMinY) {
                     speechBox.setDir(EntityCustom.Dir.STILL);
@@ -187,9 +187,16 @@ public class Gui {
 
     }
 
-//This is for drawing score into gui!
     public void drawScore(Score score) {
-        Main.gui.setFont(Font.font("Impact", 20));
-        Main.gui.fillText("" + score.getScore(), 10, 55);
+        if (score.getActualScore() < 0) {
+            Main.gui.setFill(Color.RED);
+            Main.gui.setFont(Font.font("Impact", 20));
+            Main.gui.fillText("" + score.getScore(), 10, 55);
+        } else {
+            Main.gui.setFont(Font.font("Impact", 20));
+            Main.gui.fillText("" + score.getScore(), 10, 55);
+        }
+        Main.gui.setFill(Color.WHITE);
+        
     }
 }

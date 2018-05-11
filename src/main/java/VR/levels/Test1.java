@@ -2,6 +2,9 @@ package VR.levels;
 
 import VR.Main;
 import VR.camera.Camera;
+import VR.entities.Animate;
+import VR.entities.Conductor;
+import VR.entities.EntityCustom;
 import VR.entities.EntitySuper;
 import VR.entities.Hobo;
 import VR.mapitems.Coin;
@@ -17,8 +20,11 @@ import VR.handlers.Messagehandler;
 import VR.mapitems.Cutscene;
 import VR.mapitems.Text;
 import VR.sections.Section;
+
 import java.util.ArrayList;
 import java.util.Iterator;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 
 public class Test1 extends MapSuper implements Section {
 
@@ -37,9 +43,16 @@ public class Test1 extends MapSuper implements Section {
     private boolean stop;
     private Score score;
     private boolean victory = false;
+    private boolean lose = false;
+    private String loseType = "OUT";
+    private String location;
 
-    public Test1() throws Exception {
-        super("untitled.tmx");
+    private ArrayList<Conductor> conductors;
+
+    public Test1(String location) throws Exception {
+        super(location);
+
+        this.location = location;
         map = this.getMap();
         camera = new Camera(map, 16);
 
@@ -48,15 +61,18 @@ public class Test1 extends MapSuper implements Section {
         objects = new MapObjecthandler(map);
         texts = new Messagehandler(map);
 
-        //These need to be organized better into the Super class!
-        //Once I have more levels then this is necessary!
         hobos = new ArrayList<>();
         for (EntitySuper spawn : objects.getHobos()) {
             hobos.add(new Hobo(map, this.getBoundary(), spawn.getX(), spawn.getY()));
         }
 
+        conductors = new ArrayList<>();
+        for (EntitySuper spawn : objects.getConductors()) {
+            conductors.add(new Conductor(map, this.getBoundary(), spawn.getX(), spawn.getY()));
+        }
+
         gc = Main.gc;
-        gui = new Gui(300);
+        gui = new Gui(60);
         player = new Player(map, this.getBoundary());
         player.setSpawnpoint((int) objects.getPlayerX() * 2, (int) objects.getPlayerY() * 2);
 
@@ -85,14 +101,24 @@ public class Test1 extends MapSuper implements Section {
         this.stop = stop;
     }
 
+    public boolean getStop() {
+        return this.stop;
+    }
+
     @Override
     public void animate() {
-        //Camera test!
+
+        camera.drawImages("Images");
+        camera.drawImages("FrontGround");
+        camera.drawImages("FrontImages");
+        
         new AnimationTimer() {
             int waitTime = 0;
             Text text = null;
             Cutscene cut = null;
             boolean written = false;
+            int waitASecond = 30;
+            boolean once = false;
 
             @Override
             public void handle(long l) {
@@ -105,12 +131,30 @@ public class Test1 extends MapSuper implements Section {
                         Main.pauseMenu.clearRect();
                         Main.pauseMenu = new Pause();
                         try {
-                            Main.test = new Test1();
+                            Main.test = new Test1(location);
                         } catch (Exception e) {
                             System.out.println("Did not work! Test1!");
                             Main.login.error();
                         }
                         Main.cutscenes.getEnd().animate();
+                    }
+                    if (lose) {
+                        if (waitASecond > 0) {
+                            waitASecond--;
+                        } else {
+
+                            this.stop();
+                            gui.clearRect();
+                            Main.pauseMenu.clearRect();
+                            Main.pauseMenu = new Pause();
+                            try {
+                                Main.test = new Test1(location);
+                            } catch (Exception e) {
+                                System.out.println("Did not work! Test1!");
+                                Main.login.error();
+                            }
+                            Main.cutscenes.getLose(loseType).animate();
+                        }
                     }
 
                     if (pause.getStop()) {
@@ -119,7 +163,7 @@ public class Test1 extends MapSuper implements Section {
                         Main.pauseMenu.clearRect();
                         Main.pauseMenu = new Pause();
                         try {
-                            Main.test = new Test1();
+                            Main.test = new Test1(location);
                         } catch (Exception e) {
                             System.out.println("Did not work! Test1!");
                             Main.login.error();
@@ -136,22 +180,93 @@ public class Test1 extends MapSuper implements Section {
                     if (!pause.getPaused()) {
                         gc.clearRect((0 - gc.getTransform().getTx()), (0 - gc.getTransform().getTy()), Main.width * Main.scale, Main.height * Main.scale);
                         Main.backGround.draw();
-                        if (cut == null) {
+                        if (lose) {
+                            Main.gc.setFill(Color.RED);
+                            Main.gc.fillRect((0 - gc.getTransform().getTx()), (0 - gc.getTransform().getTy()), Main.width * Main.scale, Main.height * Main.scale);
+                            Main.gc.setFill(Color.WHITE);
+                        }
+                        if (cut == null && !lose) {
                             if (!talking) {
-                                //Do not move if talking!
-                                player.move();
-                                for (Hobo hobo : hobos) {
-                                    hobo.move(player, null);
+                                if (!player.getConfused()) {
+                                    player.move();
+                                } else {
+                                    player.moveCUT(Animate.Dir.DOWN);
+                                    player.setAction(Animate.Action.CONFUSED);
                                 }
+                                for (Hobo hobo : hobos) {
+                                    hobo.move(player, null, l);
+                                }
+                                if (gui.getTimer().getEnded()) {
+                                    for (Conductor con : conductors) {
+                                        con.move(player, null, l);
+                                    }
+                                }
+                            } else {
+                                player.moveCUT(Animate.Dir.DOWN);
                             }
+                        } else {
+                            player.moveCUT(Animate.Dir.DOWN);
+                        }
+                        
+                        if (objects.getKillZone().intersects(player.getCollision())) {
+                            loseType = "OUT";
+                            lose = true;
                         }
 
                         camera.moveXY(player.getMiddleX() - (Main.width / 2), player.getMiddleY() - (Main.height / 2));
-                        camera.drawImages("Images");
-//                        camera.draw("Background");
-                        player.draw();
+                        if (!lose) {
+                            camera.drawImages("Images");
+                        }
+                        player.draw(l);
                         for (Hobo hobo : hobos) {
+                            if (player.getCollision().intersects(hobo.getCollision())) {
+                                if (!player.getConfTimer().getOn()) {
+                                    if (player.is_meterDown()) {
+                                        player.setConfused(true);
+                                        player.reset_confusionMeter();
+                                        score.addScore(-10);
+                                    } else {
+                                        player.dec_confusionMeter();
+                                    }
+
+                                }
+                            }
                             hobo.draw();
+                        }
+
+                        if (gui.getTimer().getEnded()) {
+                            if (!once) {
+                                once = true;
+                                ArrayList<String> meh = new ArrayList<>();
+                                ArrayList<String> meh1 = new ArrayList<>();
+                                meh.add("Smurfradar");
+                                meh1.add("Watch out! Bogies inbound!");
+                                Text texti = new Text("RUN", meh, meh1, null, "nonstop");
+                                texti.setTime(60);
+                                gui.write(texti);
+                                text = texti;
+                                written = true;
+                                
+                                
+                                Main.bgMusic.changeClip(Main.musicloader.getMusic("Cancelled"));
+                                Main.bgMusic.play();
+                            }
+                            for (Conductor con : conductors) {
+                                if (player.getCollision().intersects(con.getCollision())) {
+                                    if (!player.getConfTimer().getOn()) {
+                                        if (player.is_meterDown()) {
+                                            lose = true;
+                                            loseType = "CAUGHT";
+                                            player.reset_confusionMeter();
+                                            score.addScore(-80);
+                                        } else {
+                                            player.dec_confusionMeter();
+                                        }
+
+                                    }
+                                }
+                                con.draw();
+                            }
                         }
 
                         if (objects.getVictory().intersects(player.getCollision())) {
@@ -166,8 +281,6 @@ public class Test1 extends MapSuper implements Section {
 
                         Iterator<Coin> iter = objects.getCoins().listIterator();
 
-                        //Need to use sprite class for coins! Then the coins dont just disappear when collected!
-                        //This also allows to make floating scores when drawing the coin!
                         while (iter.hasNext()) {
                             Coin coin = iter.next();
                             if (player.getCollision().intersects(coin.getCollision()) && !coin.getDestroy()) {
@@ -183,7 +296,12 @@ public class Test1 extends MapSuper implements Section {
 
                         }
 
-                        camera.draw("Frontground");
+                        if (!lose) {
+                            camera.drawImages("FrontGround");
+                            if (objects.getHide().intersects(player.getCollision())) {
+                                camera.drawImages("FrontImages");
+                            }
+                        }
                         gui.draw(l);
                         score.updateScore();
                         gui.drawScore(score);
@@ -208,7 +326,7 @@ public class Test1 extends MapSuper implements Section {
                                     gui.write(text);
 
                                 } else {
-                                    //RESET
+
                                     written = false;
                                     texts.removeText(text);
                                     text = null;

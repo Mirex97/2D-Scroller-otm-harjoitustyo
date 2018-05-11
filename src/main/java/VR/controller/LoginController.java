@@ -45,7 +45,7 @@ public class LoginController {
             errors.setText("Username already taken!");
         } else {
             errors.setVisible(false);
-            Options option = new Options(-1, prof.getId(), 1, "Player");
+            Options option = new Options(-1, prof.getId(), 1, "Player", 768, false);
             try {
                 option = Main.optionsdao.saveOrUpdate(option);
             } catch (Exception e) {
@@ -80,7 +80,7 @@ public class LoginController {
                 Main.login.error();
             }
             if (option == null) {
-                System.out.println("PERKELE!!!!");
+                System.out.println("Options not found!");
             }
             Main.options = option;
             Main.login.menu();

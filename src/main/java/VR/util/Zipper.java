@@ -34,17 +34,12 @@ public class Zipper {
             folder.mkdir();
         }
 
-//        ZipUtil.unpack(new File(file), new File(outputFolder));
         ZipUtil.explode(new File(file));
     }
 
     public void unZip(String findFile, String outFolder) {
 
-        try {
-            System.out.println(new File(Main.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath()).getParentFile().getPath());
-        } catch (URISyntaxException ex) {
-            Logger.getLogger(Zipper.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
         String file = "";
         String outputFolder = "";
         try {
@@ -55,8 +50,6 @@ public class Zipper {
             Logger.getLogger(Zipper.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        System.out.println(file);
-        System.out.println(outputFolder);
         byte[] buffer = new byte[1024];
 
         try {
@@ -75,7 +68,6 @@ public class Zipper {
                 String fileName = ze.getName();
                 File newFile = new File(outputFolder + File.separator + fileName);
 
-                System.out.println("file unzip : " + newFile.getAbsoluteFile());
 
                 new File(newFile.getParent()).mkdirs();
 
@@ -93,10 +85,10 @@ public class Zipper {
 
             zis.close();
 
-            System.out.println("Done");
 
         } catch (IOException ex) {
-            ex.printStackTrace();
+            System.out.println("Zip error!");
+            Main.login.error();
         }
     }
 }

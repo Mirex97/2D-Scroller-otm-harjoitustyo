@@ -59,7 +59,6 @@ public class Cutscene {
     }
 
     public void play(Player player, Gui gui) {
-        System.out.println(keyset.size());
         if (currentProp < keyset.size()) {
             if (now) {
                 if (!once) {
@@ -95,9 +94,6 @@ public class Cutscene {
                 } else {
 
                     String[] splitted = properties.getProperty(keyset.get(currentProp)).split(";");
-                    System.out.println("Pointer: " + helpfulPointer);
-                    System.out.println("Counter: " + helpfulCounter);
-                    System.out.println(splitted[helpfulPointer]);
                     if (splitted[helpfulPointer].equals("FINISH:0")) {
                         helpfulPointer = 0;
                         helpfulCounter = 0;
@@ -116,6 +112,15 @@ public class Cutscene {
                         if (splitty[0].equals("RIGHT") || splitty[0].equals("RIGTH")) {
                             if (helpfulCounter < Integer.parseInt(splitty[1])) {
                                 player.moveCUT(Player.Dir.RIGHT);
+                                helpfulCounter++;
+                            } else {
+                                helpfulCounter = 0;
+                                helpfulPointer++;
+                            }
+                        }
+                        if (splitty[0].equals("STILL")) {
+                            if (helpfulCounter < Integer.parseInt(splitty[1])) {
+                                player.moveCUT(Player.Dir.DOWN);
                                 helpfulCounter++;
                             } else {
                                 helpfulCounter = 0;

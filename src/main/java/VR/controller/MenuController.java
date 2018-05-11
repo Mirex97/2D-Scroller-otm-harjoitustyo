@@ -25,7 +25,6 @@ public class MenuController {
 
     @FXML
     void logout(ActionEvent event) {
-        //Set everything to null!
         Main.profile = null;
         Main.options = null;
         Main.saves = new ArrayList<>();
@@ -38,7 +37,6 @@ public class MenuController {
             Main.startGAME();
         } catch (Exception e) {
             System.out.println("Error START GAME");
-            e.printStackTrace();
             Main.login.error();
         }
     }

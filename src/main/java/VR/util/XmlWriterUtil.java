@@ -49,7 +49,7 @@ public class XmlWriterUtil {
         return windows;
     }
 
-    //Modify every image node into the correct path!
+
     public void windowsFix(String path) {
         try {
             File file = new File(path);
@@ -62,7 +62,6 @@ public class XmlWriterUtil {
                 Node tileset = images.item(i);
                 NamedNodeMap attr = tileset.getAttributes();
                 Node nodeAttr = attr.getNamedItem("source");
-                System.out.println(nodeAttr.getNodeValue());
                 nodeAttr.setTextContent("./levels/" + nodeAttr.getNodeValue());
             }
             TransformerFactory transformerFactory = TransformerFactory.newInstance();

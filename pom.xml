@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>scroller</groupId>
     <artifactId>VR_The_Adventure</artifactId>
-    <version>1.1</version>
+    <version>1.2</version>
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
@@ -161,6 +161,7 @@
                         <exclude>VR/handlers/*Imagehandler.*</exclude>
                         <exclude>VR/handlers/*MapObjecthandler.*</exclude>
                         <exclude>VR/handlers/*Messagehandler.*</exclude>
+                        <exclude>VR/handlers/*CutsceneObjects.*</exclude>
                         <exclude>VR/audio/*</exclude>
                         <exclude>VR/controller/*</exclude>
                         <exclude>VR/util/*</exclude>

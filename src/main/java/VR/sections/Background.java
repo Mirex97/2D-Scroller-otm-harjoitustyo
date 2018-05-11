@@ -14,7 +14,6 @@ public class Background {
     private double y;
     private double originalY;
 
-    //Background that just moves! Usable for menu and ingame!
     public Background(String location) {
         background = new EntityCustom(location);
         background.setDir(EntityCustom.Dir.LEFT);

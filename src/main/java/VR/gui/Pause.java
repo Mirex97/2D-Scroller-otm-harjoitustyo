@@ -12,12 +12,9 @@ public class Pause {
     private EntityCustom offSave;
     private EntityCustom onQuit;
     private EntityCustom offQuit;
-//    private EntityCustom onYES;
-//    private EntityCustom offYES;
-//    private EntityCustom onNO;
-//    private EntityCustom offNO;
 
-//    private boolean saved;
+
+    private boolean saved;
     private boolean isPaused;
     private int selection = 0;
     private int selAmount = 3;
@@ -73,7 +70,6 @@ public class Pause {
             if ((Main.keys.getInput().contains("S") && Main.keys.getInput().contains("W"))
                     || (Main.keys.getInput().contains("UP")
                     && Main.keys.getInput().contains("DOWN"))) {
-                //donothing
             } else if (Main.keys.getInput().contains("W")
                     || Main.keys.getInput().contains("UP")) {
                 if (selection - 1 >= 0) {
@@ -100,7 +96,7 @@ public class Pause {
             }
         }
 
-        //CONTINUE
+
         if (selection == 0) {
             onContinue.draw(Main.pause);
         } else {

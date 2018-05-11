@@ -5,10 +5,13 @@
  */
 package VR.events;
 
+import VR.entities.Player;
+
 
 public class CutsceneHandler {
     private NewGameCutscene newGame;
     private EndCutscene endGame;
+    private LoseScene loseGame;
     
     public CutsceneHandler() {
         
@@ -21,6 +24,11 @@ public class CutsceneHandler {
     public EndCutscene getEnd() {
         endGame = new EndCutscene();
         return endGame;
+    }
+    
+    public LoseScene getLose(String loseType) {
+        loseGame = new LoseScene(loseType);
+        return loseGame;
     }
     
 }

@@ -23,7 +23,7 @@ public class MapSuper {
 
     private tiled.core.Map map;
     private TileSet setti;
-    private TileLayer play;
+    protected TileLayer play;
     private ObjectGroup group;
     private int scale;
 
@@ -31,8 +31,7 @@ public class MapSuper {
 
     public MapSuper(String location) throws Exception {
         String here = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath()).getParentFile().getPath().replace('\\', '/') + "/levels/" + location;
-//        System.out.println(System.getProperties().getProperty("java.class.path").split(";")[0] + "/levels/" + location);
-//        map = new TMXMapReader().readMap(System.getProperties().getProperty("java.class.path").split(";")[0] + "/levels/" + location);
+
         if (!Main.xmlWriter.getFixed()) {
             Main.xmlWriter.fixTileset(here);
         }
@@ -47,7 +46,7 @@ public class MapSuper {
         }
         if (this.play == null) {
             System.out.println("No 'Play' layer inside map! CREATE IT!");
-            System.exit(-1);
+            Main.login.error();
         }
         scale = 2;
 
@@ -66,7 +65,7 @@ public class MapSuper {
 
         for (int y = 0; y <= map.getHeight(); y++) {
             for (int x = 0; x <= map.getWidth(); x++) {
-                if (play.getTileAt(x, y) == null) { //Get tile at x and y! If null go to next!
+                if (play.getTileAt(x, y) == null) {
                     continue;
                 }
                 tile = play.getTileAt(x, y);
