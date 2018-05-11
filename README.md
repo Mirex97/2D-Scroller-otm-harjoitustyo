@@ -6,20 +6,12 @@ Ohjeet testaamiseen löytyy alta! Osiosssa "Testaajille". <-- Nämä ovat tärke
 Peli on 2D scrolleri, jossa seikkaillaan asemilta toisille ja pyritään pääsemään lipuntarkastajia karkuun!
 Asemat ovat turva-alueita ja kentät ovat junan sisällä. Tietyissä kentissä on bosseja ja tietysti final boss.
 
-## Tämän hetkiset bugit:
-- Jouduin muuttamaan graaffista toimintoa, jolla piirretään kartta ruudulle, nyt tämä hakee suoraan kuvan kuin yksitellen luo ruudut kerrallaan.
-  - Tämä aiheutti pätkintää suuremmalla kentällä ja siksi jouduin muuttamaan. (Tämä olisi pitänyt havaita aikaisemmin).
-- Graaffisen muutoksen takia hahmo ei näy oikealla tasolla (Täysin graaffinen pulma). Täytyy käydä kaikki kohdat läpi ja erotella mitkä ovat edessä ja takana.
-- Muuten ei vakavia bugeja, mutta toimintojen puutetta on.
 
 ## Puuttuvat toiminnot:
 - Pelaajan häviäminen (jos menee yli kartan.)
-- Spurguun reagoiminen (Menettää rahaa ja pökertyy hetkeksi).
-- Spurgun liikkeet (Tämän liikkeet pitäisi olla enemmän tankkimaiset, hitaat)
-- Konduktööri puuttuu.
 - Lokit
 - Resiina
-- Kentät (Vain level1 joka myös kesken).
+- Kentät (Vain Level 1 Demonstraationa).
 (Nämä ovat kaikki pääosin Grafiikasta kiinni.)
 
 ## Foorumi 
