@@ -7,12 +7,12 @@ Ohjelmassa automaattinen testaus JUnitilla, lisäksi JUnitin ohella on JLayer k�
 
 Testit on pääosin tehty daoja varten, mutta myös löytyy testaus normaaleja luokkia varten, kuten Timer luokkaa joka laskee pelin sisäistä kelloa alaspäin. 
 
-Myös Scorea varten tehty, koska scoren laksija on eräällä tavalla laiska. Sisältää kaksi arvoa, oikea arvo ja laiskempi arvo joka juoksee oikean arvon perässä.
+Myös Scorea varten tehty, koska scoren laskija toimii erikoisella tavalla. Sisältää kaksi arvoa, oikea arvo ja laiskempi arvo joka juoksee oikean arvon perässä.
 
-DAO testiluokat luovat oman tietokantansa ja tekevät testit tänne. Päätyttyä tämä poistetaan koneelta!
+DAO testiluokat luovat oman tietokantansa ja tekevät testit tänne. Päätyttyä tämä fake testikanta poistetaan koneelta!
 
 ## Testauskattavuus
-Testauksesta on jätetty pois paljon, koska suurimmalla osasta luokista on jotain tekemistä grafiikan kanssa.
+Testauksesta on jätetty pois monta luokkaa, koska suurimmalla osasta luokista on paljon tekemistä grafiikan kanssa.
 
 Varsinkin suurin osa pelin olioista on tekemisissä libtiled riippuvuuden map tiedoston kanssa. Tämä tarkoittaa että testejä varten pitäisi tehdä oma kenttä ja käydä läpi yksitellen toimiiko kaikki. (Tähän ei kuitenkaan ollut aikaa), joten keskityin vain oleellisiin luokkiin.
 
