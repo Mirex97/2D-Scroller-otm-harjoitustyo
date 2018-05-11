@@ -37,6 +37,7 @@ Kannattaa kuitenkin ensiksi poiketa "Options" sivun kautta heti aluksi!
 Täältä löytyy paljon hyödyllisiä asetuksia pelaamisen mukauttamiseen ja myös uusia toiminnallisuuksia!
 (NEW) Resoluutio ja Fullscreen mode!
 Peli sisältää kokoruututilan, mutta oletuksena se käynnistyy windowed moodissa ja 1024x764 resoluutiolla.
+Resoluutioksi kannaa valita lähin sopiva koko. Kannattaa ennen kaikkea pitää silmällä viimeistä lukua! Eli korkeus resoluutio vaikuttaa peliruudun kokoon eniten!
 Äänenvoimakkuus joko tehostaa tai mykistää äänet! (Suosittelen pitämään keskellä. Ellei ole liian kovalla.) 
 Pelaajan nimen vaihdolla voit vaikuttaa pelin sisäisen hahmon nimeen! Kätevää!
 Remove Account: Vältetään tällä kertaa.
@@ -45,8 +46,4 @@ Kun kaikki on valmista niin klikkaa save ja palaa äsköiselle sivulle ja lyö S
 
 ### Pelin sisällä
 ![A-4](https://raw.githubusercontent.com/Mirex97/2D-Scroller-otm-harjoitustyo/master/dokumentointi/kuvat/A-4.PNG)
-Intro pitäisi käynnistyä ja pääset seuraavaan menuun.
-Tällä hetkellä vain "New Game", "Credits" ja "Quit" toimivat. Tiedät varmaan mitä niistä tapahtuu!
-Pelissä voi palata takaisin menuun painamalla "Escape" nappia ja valitsemalla "Quit" pause valikosta!
-Nyt voit seikkailla testi kentässä!
-Jatkossa lisään kenttiä ja toimintoja! (Mutta hieman maistiasia toiminnoista).
+Intro pitäisi käynnistyä ja pääset pelin sisäiseen menuun!
