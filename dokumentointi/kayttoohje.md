@@ -5,7 +5,9 @@ Lataus linkki löytyy sivun pohjalta, mutta se vie myös githubin release osioon
 
 ## Konfiguraatio
 Pelin käynnistyessä, tämä purkaa levelsandstuff.zip tiedoston kansioon, jossa peli sijaitsee ja samalla luo tietokannan samaan paikkaan.
+
 (Linuxilla db tiedosto ilmestyykin home kansion alle! Kannattaa tuplacheckata, ettei ole vanhaa tietokantaa siellä! Päivitysten varalta.)
+
 Peli myös olettaa, että käyttäjällä on toimiva äänentoisto! (Muuten ei pysty jatkaa, huomasin tämän yliopiston koneella, jossa ei ollut ääniajuria).
 
 # Ohjelman käynnistys
@@ -21,9 +23,13 @@ Linuxilla, kannattaa odottaa hetki jos ei käynnisty heti ja sitten kokeilla uud
 ![A-1](https://raw.githubusercontent.com/Mirex97/2D-Scroller-otm-harjoitustyo/master/dokumentointi/kuvat/A-1.PNG)
 
 Kirjoita käyttäjänimesi ja salasanasi ja klikkaa "Register" nappia. 
+
 Tämä automaattisesti klikkaa myös login nappia ja kirjautuu sisälle!
+
 Tyhjä salasana on myös hyväksytty, mutta turvallisuus syistä kannattaa heittää jokin salasana.
+
 Jos on jo käyttäjä niin klikkaa suoraan login syötettyäsi tiedot!
+
 Jos käyttäjä on jo varattu niin menu ilmoittaa siitä.
 
 ### Mini-menu
@@ -35,11 +41,17 @@ Kannattaa kuitenkin ensiksi poiketa "Options" sivun kautta heti aluksi!
 ![A-3](https://raw.githubusercontent.com/Mirex97/2D-Scroller-otm-harjoitustyo/master/dokumentointi/kuvat/A-3.PNG)
 
 Täältä löytyy paljon hyödyllisiä asetuksia pelaamisen mukauttamiseen ja myös uusia toiminnallisuuksia!
+
 (NEW) Resoluutio ja Fullscreen mode!
+
 Peli sisältää kokoruututilan, mutta oletuksena se käynnistyy windowed moodissa ja 1024x764 resoluutiolla.
+
 Resoluutioksi kannaa valita lähin sopiva koko. Kannattaa ennen kaikkea pitää silmällä viimeistä lukua! Eli korkeus resoluutio vaikuttaa peliruudun kokoon eniten!
+
 Äänenvoimakkuus joko tehostaa tai mykistää äänet! (Suosittelen pitämään keskellä. Ellei ole liian kovalla.) 
+
 Pelaajan nimen vaihdolla voit vaikuttaa pelin sisäisen hahmon nimeen! Kätevää!
+
 Remove Account: Vältetään tällä kertaa.
 
 Kun kaikki on valmista niin klikkaa save ja palaa äsköiselle sivulle ja lyö Start Game nappia!
