@@ -3,7 +3,7 @@ Tähän on listattu päivät ja ajat (suurinpiirtein), mihin aikaan olen työst�
 Huom kirjanpito on jaettu osiin suunnittelu, graaffinen suunnittelu ja musiikin työstämiseen. Ja myös itse sovelluksen koodaamis ajat!
 Alku on hieman arvottu, koska ehdin jo aloittaa ennen tämän kirjanpidon tekoa.
 
-# Käytetty aika suurinpiirtein = 230h!!!
+# Käytetty aika suurinpiirtein = 250h!!!
 
 ## Suunnittelu (Sisältäen pelin kulun suunnittelua, yms)
 Päivä|Aika|Kuvaus
@@ -69,3 +69,5 @@ Päivä|Aika|Kuvaus
 30.4.2018 | 8h | Alkaa istuminen koneella rasittaa, Lisäsin peliin äänitehosteita ja pohdin kentän suunnittelua.Lisäsin peliin cutscenen testiksi ja ihan okei se toimii. Äänien kanssa voi havaita pientä ongelmia.
 1.4.2018 | 2h | Illalla tein lisää grafiikoita peliin. Aloin suunnittelemaan erilaisia hahmoja, mutta näiden animoiminen vie ikuisuuden.
 2.4.2018 | 20h | Koko päivän klo 3:sta saakka yritin saada ensimmäistä kenttää valmiiksi. Grafiikka muutoksen takia joudiin uusimaan kentän jo useampaan otteeseen (ja vieläkin ongelmia). Lisäsin hobon uuden skinin ja sisäisen cutscene testin alkuun (se ei toimi täydellisesti).
+10.5.2018 | 5h | Aloitin viimeistelyä. Koska oli tenttiviikko en ehtinyt aikaisemmin jatkaa projektin edistystä. Mutta kummiskin sain ensimmäisen tason valmiiksi
+11.5.2018 | 22h | Koko päivä koneella! Nyt on valmis!
