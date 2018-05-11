@@ -8,10 +8,11 @@ Asemat ovat turva-alueita ja kentät ovat junan sisällä. Tietyissä kentissä 
 
 
 ## Puuttuvat toiminnot:
-- Pelaajan häviäminen (jos menee yli kartan.)
+- Bossi
 - Lokit
 - Resiina
-- Kentät (Vain Level 1 Demonstraationa).
+- Lisä Kentät (Vain Level 1 Demonstraationa).
+- Kenttien puute vaikuttaa suoraan saves kantaan.
 (Nämä ovat kaikki pääosin Grafiikasta kiinni.)
 
 ## Foorumi 
@@ -20,7 +21,7 @@ Asemat ovat turva-alueita ja kentät ovat junan sisällä. Tietyissä kentissä 
 
 ## Dokumentaatio
 
-[Releases](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/releases)
+[Releases Viikko7-Final](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/releases/tag/Viikko7-Final)
 
 [Käyttöohje](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/edit/master/dokumentointi/kayttoohje.md)
 
