@@ -10,6 +10,7 @@ Testit on pääosin tehty daoja varten, mutta myös löytyy testaus normaaleja l
 Myös Scorea varten tehty, koska scoren laskija toimii erikoisella tavalla. Sisältää kaksi arvoa, oikea arvo ja laiskempi arvo joka juoksee oikean arvon perässä.
 
 DAO testiluokat luovat oman tietokantansa ja tekevät testit tänne. Päätyttyä tämä fake testikanta poistetaan koneelta!
+Daojen testauksen toteuttaa DatabaseTest luokka.
 
 ## Testauskattavuus
 Testauksesta on jätetty pois monta luokkaa, koska suurimmalla osasta luokista on paljon tekemistä grafiikan kanssa.
