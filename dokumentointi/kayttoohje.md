@@ -45,6 +45,7 @@ Täältä löytyy paljon hyödyllisiä asetuksia pelaamisen mukauttamiseen ja my
 (NEW) Resoluutio ja Fullscreen mode!
 
 Peli sisältää kokoruututilan, mutta oletuksena se käynnistyy windowed moodissa ja 1024x764 resoluutiolla.
+### HUOM Linuxilla ei toimi kokoruututila. Tähän en tiedä ratkaisua.
 
 Resoluutioksi kannaa valita lähin sopiva koko. Kannattaa ennen kaikkea pitää silmällä viimeistä lukua! Eli korkeus resoluutio vaikuttaa peliruudun kokoon eniten!
 
