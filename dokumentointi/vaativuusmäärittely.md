@@ -14,6 +14,11 @@ Tämän jälkeen peli aukeaa painamalla Start nappia!
 ![Ingame](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/blob/master/dokumentointi/kuvat/Ingame.png)
 
 ## Tämänhetkisen Version toiminnallisuus
+## Tietokannoista
+Pelillä on kolme (käytössä nyt kaksi) tietokanta taulua.
+Options, Users ja Saves.
+Options ja Users on nyt vain toiminnassa. Saves taulun voi ottaa käyttöön kun pelin kentät on tehty.
+
 ### Alussa
 - Käyttäjä voi luoda käyttiksen (nimi + salasana).
   - Käyttäjälle ladataan perusasetukset alussa (Näitä voi muokata options valikosta).
