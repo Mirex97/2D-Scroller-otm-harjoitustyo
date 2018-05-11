@@ -6,8 +6,15 @@ Ohjeet testaamiseen löytyy alta! Osiosssa "Testaajille". <-- Nämä ovat tärke
 Peli on 2D scrolleri, jossa seikkaillaan asemilta toisille ja pyritään pääsemään lipuntarkastajia karkuun!
 Asemat ovat turva-alueita ja kentät ovat junan sisällä. Tietyissä kentissä on bosseja ja tietysti final boss.
 
+Tällä hetkellä peli on vain Demo.
 
-## Puuttuvat toiminnot:
+Projektin tärkeimpänä haasteena itselle oli tutustua pelinkehittäjän työhön. Ja mielellään loisin lisää pelejä!
+Pelin tarkoituksena myös oli demonstroida omaa kykyäni luoda pelejä.
+
+Pelistä on myös Foorumi sivu käytössä, joka on osa TietokantaSovellus kurssia. (Eli toinen projekti jota olen tehnyt ohella.
+
+
+## Tämän hetken puuttuvat toiminnot:
 - Bossi
 - Lokit
 - Resiina
@@ -15,8 +22,7 @@ Asemat ovat turva-alueita ja kentät ovat junan sisällä. Tietyissä kentissä 
 - Kenttien puute vaikuttaa suoraan saves kantaan.
 (Nämä ovat kaikki pääosin Grafiikasta kiinni.)
 
-## Foorumi 
-#### (Toinen projektini, jota olen tehnyt viikottain pelin ohella. Ovat tavallaan yhteydessä toisiinsa.)
+## Foorumi
 [VR The Adventure Forums - TSOHA](https://mirex-pelifoorumi.herokuapp.com/)
 
 ## Dokumentaatio
@@ -79,19 +85,3 @@ mvn javadoc:javadoc
 ```
 mvn jxr:jxr checkstyle:checkstyle
 ```
-### Näppäimet
-#### Pelin sisällä
-Näppäin | Toiminto
----|---
-W | Hyppää
-AD | Liikkuminen
-SHIFT | Juoksu
-PLUS | Lähennä kuvaa
-MIINUS | Loitonna kuvaa
-ENTER | Hyväksy / Seuraava teksti.
-#### Pelin sisäinen menu ja pause.
-Näppäin | Toiminto
----|---
-ENTER | Valitse
-W Tai Nuoli ylös | Valinta ylös
-S Tai Nuoli alas | Valinta alas
