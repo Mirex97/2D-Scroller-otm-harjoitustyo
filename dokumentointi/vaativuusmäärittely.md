@@ -44,12 +44,20 @@ Tämän jälkeen peli aukeaa painamalla Start nappia!
 ### Tavoitteet.
 - Lisäkenttien lisääminen.
 - Lisää hahmoja joille puhua turva-alueilla.
-- Peli ikkunan koon vaihto + fullscreen (tällä hetkelle hankalaa ja ei halua toimia kunnolla)
-  - Taidan jättää sen ehkä väliin, koska se ei ole oleellinen osa toimintoja. Mukava lisä vain. (Voi lisätä myöhemmin).
+- Peli ikkunan koon vaihto + fullscreen  (DONE) 
+  - Lisäsin sen koska palautteen antaja ehdotti resoluution vaihtoa! Ja se ei ollutkaan hankalaa :D
 - Easter eggs!
-- Lisää bosseja ja täytettä peliin.
+- Bosseja ja täytettä peliin.
 
 ### Myöhemmin
 - MMO <-- just kidding...
 - Minipelit
 - Moninpeli!
+
+## Mitä opin ja mitä päätän tehdä!
+- Tämän tekeminen on ollut erittäin hauskaa, mutta näen miksi pelien teossa kestää niin kauan.
+- Olen siis päättänyt luoda uuden pelin ja mahdollisesta jopa kunnon työnäkin. Tähän haluan siis opetella C++:ssaa ja mahdollisesti käyttää jotain valmista pelimoottoria (Unity). Johdatus Peliohjelmointiin kurssikin käyty!
+- Tätä varten aijon suunnitella ainakin rauhallisemmin pelin, koska jos tekee liikaa kaikkea niin asiat kasaantuvat
+  - Lisäksi oli muita kursseja samaan aikaan.
+- Kummiskin pyrin käyttämään samoja sovelluksia ja tyyliä pyrin parantamaan.
+- Ja myös tulen pyytämään kavereiltani jeesiä ja mahdollisesti hekin sitten tienaavat jotain.
