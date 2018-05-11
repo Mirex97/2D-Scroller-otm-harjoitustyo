@@ -6,7 +6,7 @@ Läpäistä läpi ja käyttää vapaa-aikaa! Peliin voi kirjautua käyttäjäll�
 ## Käyttäjät
 Käyttäjät normaaleita käyttäjiä, joihin voi kirjautua.
 
-## Käyttöliittymäluonnos (Ensinnäinen)
+## Käyttöliittymäluonnos (Ensimmäinen)
 Sovellus avaa pienen ikkunan jonka avulla voi kirjautua / rekisteröityä käyttäjälle.
 Samalla voi myös määrittää asetuksia profiilille ennen itse pelin käynnistämistä.
 Tämän jälkeen peli aukeaa painamalla Start nappia!
