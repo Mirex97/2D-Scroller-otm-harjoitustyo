@@ -1,9 +1,11 @@
 # Käyttöohje
 Voit ladata Pelin tiedoston joko releasien kautta, tai tutustumalla [VR The Adventure - Forumiin!](https://mirex-pelifoorumi.herokuapp.com).
 Lataus linkki löytyy sivun pohjalta, mutta se vie myös githubin release osioon.
-
+[Releases](https://github.com/Mirex97/2D-Scroller-otm-harjoitustyo/releases)
+Jos lataat koko zip tiedoston tai kloonaat gitillä, niin git etusivulla on ohjeet testaajille!
 
 ## Konfiguraatio
+Varmista, että ladattu .jar tiedosto on omassa kansiossaan!
 Pelin käynnistyessä, tämä purkaa levelsandstuff.zip tiedoston kansioon, jossa peli sijaitsee ja samalla luo tietokannan samaan paikkaan.
 
 (Linuxilla db tiedosto ilmestyykin home kansion alle! Kannattaa tuplacheckata, ettei ole vanhaa tietokantaa siellä! Päivitysten varalta.)
