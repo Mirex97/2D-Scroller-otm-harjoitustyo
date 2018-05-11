@@ -1,12 +1,12 @@
 # Vaativuusmäärittely
 
 ## Pelin tarkoitus
-Läpäistä läpi ja käyttää vapaa-aikaa! Peliin voi kirjautua käyttäjällä ja jatkaa seikkailua!
+Läpäistä läpi ja käyttää vapaa-aikaa! Peliin voi kirjautua käyttäjällä ja jatkaa seikkailua tallennetuilla käyttäjän asetuksilla ja jatkossa myös tallennukset käyttäjäkohtaiset! (Tällä hetkellä pelin tallennuksia ei ole).
 
 ## Käyttäjät
 Käyttäjät normaaleita käyttäjiä, joihin voi kirjautua.
 
-## Käyttöliittymäluonnos (Ensimmäinen)
+## Käyttöliittymäluonnos (Ensimmäinen luonnos)
 Sovellus avaa pienen ikkunan jonka avulla voi kirjautua / rekisteröityä käyttäjälle.
 Samalla voi myös määrittää asetuksia profiilille ennen itse pelin käynnistämistä.
 Tämän jälkeen peli aukeaa painamalla Start nappia!
