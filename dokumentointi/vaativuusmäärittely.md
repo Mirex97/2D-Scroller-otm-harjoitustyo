@@ -1,14 +1,7 @@
 # Vaativuusmäärittely
-## Update 10.4.2018
-Jouduin karsimaan toimintoja pois, koska muuten se vaikuttaa pelin lopulliseen palautukseen!
-Karsitut toiminnallisuudet:
-- Ylläpito käyttäjä
-  - Syynä se että tämä oli idea joka juolahti alussa ja olisi ollut hauska lisä! Mutta se ei ole oleellinen osa peliä ja muutenkaan se ei ole syynä miksi teen tätä peliä.
-  - Lisäksi huomasin vasta nyt kuinka laaja peli tulee olemaan ja haluan käyttää kaiken ajan sen luomiseen ja kehittämiseen kuin extra toiminnallisuuden tekemiseen johon kukaan (ilman ylläpito koodeja pääse).
-  - Kuitenkin pelissä on savet ja muut joten se ei paljoa vaikuta pelin toiminnallisuuteen!
 
 ## Pelin tarkoitus
-Läpäistä läpi ja käyttää vapaa-aikaa! Peliin voi kirjautua käyttäjällä ja jatkaa mihin jäi!
+Läpäistä läpi ja käyttää vapaa-aikaa! Peliin voi kirjautua käyttäjällä ja jatkaa seikkailua!
 
 ## Käyttäjät
 Käyttäjät normaaleita käyttäjiä, joihin voi kirjautua.
